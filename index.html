@@ -7,7 +7,6 @@
     <title>אופק בן לולו שיחות</title>
     <meta name="description" content="הרצאות לבני נוער מכל הציבורים על מגוון נושאים. שיחות על מנהיגות, חוסן מנטלי ומימוש עצמי.">
     <meta name="theme-color" content="#0a0a0a">
-    
     <link rel="icon" type="image/png" href="https://i.imgur.com/z2JBYCJ.jpeg">
 
     <meta property="og:type" content="website">
@@ -33,12 +32,7 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-        }
-
-        /* --- נגישות: פוקוס מקלדת בולט --- */
-        *:focus-visible {
-            outline: 2px solid #d4af37;
-            outline-offset: 2px;
+            background-color: #000; /* ברירת מחדל שחור */
         }
 
         /* --- מצגת רקע מתחלפת --- */
@@ -63,16 +57,6 @@
             background-repeat: no-repeat;
             opacity: 0;
             animation: fadeAnimation 35s infinite linear;
-        }
-
-        /* מחלקה לעצירת אנימציות (עבור כפתור הנגישות) */
-        .stop-animations .slide {
-            animation: none !important;
-            opacity: 1 !important; /* משאיר את התמונה הראשונה קבועה */
-            display: none; /* מסתיר את השאר */
-        }
-        .stop-animations .slide:first-child {
-            display: block; /* מציג רק את הראשונה */
         }
 
         @keyframes fadeAnimation {
@@ -117,128 +101,50 @@
         }
 
         .header-right { display: flex; align-items: center; gap: 15px; }
-        
-        .logo { 
-            font-weight: 900; 
-            font-size: 1.5rem; 
-            color: #fff; 
-            text-decoration: none;
-            letter-spacing: 1px;
-        }
-
-        .hamburger-btn {
-            display: none;
-            font-size: 1.8rem;
-            background: none;
-            border: none;
-            color: #d4af37;
-            cursor: pointer;
-        }
+        .logo { font-weight: 900; font-size: 1.5rem; color: #fff; text-decoration: none; letter-spacing: 1px; }
+        .hamburger-btn { display: none; font-size: 1.8rem; background: none; border: none; color: #d4af37; cursor: pointer; }
 
         .nav-links { display: flex; gap: 20px; }
         .nav-links a, .nav-links button {
-            color: #ccc;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: color 0.3s;
-            position: relative;
-            background: none;
-            border: none;
-            font-family: inherit;
-            cursor: pointer;
+            color: #ccc; text-decoration: none; font-weight: 500; font-size: 1rem;
+            transition: color 0.3s; position: relative; background: none; border: none; font-family: inherit; cursor: pointer;
         }
         .nav-links a:hover, .nav-links button:hover { color: #d4af37; }
 
         .header-left { display: flex; align-items: center; }
-
         .phone-link {
-            border: 1px solid #C0C0C0;
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 8px 12px;
-            border-radius: 2px;
-            color: #d4af37;
-            font-weight: 700;
-            text-decoration: none;
-            font-size: 1rem;
-            transition: all 0.3s;
-            letter-spacing: 1px;
+            border: 1px solid #C0C0C0; background-color: rgba(255, 255, 255, 0.05); padding: 8px 12px;
+            border-radius: 2px; color: #d4af37; font-weight: 700; text-decoration: none; font-size: 1rem;
+            transition: all 0.3s; letter-spacing: 1px;
         }
-        .phone-link:hover {
-            background-color: rgba(192, 192, 192, 0.2);
-            box-shadow: 0 0 10px rgba(192, 192, 192, 0.3);
-        }
+        .phone-link:hover { background-color: rgba(192, 192, 192, 0.2); box-shadow: 0 0 10px rgba(192, 192, 192, 0.3); }
 
         /* --- Hero --- */
         .hero-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 160px 5% 80px 5%;
-            min-height: 80vh;
-            position: relative;
-            z-index: 1;
-            text-align: center;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 160px 5% 80px 5%; min-height: 80vh; position: relative; z-index: 1; text-align: center;
         }
-
-        .hero-text { 
-            text-align: center; 
-            width: 100%; 
-            max-width: 800px;
-        }
-
-        .hero-title {
-            font-size: 2.5rem;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-        }
+        .hero-text { text-align: center; width: 100%; max-width: 800px; }
+        .hero-title { font-size: 2.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
         .hero-title span { color: #d4af37; }
         .hero-subtitle { font-size: 1.2rem; color: #e0e0e0; margin-bottom: 35px; }
-
         .cta-button-large {
-            display: inline-block;
-            background-color: #d4af37;
-            color: #000;
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            text-decoration: none;
-            transition: transform 0.2s, background-color 0.3s;
-            border: 2px solid #d4af37;
-            cursor: pointer;
+            display: inline-block; background-color: #d4af37; color: #000; padding: 15px 40px;
+            border-radius: 50px; font-weight: 700; font-size: 1.2rem; text-decoration: none;
+            transition: transform 0.2s, background-color 0.3s; border: 2px solid #d4af37; cursor: pointer;
         }
         .cta-button-large:hover { transform: scale(1.05); background-color: transparent; color: #d4af37; }
 
         /* --- אודות --- */
         .about-section {
-            padding: 100px 5%;
-            background-color: rgba(10, 10, 10, 0.85); 
-            position: relative;
-            z-index: 1;
-            backdrop-filter: blur(5px);
+            padding: 100px 5%; background-color: rgba(10, 10, 10, 0.85); position: relative; z-index: 1; backdrop-filter: blur(5px);
         }
-
-        .about-container {
-            display: flex;
-            flex-direction: column-reverse;
-            align-items: center;
-            gap: 40px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
+        .about-container { display: flex; flex-direction: column-reverse; align-items: center; gap: 40px; max-width: 1100px; margin: 0 auto; }
         .about-text { flex: 1; text-align: center; }
         .about-text h2 { font-size: 2.2rem; color: #d4af37; margin-bottom: 20px; font-weight: 900; }
         .about-text p { font-size: 1.1rem; color: #ccc; margin-bottom: 15px; }
-
         .about-image {
-            flex: 1;
-            width: 100%; max-width: 400px; height: 450px;
-            border-radius: 20px; overflow: hidden;
+            flex: 1; width: 100%; max-width: 400px; height: 450px; border-radius: 20px; overflow: hidden;
             border: 3px solid #d4af37; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             background-image: url('https://i.imgur.com/z2JBYCJ.jpeg');
             background-size: 180%; background-position: center center; background-repeat: no-repeat;
@@ -246,13 +152,7 @@
 
         /* --- גופים --- */
         .clients-section {
-            padding: 60px 5%;
-            background-color: #1a1a1a;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            border-top: 1px solid #333;
-            border-bottom: 1px solid #333;
+            padding: 60px 5%; background-color: #1a1a1a; text-align: center; position: relative; z-index: 1; border-top: 1px solid #333; border-bottom: 1px solid #333;
         }
         .clients-title { font-size: 1.5rem; color: #888; margin-bottom: 40px; font-weight: 400; letter-spacing: 1px; }
         .clients-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; max-width: 1200px; margin: 0 auto; }
@@ -263,42 +163,26 @@
 
         /* --- סרטונים --- */
         .video-section {
-            padding: 60px 0;
-            background-color: rgba(17, 17, 17, 0.8); 
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            backdrop-filter: blur(5px);
+            padding: 60px 0; background-color: rgba(17, 17, 17, 0.8); text-align: center; position: relative; z-index: 1; backdrop-filter: blur(5px);
         }
         .section-title { font-size: 2.2rem; color: #d4af37; margin-bottom: 30px; font-weight: 900; }
         .video-scroller { display: flex; justify-content: center; flex-wrap: wrap; padding: 0 5%; gap: 20px; }
         .video-card {
-            width: 100%; max-width: 300px; aspect-ratio: 9 / 16;
-            background-color: #000; border-radius: 15px; overflow: hidden;
+            width: 100%; max-width: 300px; aspect-ratio: 9 / 16; background-color: #000; border-radius: 15px; overflow: hidden;
             border: 1px solid #333; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
         iframe { width: 100%; height: 100%; border: none; }
 
         /* --- המלצות --- */
         .recommendations-section {
-            padding: 80px 5%;
-            background-color: #111;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            border-top: 1px solid #333;
-            scroll-margin-top: 80px; 
+            padding: 80px 5%; background-color: #111; text-align: center; position: relative; z-index: 1; border-top: 1px solid #333; scroll-margin-top: 80px; 
         }
-
         .recommendation-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; }
         .rec-bubble {
             background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGNsajB6d3ZoMDgwZGpsM3Z1ejQzZ3BuMmJoM2h0MGkzbzlnaHBtZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2csuIJj6TmuKA/giphy.gif');
-            background-size: cover; background-position: center;
-            color: #fff; padding: 25px; border-radius: 20px;
-            max-width: 350px; text-align: right;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-            position: relative; font-size: 0.95rem; line-height: 1.5;
-            border: 1px solid #444; transition: transform 0.3s;
+            background-size: cover; background-position: center; color: #fff; padding: 25px; border-radius: 20px;
+            max-width: 350px; text-align: right; box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            position: relative; font-size: 0.95rem; line-height: 1.5; border: 1px solid #444; transition: transform 0.3s;
         }
         .rec-bubble:hover { transform: translateY(-5px); border-color: #d4af37; }
         .rec-name {
@@ -308,68 +192,40 @@
 
         /* --- Footer --- */
         .site-footer {
-            background-color: #050505;
-            padding: 60px 5% 20px 5%;
-            border-top: 1px solid #222;
-            position: relative;
-            z-index: 1;
+            background-color: #050505; padding: 60px 5% 20px 5%; border-top: 1px solid #222; position: relative; z-index: 1;
         }
-
         .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            max-width: 1100px;
-            margin: 0 auto;
-            gap: 40px;
-            text-align: right;
+            display: flex; justify-content: space-between; flex-wrap: wrap; max-width: 1100px; margin: 0 auto; gap: 40px; text-align: right;
         }
-
         .footer-column { flex: 1; min-width: 250px; }
         .footer-column h3 { color: #d4af37; font-size: 1.2rem; margin-bottom: 20px; font-weight: 900; }
         .footer-links { list-style: none; }
         .footer-links li { margin-bottom: 10px; }
         .footer-links a { color: #ccc; text-decoration: none; transition: 0.3s; }
         .footer-links a:hover { color: #d4af37; padding-right: 5px; }
-
         .social-icons { display: flex; gap: 15px; margin-top: 20px; }
         .social-icon { 
             width: 40px; height: 40px; border-radius: 50%; background-color: #222; 
-            display: flex; align-items: center; justify-content: center;
-            transition: 0.3s;
+            display: flex; align-items: center; justify-content: center; transition: 0.3s;
         }
         .social-icon svg { width: 20px; height: 20px; fill: #d4af37; }
         .social-icon:hover { background-color: #d4af37; transform: translateY(-3px); }
         .social-icon:hover svg { fill: #000; }
-
         .footer-bottom {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid #222;
-            color: #666;
-            font-size: 0.9rem;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            align-items: center;
+            text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #222; color: #666; font-size: 0.9rem;
+            display: flex; flex-direction: column; gap: 10px; align-items: center;
         }
-        
         .a11y-btn {
-            background: none; border: 1px solid #444; color: #888;
-            padding: 5px 10px; font-size: 0.8rem; cursor: pointer; border-radius: 4px;
+            background: none; border: 1px solid #444; color: #888; padding: 5px 10px; font-size: 0.8rem; cursor: pointer; border-radius: 4px;
         }
         .a11y-btn:hover { border-color: #d4af37; color: #d4af37; }
 
         /* --- מודל --- */
         .modal {
-            display: none; position: fixed; z-index: 2000; left: 0; top: 0;
-            width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
         }
         .modal-content {
-            background-color: #1a1a1a; margin: 10% auto; padding: 30px;
-            border: 2px solid #d4af37; width: 90%; max-width: 450px;
-            border-radius: 15px; position: relative; text-align: right;
+            background-color: #1a1a1a; margin: 10% auto; padding: 30px; border: 2px solid #d4af37; width: 90%; max-width: 450px; border-radius: 15px; position: relative; text-align: right;
         }
         .close-btn { color: #aaa; float: left; font-size: 30px; cursor: pointer; }
         .form-title { font-size: 1.5rem; margin-bottom: 20px; color: #d4af37; font-weight: 900; text-align: center; }
@@ -378,15 +234,59 @@
         .form-group input, .form-group textarea { width: 100%; padding: 12px; background-color: #333; border: 1px solid #444; color: white; border-radius: 8px; font-family: 'Heebo'; }
         .submit-btn { width: 100%; background-color: #d4af37; padding: 12px; border: none; border-radius: 8px; font-weight: 900; cursor: pointer; margin-top: 10px; }
 
+        /* === מצב נגישות מוגבר (החדש!) === */
+        body.accessibility-mode {
+            background-color: #000 !important;
+            color: #ffff00 !important; /* צהוב נגישות */
+        }
+        /* הסתרת רקעים מסיחים */
+        body.accessibility-mode .background-slider,
+        body.accessibility-mode .overlay {
+            display: none !important;
+        }
+        /* הדגשת טקסטים וקישורים */
+        body.accessibility-mode p, 
+        body.accessibility-mode h1, 
+        body.accessibility-mode h2, 
+        body.accessibility-mode h3,
+        body.accessibility-mode span,
+        body.accessibility-mode li,
+        body.accessibility-mode label {
+            color: #ffff00 !important;
+            text-shadow: none !important;
+        }
+        body.accessibility-mode a, 
+        body.accessibility-mode button:not(.close-btn) {
+            color: #00ff00 !important; /* ירוק לקישורים */
+            text-decoration: underline !important;
+            border-color: #00ff00 !important;
+        }
+        /* הפיכת רקעים שקופים לשחורים */
+        body.accessibility-mode header,
+        body.accessibility-mode .about-section,
+        body.accessibility-mode .video-section,
+        body.accessibility-mode .clients-section,
+        body.accessibility-mode .recommendations-section,
+        body.accessibility-mode .rec-bubble,
+        body.accessibility-mode .modal-content,
+        body.accessibility-mode .footer-content {
+            background: #000 !important;
+            background-image: none !important;
+            border-color: #ffff00 !important;
+            backdrop-filter: none !important;
+            box-shadow: none !important;
+        }
+        /* הדגשת פוקוס */
+        body.accessibility-mode *:focus-visible {
+            outline: 3px solid #00ff00 !important;
+        }
+
         /* --- התאמות מדיה --- */
         @media (max-width: 900px) {
             .hamburger-btn { display: block; } 
             .nav-links {
-                display: none; position: fixed; top: 70px; right: 0;
-                background-color: #0a0a0a; width: 200px; 
-                flex-direction: column; padding: 20px;
-                border-left: 1px solid #333; border-bottom: 1px solid #333;
-                box-shadow: -5px 5px 15px rgba(0,0,0,0.5);
+                display: none; position: fixed; top: 70px; right: 0; background-color: #0a0a0a; width: 200px; 
+                flex-direction: column; padding: 20px; border-left: 1px solid #333; border-bottom: 1px solid #333; box-shadow: -5px 5px 15px rgba(0,0,0,0.5);
             }
             .nav-links.active { display: flex; }
             .nav-links a { font-size: 0.95rem; }
@@ -493,117 +393,4 @@
     <section id="videos" class="video-section">
         <h2 class="section-title">טעימה מהשטח</h2>
         <div class="video-scroller">
-            <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/7t-ncKGtFes" title="הרצאה של אופק" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-            <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/Zu6iP0Ju3lg" title="הרצאה של אופק 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-        </div>
-    </section>
-
-    <section id="recommendations" class="recommendations-section">
-        <h2 class="section-title">היו, השפיעו והמליצו</h2>
-        <div class="recommendation-container">
-            <div class="rec-bubble">
-                רוצה להמליץ על השיחה של אופק...<br>
-                <span class="rec-name">אילנה זמיר, רכזת חברתית, אולפנת ראשל"צ</span>
-            </div>
-            <div class="rec-bubble">
-                תודה אופק!! היה מעולה היום...<br>
-                <span class="rec-name">בת-שבע, רכזת חברתית, אולפנת בית שולמית, ירושלים</span>
-            </div>
-            <div class="rec-bubble">
-                אופק היה אצלנו בשיחה משמעותית...<br>
-                <span class="rec-name">רייני לוי, מחנכת ורכזת חברתית, אולפנית אור עקיבא</span>
-            </div>
-        </div>
-    </section>
-
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>OFEK.</h3>
-                <p style="color: #666; font-size: 0.9rem;">
-                    הרצאות השראה, מנהיגות ופיתוח חוסן מנטלי לנוער וארגונים.
-                </p>
-                <div class="social-icons">
-                    <a href="#" class="social-icon" aria-label="אינסטגרם"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.64.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85C3.8 3.92 5.32 2.38 8.58 2.23c1.27-.06 1.64-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07c-4.35.2-6.78 2.62-6.98 6.98C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84c-3.4 0-6.16 2.76-6.16 6.16S8.6 18.16 12 18.16 18.16 15.4 18.16 12 15.4 5.84 12 5.84zm0 10.16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm6.4-10.8c-.79 0-1.44.65-1.44 1.44s.65 1.44 1.44 1.44 1.44-.65 1.44-1.44-.65-1.44-1.44-1.44z"/></svg></a>
-                    <a href="#" class="social-icon" aria-label="פייסבוק"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-                    <a href="https://wa.me/972533036662" class="social-icon" aria-label="וואטסאפ"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-                </div>
-            </div>
-            <div class="footer-column">
-                <h3>ניווט מהיר</h3>
-                <ul class="footer-links">
-                    <li><a href="#">דף הבית</a></li>
-                    <li><a href="#about">אודות אופק</a></li>
-                    <li><a href="#videos">מדיה וסרטונים</a></li>
-                    <li><a href="#recommendations">המלצות</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>צור קשר</h3>
-                <ul class="footer-links">
-                    <li><a href="tel:0533036662">053-3036662</a></li>
-                    <li><a href="mailto:ofekpator2890@gmail.com">ofekpator2890@gmail.com</a></li>
-                    <li><button onclick="openModal()" style="background:none; border:none; color:#d4af37; font:inherit; cursor:pointer; padding:0;">השאר פנייה באתר</button></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 אופק - הרצאות ומימוש עצמי. כל הזכויות שמורות.</p>
-            <button onclick="toggleAnimations()" class="a11y-btn" aria-label="כפתור נגישות: עצור אנימציות רקע">נגישות: עצור אנימציות</button>
-        </div>
-    </footer>
-
-    <div id="contactModal" class="modal" aria-hidden="true">
-        <div class="modal-content" role="dialog" aria-labelledby="modalTitle">
-            <span class="close-btn" onclick="closeModal()" aria-label="סגור חלון">&times;</span>
-            <h2 id="modalTitle" class="form-title">שריינו תאריך להרצאה</h2>
-            <form action="https://formsubmit.co/ofekpator2890@gmail.com" method="POST">
-                <input type="hidden" name="_next" value="https://eliranalfasi36.github.io/OfekBLB/thankyou.html">
-                <input type="hidden" name="_captcha" value="false">
-                <div class="form-group"><label>שם מלא</label><input type="text" name="name" required placeholder="השם שלך..." aria-label="שם מלא"></div>
-                <div class="form-group"><label>מספר טלפון</label><input type="tel" name="phone" required placeholder="050-0000000" aria-label="מספר טלפון"></div>
-                <div class="form-group"><label>פנייה / הודעה</label><textarea name="message" rows="4" placeholder="אשמח לשמוע פרטים על..." aria-label="תוכן הפנייה"></textarea></div>
-                <button type="submit" class="submit-btn">שלח פנייה</button>
-            </form>
-        </div>
-    </div>
-
-<script>
-    function openModal() { 
-        var modal = document.getElementById("contactModal");
-        modal.style.display = "block"; 
-        modal.setAttribute('aria-hidden', 'false');
-    }
-    function closeModal() { 
-        var modal = document.getElementById("contactModal");
-        modal.style.display = "none"; 
-        modal.setAttribute('aria-hidden', 'true');
-    }
-    window.onclick = function(event) {
-        var modal = document.getElementById("contactModal");
-        if (event.target == modal) { closeModal(); }
-    }
-    function toggleMenu() {
-        var menu = document.getElementById("navMenu");
-        menu.classList.toggle("active");
-    }
-    
-    // פונקציית נגישות לעצירת אנימציות
-    function toggleAnimations() {
-        var slider = document.getElementById("bgSlider");
-        slider.classList.toggle("stop-animations");
-        var btn = document.querySelector('.a11y-btn');
-        if (slider.classList.contains("stop-animations")) {
-            btn.innerText = "נגישות: הפעל אנימציות";
-        } else {
-            btn.innerText = "נגישות: עצור אנימציות";
-        }
-    }
-</script>
-
-</body>
-</html>
+  
