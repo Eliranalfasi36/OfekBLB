@@ -11,18 +11,25 @@
 
     <style>
         /* איפוס הגדרות בסיסי */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Heebo', sans-serif;
-            background-color: #0a0a0a; /* רקע שחור כמעט מלא */
+            /* תמונת הרקע החדשה שלך */
+            background-image: url('https://i.imgur.com/mfFNI6e.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: #ffffff;
             line-height: 1.6;
             overflow-x: hidden;
+        }
+
+        /* שכבת כהות על הרקע כדי שהטקסט יהיה קריא */
+        .overlay {
+            background-color: rgba(10, 10, 10, 0.85); /* 85% שחור */
+            min-height: 100vh;
+            width: 100%;
         }
 
         /* --- תפריט עליון (Header) --- */
@@ -31,7 +38,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 5%;
-            position: fixed; /* תפריט דביק למעלה */
+            position: fixed;
             width: 100%;
             top: 0;
             background-color: rgba(10, 10, 10, 0.95);
@@ -39,137 +46,21 @@
             border-bottom: 1px solid #333;
         }
 
-        .logo {
-            font-weight: 900;
-            font-size: 1.5rem;
-            color: #fff;
-            letter-spacing: 1px;
-        }
+        .logo { font-weight: 900; font-size: 1.5rem; color: #fff; letter-spacing: 1px; }
 
         .cta-button-small {
-            background-color: #d4af37; /* צבע זהב יוקרתי */
+            background-color: #d4af37;
             color: #000;
-            padding: 10px 20px;
+            padding: 8px 16px;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
             font-weight: 700;
             text-decoration: none;
             font-size: 0.9rem;
+            cursor: pointer;
         }
 
         /* --- איזור ה-Hero (החלק הראשי) --- */
         .hero-section {
             display: flex;
-            flex-direction: column-reverse; /* במובייל: טקסט למטה, תמונה למעלה */
-            align-items: center;
-            padding: 120px 5% 50px 5%; /* מרווח מלמעלה בגלל התפריט */
-            min-height: 90vh;
-        }
-
-        .hero-text {
-            text-align: center;
-            margin-top: 30px;
-            max-width: 600px;
-        }
-
-        .hero-title {
-            font-size: 2.5rem;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-
-        .hero-title span {
-            color: #d4af37; /* טקסט מודגש בזהב */
-        }
-
-        .hero-subtitle {
-            font-size: 1.1rem;
-            color: #cccccc;
-            margin-bottom: 30px;
-        }
-
-        .cta-button-large {
-            display: inline-block;
-            background-color: #d4af37;
-            color: #000;
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            text-decoration: none;
-            transition: transform 0.2s;
-            border: 2px solid #d4af37;
-        }
-
-        .cta-button-large:hover {
-            transform: scale(1.05);
-            background-color: transparent;
-            color: #d4af37;
-        }
-
-        /* מקום לתמונה שלך */
-        .hero-image-container {
-            width: 100%;
-            max-width: 400px;
-            height: 400px;
-            background-color: #222; /* רקע אפור זמני עד שתהיה תמונה */
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid #333;
-            /* כאן נשים את התמונה שלך בהמשך */
-            background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=800&q=80'); 
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* --- התאמה למחשב (מסכים רחבים) --- */
-        @media (min-width: 768px) {
-            .hero-section {
-                flex-direction: row; /* טקסט מימין, תמונה משמאל */
-                justify-content: space-between;
-                text-align: right;
-            }
-            
-            .hero-text {
-                text-align: right;
-                width: 50%;
-                margin-top: 0;
-            }
-
-            .hero-title {
-                font-size: 4rem; /* כותרת ענקית במחשב */
-            }
-
-            .hero-image-container {
-                width: 45%;
-                height: 600px; /* תמונה גבוהה במחשב */
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="logo">OFEK.</div>
-        <a href="#" class="cta-button-small">הזמן הרצאה</a>
-    </header>
-
-    <section class="hero-section">
-        <div class="hero-text">
-            <h1 class="hero-title">
-                הדרך למימוש עצמי <br>
-                <span>מתחילה בהחלטה אחת.</span>
-            </h1>
-            <p class="hero-subtitle">
-                בהרצאה סוחפת ומרגשת, אופק חושף את הכלים המנטליים שיעזרו לכם לשבור את תקרת הזכוכית ולהשיג את המטרות שתמיד חלמתם עליהן.
-            </p>
-            <a href="#" class="cta-button-large">שריינו תאריך להרצאה</a>
-        </div>
-
-        <div class="hero-image-container">
-            </div>
-    </section>
-
-</body>
-</html>
+            flex-direction:
