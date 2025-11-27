@@ -119,13 +119,15 @@
             font-weight: 900;
         }
 
-        /* המיכל של הגלילה */
+      
+       /* המיכל של הגלילה - מעודכן למירכוז */
         .video-scroller {
             display: flex;
-            overflow-x: auto; /* מאפשר גלילה לצדדים */
+            justify-content: center; /* זה הפקודה שממרכזת הכל לאמצע! */
+            flex-wrap: wrap; /* מאפשר גלישה יפה אם יש הרבה תוכן */
             gap: 20px;
             padding: 20px 5%;
-            scroll-behavior: smooth; 
+        }
             
             /* הסתרת פס הגלילה למראה נקי */
             scrollbar-width: none; 
@@ -274,19 +276,12 @@
         <div class="video-scroller">
             
             <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/7t-ncKGtFes" title="YouTube Short" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/7t-ncKGtFes" title="הרצאה של אופק" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
 
-            <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/S2nBBMbjS8w" title="YouTube video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-
-            <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/5qap5aO4i9A" title="YouTube video 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-            
         </div>
     </section>
+    
     <div id="contactModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
