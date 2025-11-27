@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>אופק - הרצאות ומימוש עצמי</title>
     
+    <title>אופק בן לולו שיחות</title>
+    <meta name="description" content="הרצאות לבני נוער מכל הציבורים על מגוון נושאים. שיחות על מנהיגות, חוסן מנטלי ומימוש עצמי.">
+    <meta name="theme-color" content="#0a0a0a">
+    
+    <link rel="icon" type="image/png" href="https://i.imgur.com/z2JBYCJ.jpeg">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eliranalfasi36.github.io/OfekBLB/">
+    <meta property="og:title" content="אופק בן לולו שיחות">
+    <meta property="og:description" content="הרצאות לבני נוער, מכינות וארגונים על מנהיגות וחוסן מנטלי.">
+    <meta property="og:image" content="https://i.imgur.com/z2JBYCJ.jpeg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
@@ -22,6 +33,12 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+        }
+
+        /* --- נגישות: פוקוס מקלדת בולט --- */
+        *:focus-visible {
+            outline: 2px solid #d4af37;
+            outline-offset: 2px;
         }
 
         /* --- מצגת רקע מתחלפת --- */
@@ -46,6 +63,16 @@
             background-repeat: no-repeat;
             opacity: 0;
             animation: fadeAnimation 35s infinite linear;
+        }
+
+        /* מחלקה לעצירת אנימציות (עבור כפתור הנגישות) */
+        .stop-animations .slide {
+            animation: none !important;
+            opacity: 1 !important; /* משאיר את התמונה הראשונה קבועה */
+            display: none; /* מסתיר את השאר */
+        }
+        .stop-animations .slide:first-child {
+            display: block; /* מציג רק את הראשונה */
         }
 
         @keyframes fadeAnimation {
@@ -279,7 +306,7 @@
             border-top: 1px solid rgba(255,255,255,0.3); padding-top: 10px; display: inline-block; width: 100%;
         }
 
-        /* --- Footer (החלק החדש) --- */
+        /* --- Footer --- */
         .site-footer {
             background-color: #050505;
             padding: 60px 5% 20px 5%;
@@ -322,7 +349,17 @@
             border-top: 1px solid #222;
             color: #666;
             font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
         }
+        
+        .a11y-btn {
+            background: none; border: 1px solid #444; color: #888;
+            padding: 5px 10px; font-size: 0.8rem; cursor: pointer; border-radius: 4px;
+        }
+        .a11y-btn:hover { border-color: #d4af37; color: #d4af37; }
 
         /* --- מודל --- */
         .modal {
@@ -372,7 +409,7 @@
 </head>
 <body>
 
-    <div class="background-slider">
+    <div class="background-slider" id="bgSlider">
         <div class="slide" style="background-image: url('https://i.imgur.com/xTcz0C4.jpeg');"></div>
         <div class="slide" style="background-image: url('https://i.imgur.com/K2dTdSg.jpeg');"></div>
         <div class="slide" style="background-image: url('https://i.imgur.com/AnjR2mF.jpeg');"></div>
@@ -385,8 +422,8 @@
 
     <header>
         <div class="header-right">
-            <button class="hamburger-btn" onclick="toggleMenu()">☰</button>
-            <a href="#" class="logo">OFEK.</a>
+            <button class="hamburger-btn" onclick="toggleMenu()" aria-label="פתח תפריט">☰</button>
+            <a href="#" class="logo" aria-label="לוגו אופק - חזרה לדף הבית">OFEK.</a>
             <nav id="navMenu" class="nav-links">
                 <a href="#about" onclick="toggleMenu()">אודות</a>
                 <a href="#videos" onclick="toggleMenu()">מדיה</a>
@@ -396,7 +433,7 @@
             </nav>
         </div>
         <div class="header-left">
-            <a href="tel:0533036662" class="phone-link">053-3036662</a>
+            <a href="tel:0533036662" class="phone-link" aria-label="התקשר לאופק">053-3036662</a>
         </div>
     </header>
 
@@ -427,7 +464,7 @@
                     כיום אני מרצה ומעביר סדנאות לבני נוער, מכינות וארגונים, במטרה לתת להם את הכלים לפרוץ את הגבולות של עצמם.
                 </p>
             </div>
-            <div class="about-image"></div>
+            <div class="about-image" role="img" aria-label="אופק בן לולו במדים"></div>
         </div>
     </section>
 
@@ -485,25 +522,17 @@
 
     <footer class="site-footer">
         <div class="footer-content">
-            
             <div class="footer-column">
                 <h3>OFEK.</h3>
                 <p style="color: #666; font-size: 0.9rem;">
                     הרצאות השראה, מנהיגות ופיתוח חוסן מנטלי לנוער וארגונים.
                 </p>
                 <div class="social-icons">
-                    <a href="#" class="social-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.64.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85C3.8 3.92 5.32 2.38 8.58 2.23c1.27-.06 1.64-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07c-4.35.2-6.78 2.62-6.98 6.98C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84c-3.4 0-6.16 2.76-6.16 6.16S8.6 18.16 12 18.16 18.16 15.4 18.16 12 15.4 5.84 12 5.84zm0 10.16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm6.4-10.8c-.79 0-1.44.65-1.44 1.44s.65 1.44 1.44 1.44 1.44-.65 1.44-1.44-.65-1.44-1.44-1.44z"/></svg>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                    </a>
-                    <a href="https://wa.me/972533036662" class="social-icon">
-                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    </a>
+                    <a href="#" class="social-icon" aria-label="אינסטגרם"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.64.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85C3.8 3.92 5.32 2.38 8.58 2.23c1.27-.06 1.64-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07c-4.35.2-6.78 2.62-6.98 6.98C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84c-3.4 0-6.16 2.76-6.16 6.16S8.6 18.16 12 18.16 18.16 15.4 18.16 12 15.4 5.84 12 5.84zm0 10.16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm6.4-10.8c-.79 0-1.44.65-1.44 1.44s.65 1.44 1.44 1.44 1.44-.65 1.44-1.44-.65-1.44-1.44-1.44z"/></svg></a>
+                    <a href="#" class="social-icon" aria-label="פייסבוק"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                    <a href="https://wa.me/972533036662" class="social-icon" aria-label="וואטסאפ"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
                 </div>
             </div>
-
             <div class="footer-column">
                 <h3>ניווט מהיר</h3>
                 <ul class="footer-links">
@@ -513,7 +542,6 @@
                     <li><a href="#recommendations">המלצות</a></li>
                 </ul>
             </div>
-
             <div class="footer-column">
                 <h3>צור קשר</h3>
                 <ul class="footer-links">
@@ -522,38 +550,58 @@
                     <li><button onclick="openModal()" style="background:none; border:none; color:#d4af37; font:inherit; cursor:pointer; padding:0;">השאר פנייה באתר</button></li>
                 </ul>
             </div>
-
         </div>
         <div class="footer-bottom">
             <p>&copy; 2024 אופק - הרצאות ומימוש עצמי. כל הזכויות שמורות.</p>
+            <button onclick="toggleAnimations()" class="a11y-btn" aria-label="כפתור נגישות: עצור אנימציות רקע">נגישות: עצור אנימציות</button>
         </div>
     </footer>
 
-    <div id="contactModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h2 class="form-title">שריינו תאריך להרצאה</h2>
+    <div id="contactModal" class="modal" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-labelledby="modalTitle">
+            <span class="close-btn" onclick="closeModal()" aria-label="סגור חלון">&times;</span>
+            <h2 id="modalTitle" class="form-title">שריינו תאריך להרצאה</h2>
             <form action="https://formsubmit.co/ofekpator2890@gmail.com" method="POST">
                 <input type="hidden" name="_next" value="https://eliranalfasi36.github.io/OfekBLB/thankyou.html">
                 <input type="hidden" name="_captcha" value="false">
-                <div class="form-group"><label>שם מלא</label><input type="text" name="name" required placeholder="השם שלך..."></div>
-                <div class="form-group"><label>מספר טלפון</label><input type="tel" name="phone" required placeholder="050-0000000"></div>
-                <div class="form-group"><label>פנייה / הודעה</label><textarea name="message" rows="4" placeholder="אשמח לשמוע פרטים על..."></textarea></div>
+                <div class="form-group"><label>שם מלא</label><input type="text" name="name" required placeholder="השם שלך..." aria-label="שם מלא"></div>
+                <div class="form-group"><label>מספר טלפון</label><input type="tel" name="phone" required placeholder="050-0000000" aria-label="מספר טלפון"></div>
+                <div class="form-group"><label>פנייה / הודעה</label><textarea name="message" rows="4" placeholder="אשמח לשמוע פרטים על..." aria-label="תוכן הפנייה"></textarea></div>
                 <button type="submit" class="submit-btn">שלח פנייה</button>
             </form>
         </div>
     </div>
 
 <script>
-    function openModal() { document.getElementById("contactModal").style.display = "block"; }
-    function closeModal() { document.getElementById("contactModal").style.display = "none"; }
+    function openModal() { 
+        var modal = document.getElementById("contactModal");
+        modal.style.display = "block"; 
+        modal.setAttribute('aria-hidden', 'false');
+    }
+    function closeModal() { 
+        var modal = document.getElementById("contactModal");
+        modal.style.display = "none"; 
+        modal.setAttribute('aria-hidden', 'true');
+    }
     window.onclick = function(event) {
         var modal = document.getElementById("contactModal");
-        if (event.target == modal) { modal.style.display = "none"; }
+        if (event.target == modal) { closeModal(); }
     }
     function toggleMenu() {
         var menu = document.getElementById("navMenu");
         menu.classList.toggle("active");
+    }
+    
+    // פונקציית נגישות לעצירת אנימציות
+    function toggleAnimations() {
+        var slider = document.getElementById("bgSlider");
+        slider.classList.toggle("stop-animations");
+        var btn = document.querySelector('.a11y-btn');
+        if (slider.classList.contains("stop-animations")) {
+            btn.innerText = "נגישות: הפעל אנימציות";
+        } else {
+            btn.innerText = "נגישות: עצור אנימציות";
+        }
     }
 </script>
 
