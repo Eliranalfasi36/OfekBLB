@@ -42,14 +42,14 @@
             background-position: center;
             background-repeat: no-repeat;
             opacity: 0;
-            animation: fadeAnimation 25s infinite linear;
+            animation: fadeAnimation 30s infinite linear;
         }
 
         @keyframes fadeAnimation {
             0% { opacity: 0; }
             5% { opacity: 1; }
-            25% { opacity: 1; }
-            30% { opacity: 0; }
+            20% { opacity: 1; }
+            25% { opacity: 0; }
             100% { opacity: 0; }
         }
 
@@ -58,10 +58,11 @@
         .slide:nth-child(3) { animation-delay: 10s; }
         .slide:nth-child(4) { animation-delay: 15s; }
         .slide:nth-child(5) { animation-delay: 20s; }
+        .slide:nth-child(6) { animation-delay: 25s; }
 
-        /* שכבת כהות (בהירה - 0.4) */
+        /* שכבת כהות (עודכנה ל-0.3 לבהירות רבה יותר) */
         .overlay {
-            background-color: rgba(0, 0, 0, 0.4);
+            background-color: rgba(0, 0, 0, 0.3); /* כאן השינוי */
             position: fixed;
             top: 0;
             left: 0;
@@ -122,7 +123,7 @@
         .header-left { display: flex; align-items: center; }
 
         .phone-link {
-            border: 1px solid #C0C0C0; /* מסגרת כסף */
+            border: 1px solid #C0C0C0;
             background-color: rgba(255, 255, 255, 0.05);
             padding: 8px 12px;
             border-radius: 2px;
@@ -138,18 +139,25 @@
             box-shadow: 0 0 10px rgba(192, 192, 192, 0.3);
         }
 
-        /* --- איזור ה-Hero --- */
+        /* --- איזור ה-Hero (עודכן למירכוז כי אין תמונה) --- */
         .hero-section {
             display: flex;
-            flex-direction: column-reverse;
+            flex-direction: column;
             align-items: center;
-            padding: 140px 5% 60px 5%;
-            min-height: 90vh;
+            justify-content: center;
+            padding: 160px 5% 80px 5%;
+            min-height: 80vh; /* קצת פחות גבוה בלי התמונה */
             position: relative;
             z-index: 1;
+            text-align: center;
         }
 
-        .hero-text { text-align: center; margin-top: 40px; max-width: 600px; }
+        .hero-text { 
+            text-align: center; 
+            margin-top: 0; 
+            max-width: 800px; /* הרחבתי קצת את הטקסט */
+            width: 100%;
+        }
 
         .hero-title {
             font-size: 2.5rem;
@@ -159,7 +167,7 @@
             text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
         }
         .hero-title span { color: #d4af37; }
-        .hero-subtitle { font-size: 1.1rem; color: #e0e0e0; margin-bottom: 30px; }
+        .hero-subtitle { font-size: 1.2rem; color: #e0e0e0; margin-bottom: 35px; }
 
         .cta-button-large {
             display: inline-block;
@@ -176,20 +184,8 @@
         }
         .cta-button-large:hover { transform: scale(1.05); background-color: transparent; color: #d4af37; }
 
-        /* --- התיקון לתמונה (Crop - Zoom In) --- */
-        .hero-image-container {
-            width: 100%;
-            max-width: 350px;
-            height: 450px;
-            border-radius: 20px;
-            overflow: hidden; 
-            border: 3px solid #d4af37; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            background-image: url('https://i.imgur.com/z2JBYCJ.jpeg'); 
-            background-size: 180%; 
-            background-position: center center; 
-            background-repeat: no-repeat;
-        }
+        /* (הסרנו את ה-CSS של hero-image-container כי הוא לא בשימוש) */
+
 
         /* --- סקשן סרטונים --- */
         .video-section {
@@ -225,7 +221,7 @@
         }
         iframe { width: 100%; height: 100%; border: none; }
 
-        /* --- סקשן המלצות (עם ה-GIF החדש) --- */
+        /* --- סקשן המלצות --- */
         .recommendations-section {
             padding: 80px 5%;
             background-color: #111;
@@ -244,7 +240,6 @@
         }
 
         .rec-bubble {
-            /* כאן שמנו את ה-GIF החדש שבחרת עם שכבת כהות */
             background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGNsajB6d3ZoMDgwZGpsM3Z1ejQzZ3BuMmJoM2h0MGkzbzlnaHBtZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2csuIJj6TmuKA/giphy.gif');
             background-size: cover;
             background-position: center;
@@ -270,7 +265,7 @@
             margin-top: 15px;
             font-weight: 900;
             font-size: 0.9rem;
-            color: #d4af37; /* שם בזהב */
+            color: #d4af37;
             border-top: 1px solid rgba(255,255,255,0.3);
             padding-top: 10px;
             display: inline-block;
@@ -333,18 +328,14 @@
 
         /* --- התאמה למחשב --- */
         @media (min-width: 900px) {
+            /* Hero מותאם למחשב - ללא תמונה, טקסט ממורכז */
             .hero-section {
-                flex-direction: row;
-                justify-content: space-between;
-                text-align: right;
-                max-width: 1200px;
-                margin: 0 auto;
-                padding-top: 180px;
+                padding-top: 200px;
             }
-            .hero-text { text-align: right; width: 50%; margin-top: 0; }
-            .hero-title { font-size: 4.5rem; }
+            .hero-title { font-size: 5rem; }
             .hero-subtitle { font-size: 1.5rem; }
-            .hero-image-container { width: 400px; height: 550px; }
+            
+            /* (הסרנו את ההגדרות הישנות של חלוקת מסך) */
         }
     </style>
 </head>
@@ -356,6 +347,7 @@
         <div class="slide" style="background-image: url('https://i.imgur.com/AnjR2mF.jpeg');"></div>
         <div class="slide" style="background-image: url('https://i.imgur.com/NK5m3sc.jpeg');"></div>
         <div class="slide" style="background-image: url('https://i.imgur.com/AKjlem3.jpeg');"></div>
+        <div class="slide" style="background-image: url('https://i.imgur.com/Ip3FoRz.gif');"></div>
     </div>
     <div class="overlay"></div>
 
@@ -387,8 +379,7 @@
             </p>
             <button onclick="openModal()" class="cta-button-large">שריינו תאריך להרצאה</button>
         </div>
-        <div class="hero-image-container"></div>
-    </section>
+        </section>
 
     <section id="videos" class="video-section">
         <h2 class="section-title">טעימה מהשטח</h2>
