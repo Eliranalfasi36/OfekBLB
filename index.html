@@ -15,12 +15,65 @@
 
         body {
             font-family: 'Heebo', sans-serif;
-            /* חזרנו לרקע שחור נקי במקום תמונה */
-            background-color: #0a0a0a; 
+            /* הסרנו את צבע הרקע הסטטי כי יש עכשיו תמונות */
             color: #ffffff;
             line-height: 1.6;
             overflow-x: hidden;
         }
+
+        /* --- התחלת קוד מצגת רקע מתחלפת --- */
+        .background-slider {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2; /* שכבה הכי תחתונה */
+            background-color: #000; /* צבע בסיס שחור למקרה שתמונה לא נטענת */
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0; /* מתחיל בלתי נראה */
+            animation: fadeAnimation 25s infinite linear; /* מחזור של 25 שניות לכל הסט */
+        }
+
+        /* הגדרת האנימציה (Fade In / Fade Out) */
+        @keyframes fadeAnimation {
+            0% { opacity: 0; }
+            5% { opacity: 1; } /* כניסה חלקה */
+            25% { opacity: 1; } /* נשאר מוצג */
+            30% { opacity: 0; } /* יציאה חלקה */
+            100% { opacity: 0; }
+        }
+
+        /* תזמון לכל תמונה כדי שיופיעו אחת אחרי השנייה */
+        /* כל תמונה מקבלת "חלון זמן" של 5 שניות */
+        .slide:nth-child(1) { animation-delay: 0s; }
+        .slide:nth-child(2) { animation-delay: 5s; }
+        .slide:nth-child(3) { animation-delay: 10s; }
+        .slide:nth-child(4) { animation-delay: 15s; }
+        .slide:nth-child(5) { animation-delay: 20s; }
+
+        /* שכבת כהות על הרקע כדי שהטקסט יהיה קריא */
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.7); /* 70% שחור שקוף */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* מעל התמונות, אבל מתחת לתוכן האתר */
+        }
+        /* --- סוף קוד מצגת רקע --- */
+
 
         /* --- תפריט עליון (Header) --- */
         header {
@@ -31,9 +84,10 @@
             position: fixed;
             width: 100%;
             top: 0;
-            background-color: rgba(10, 10, 10, 0.95);
+            background-color: rgba(10, 10, 10, 0.9); /* רקע חצי שקוף לתפריט */
             z-index: 1000;
             border-bottom: 1px solid #333;
+            backdrop-filter: blur(10px); /* אפקט טשטוש יוקרתי */
         }
 
         .logo { font-weight: 900; font-size: 1.5rem; color: #fff; letter-spacing: 1px; }
@@ -55,13 +109,15 @@
             display: flex;
             flex-direction: column-reverse;
             align-items: center;
-            padding: 140px 5% 50px 5%;
+            padding: 160px 5% 80px 5%; /* הוספנו קצת מרווח */
             min-height: 90vh;
+            position: relative; /* כדי שיהיה מעל הרקע */
+            z-index: 1;
         }
 
         .hero-text {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 40px;
             max-width: 600px;
         }
 
@@ -70,10 +126,16 @@
             font-weight: 900;
             line-height: 1.1;
             margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* צל לטקסט לקריאות טובה */
         }
 
         .hero-title span { color: #d4af37; }
-        .hero-subtitle { font-size: 1.1rem; color: #cccccc; margin-bottom: 30px; }
+        .hero-subtitle { 
+            font-size: 1.2rem; 
+            color: #e0e0e0; 
+            margin-bottom: 35px;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        }
 
         .cta-button-large {
             display: inline-block;
@@ -84,32 +146,42 @@
             font-weight: 700;
             font-size: 1.2rem;
             text-decoration: none;
-            transition: transform 0.2s;
+            transition: transform 0.2s, background-color 0.3s;
             border: 2px solid #d4af37;
             cursor: pointer;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
         }
 
-        .cta-button-large:hover { transform: scale(1.05); background-color: transparent; color: #d4af37; }
+        .cta-button-large:hover { 
+            transform: scale(1.05); 
+            background-color: transparent; 
+            color: #d4af37; 
+        }
 
         /* --- מסגרת התמונה של אופק --- */
         .hero-image-container {
             width: 100%;
             max-width: 350px;
-            height: 450px; /* קצת יותר גבוה שיתאים לתמונה שלך */
+            height: 450px;
             border-radius: 20px;
             overflow: hidden;
-            border: 2px solid #d4af37; /* מסגרת זהב */
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2); /* הילה עדינה */
+            border: 3px solid #d4af37;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             
-            /* כאן שמנו את התמונה ששלחת */
             background-image: url('https://i.imgur.com/z2JBYCJ.jpeg'); 
             background-size: cover;
             background-position: center top; 
-            /* --- סקשן סרטונים (Carousel) --- */
+        }
+
+        /* --- סקשן סרטונים (Carousel) --- */
         .video-section {
             padding: 80px 0;
-            background-color: #111; /* קצת יותר בהיר מהרקע הראשי */
+            /* רקע חצי שקוף כדי להבדיל את הסקשן, אבל עדיין לראות את הרקע זז מאחור */
+            background-color: rgba(17, 17, 17, 0.8); 
             text-align: center;
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(5px);
         }
 
         .section-title {
@@ -119,30 +191,20 @@
             font-weight: 900;
         }
 
-      
-       /* המיכל של הגלילה - מעודכן למירכוז */
+        /* המיכל של הגלילה - ממורכז */
         .video-scroller {
             display: flex;
-            justify-content: center; /* זה הפקודה שממרכזת הכל לאמצע! */
-            flex-wrap: wrap; /* מאפשר גלישה יפה אם יש הרבה תוכן */
+            justify-content: center;
+            flex-wrap: wrap;
             gap: 20px;
             padding: 20px 5%;
-        }
-            
-            /* הסתרת פס הגלילה למראה נקי */
-            scrollbar-width: none; 
-            -ms-overflow-style: none;
-        }
-        
-        /* הסתרת פס גלילה לכרום וספארי */
-        .video-scroller::-webkit-scrollbar { 
-            display: none; 
         }
 
         /* הכרטיס של הסרטון */
         .video-card {
-            min-width: 280px; /* רוחב קבוע לכל סרטון */
-            height: 500px; /* גובה של טיקטוק/שורטס */
+            width: 100%;
+            max-width: 320px; /* רוחב מקסימלי לסרטון */
+            aspect-ratio: 9 / 16; /* יחס גובה-רוחב של סרטון שורטס/טיקטוק */
             background-color: #000;
             border-radius: 15px;
             overflow: hidden;
@@ -156,13 +218,7 @@
             border-color: #d4af37;
         }
 
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        }
-        
+        iframe { width: 100%; height: 100%; border: none; }
 
         /* --- עיצוב החלון הקופץ (Modal) --- */
         .modal {
@@ -173,64 +229,60 @@
             top: 0;
             width: 100%; 
             height: 100%; 
-            background-color: rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px);
+            background-color: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
         }
 
         .modal-content {
             background-color: #1a1a1a;
-            margin: 10% auto;
+            margin: 5% auto; /* קצת יותר גבוה */
             padding: 30px;
-            border: 1px solid #d4af37;
+            border: 2px solid #d4af37;
             width: 90%;
-            max-width: 500px;
+            max-width: 450px;
             border-radius: 15px;
             position: relative;
             text-align: right;
-            box-shadow: 0 5px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.7);
         }
 
-        .close-btn {
-            color: #aaa;
-            float: left;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+        .close-btn { color: #aaa; float: left; font-size: 30px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .close-btn:hover { color: #d4af37; }
+        .form-title { font-size: 1.8rem; margin-bottom: 25px; color: #d4af37; font-weight: 900; text-align: center; }
 
-        .close-btn:hover { color: #fff; }
-        .form-title { font-size: 1.5rem; margin-bottom: 20px; color: #d4af37; font-weight: bold; }
-
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; color: #ccc; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: #e0e0e0; font-weight: 700; }
         .form-group input, .form-group textarea {
             width: 100%;
-            padding: 12px;
+            padding: 15px;
             background-color: #333;
             border: 1px solid #444;
             color: white;
-            border-radius: 5px;
+            border-radius: 8px;
             font-family: 'Heebo', sans-serif;
             font-size: 1rem;
+            transition: 0.3s;
         }
         .form-group input:focus, .form-group textarea:focus {
             outline: none;
             border-color: #d4af37;
+            background-color: #444;
         }
 
         .submit-btn {
             width: 100%;
             background-color: #d4af37;
             color: 000;
-            padding: 12px;
+            padding: 15px;
             border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 1.1rem;
+            border-radius: 8px;
+            font-weight: 900;
+            font-size: 1.2rem;
             cursor: pointer;
             margin-top: 10px;
+            transition: 0.3s;
         }
-        .submit-btn:hover { background-color: #b5952f; }
+        .submit-btn:hover { background-color: #fff; }
 
         /* --- התאמה למחשב --- */
         @media (min-width: 768px) {
@@ -240,15 +292,26 @@
                 text-align: right;
                 max-width: 1200px;
                 margin: 0 auto;
+                padding-top: 180px;
             }
             .hero-text { text-align: right; width: 50%; margin-top: 0; }
-            .hero-title { font-size: 4rem; }
+            .hero-title { font-size: 4.5rem; }
+            .hero-subtitle { font-size: 1.5rem; }
             .hero-image-container { width: 400px; height: 550px; }
         }
     </style>
 </head>
 <body>
 
+    <div class="background-slider">
+        <div class="slide" style="background-image: url('https://i.imgur.com/xTcz0C4.jpeg');"></div>
+        <div class="slide" style="background-image: url('https://i.imgur.com/K2dTdSg.jpeg');"></div>
+        <div class="slide" style="background-image: url('https://i.imgur.com/AnjR2mF.jpeg');"></div>
+        <div class="slide" style="background-image: url('https://i.imgur.com/NK5m3sc.jpeg');"></div>
+        <div class="slide" style="background-image: url('https://i.imgur.com/AKjlem3.jpeg');"></div>
+    </div>
+    
+    <div class="overlay"></div>
     <header>
         <div class="logo">OFEK.</div>
         <button onclick="openModal()" class="cta-button-small">צור קשר</button>
@@ -270,7 +333,8 @@
         <div class="hero-image-container">
             </div>
     </section>
-<section class="video-section">
+
+    <section class="video-section">
         <h2 class="section-title">טעימה מהשטח</h2>
         
         <div class="video-scroller">
@@ -281,15 +345,15 @@
 
         </div>
     </section>
-    
+
     <div id="contactModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
             <h2 class="form-title">שריינו תאריך להרצאה</h2>
-             <form action="https://formsubmit.co/ofekpator2890@gmail.com" method="POST">
-    <input type="hidden" name="_next" value="https://eliranalfasi36.github.io/OfekBLB/thankyou.html">
-    <input type="hidden" name="_captcha" value="false">
-                 
+            
+            <form action="https://formsubmit.co/ofekpator2890@gmail.com" method="POST">
+                <input type="hidden" name="_next" value="https://eliranalfasi36.github.io/OfekBLB/thankyou.html">
+                <input type="hidden" name="_captcha" value="false">
                 
                 <div class="form-group">
                     <label>שם מלא</label>
