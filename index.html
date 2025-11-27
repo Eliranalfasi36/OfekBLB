@@ -15,21 +15,11 @@
 
         body {
             font-family: 'Heebo', sans-serif;
-            /* תמונת הרקע החדשה שלך */
-            background-image: url('https://i.imgur.com/mfFNI6e.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            /* חזרנו לרקע שחור נקי במקום תמונה */
+            background-color: #0a0a0a; 
             color: #ffffff;
             line-height: 1.6;
             overflow-x: hidden;
-        }
-
-        /* שכבת כהות על הרקע כדי שהטקסט יהיה קריא */
-        .overlay {
-            background-color: rgba(10, 10, 10, 0.85); /* 85% שחור */
-            min-height: 100vh;
-            width: 100%;
         }
 
         /* --- תפריט עליון (Header) --- */
@@ -63,4 +53,211 @@
         /* --- איזור ה-Hero (החלק הראשי) --- */
         .hero-section {
             display: flex;
-            flex-direction:
+            flex-direction: column-reverse;
+            align-items: center;
+            padding: 140px 5% 50px 5%;
+            min-height: 90vh;
+        }
+
+        .hero-text {
+            text-align: center;
+            margin-top: 30px;
+            max-width: 600px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-title span { color: #d4af37; }
+        .hero-subtitle { font-size: 1.1rem; color: #cccccc; margin-bottom: 30px; }
+
+        .cta-button-large {
+            display: inline-block;
+            background-color: #d4af37;
+            color: #000;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: transform 0.2s;
+            border: 2px solid #d4af37;
+            cursor: pointer;
+        }
+
+        .cta-button-large:hover { transform: scale(1.05); background-color: transparent; color: #d4af37; }
+
+        /* --- מסגרת התמונה של אופק --- */
+        .hero-image-container {
+            width: 100%;
+            max-width: 350px;
+            height: 450px; /* קצת יותר גבוה שיתאים לתמונה שלך */
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid #d4af37; /* מסגרת זהב */
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2); /* הילה עדינה */
+            
+            /* כאן שמנו את התמונה ששלחת */
+            background-image: url('https://i.imgur.com/z2JBYCJ.jpeg'); 
+            background-size: cover;
+            background-position: center top; 
+        }
+
+        /* --- עיצוב החלון הקופץ (Modal) --- */
+        .modal {
+            display: none;
+            position: fixed; 
+            z-index: 2000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: #1a1a1a;
+            margin: 10% auto;
+            padding: 30px;
+            border: 1px solid #d4af37;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 15px;
+            position: relative;
+            text-align: right;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.5);
+        }
+
+        .close-btn {
+            color: #aaa;
+            float: left;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover { color: #fff; }
+        .form-title { font-size: 1.5rem; margin-bottom: 20px; color: #d4af37; font-weight: bold; }
+
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; color: #ccc; }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: #333;
+            border: 1px solid #444;
+            color: white;
+            border-radius: 5px;
+            font-family: 'Heebo', sans-serif;
+            font-size: 1rem;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: #d4af37;
+            color: 000;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .submit-btn:hover { background-color: #b5952f; }
+
+        /* --- התאמה למחשב --- */
+        @media (min-width: 768px) {
+            .hero-section {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: right;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            .hero-text { text-align: right; width: 50%; margin-top: 0; }
+            .hero-title { font-size: 4rem; }
+            .hero-image-container { width: 400px; height: 550px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">OFEK.</div>
+        <button onclick="openModal()" class="cta-button-small">צור קשר</button>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-text">
+            <h1 class="hero-title">
+                הדרך למימוש עצמי <br>
+                <span>מתחילה בהחלטה אחת.</span>
+            </h1>
+            <p class="hero-subtitle">
+                בהרצאה סוחפת ומרגשת, אופק חושף את הכלים המנטליים שיעזרו לכם לשבור את תקרת הזכוכית ולהשיג את המטרות שתמיד חלמתם עליהן.
+            </p>
+            
+            <button onclick="openModal()" class="cta-button-large">שריינו תאריך להרצאה</button>
+        </div>
+
+        <div class="hero-image-container">
+            </div>
+    </section>
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 class="form-title">שריינו תאריך להרצאה</h2>
+            
+            <form action="https://formsubmit.co/ofekpator2890@gmail.com" method="POST">
+                <input type="hidden" name="_captcha" value="false">
+                
+                <div class="form-group">
+                    <label>שם מלא</label>
+                    <input type="text" name="name" required placeholder="השם שלך...">
+                </div>
+                
+                <div class="form-group">
+                    <label>מספר טלפון</label>
+                    <input type="tel" name="phone" required placeholder="050-0000000">
+                </div>
+                
+                <div class="form-group">
+                    <label>פנייה / הודעה</label>
+                    <textarea name="message" rows="4" placeholder="אשמח לשמוע פרטים על..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">שלח פנייה</button>
+            </form>
+        </div>
+    </div>
+
+<script>
+    function openModal() {
+        document.getElementById("contactModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("contactModal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        var modal = document.getElementById("contactModal");
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>
