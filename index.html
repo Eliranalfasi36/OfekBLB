@@ -2,11 +2,80 @@
 <html dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>   אופק-הרצאות ומימוש עצמי </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אופק- הרצאות ומימוש עצמי</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            /* תמונת הרקע נשארת */
+            background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1080&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            /* הגדרת הפונט החדש לכל הדף */
+            font-family: 'Heebo', sans-serif;
+            margin: 0;
+            height: 100vh; /* גובה מסך מלא */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        /* תיבת התוכן השקופה */
+        .content-box {
+            background-color: rgba(0, 0, 0, 0.5); /* רקע כהה חצי שקוף */
+            padding: 40px;
+            border-radius: 20px; /* פינות עגולות */
+            max-width: 90%;
+            backdrop-filter: blur(5px); /* אפקט טשטוש קל לרקע מאחורי התיבה */
+        }
+
+        h1 {
+            font-weight: 700; /* טקסט מודגש */
+            font-size: 2.5rem; /* גודל טקסט גדול ומרשים */
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7); /* צל לטקסט לקריאות טובה */
+            line-height: 1.2;
+        }
+
+        /* עיצוב הכפתור */
+        .interactive-btn {
+            padding: 15px 35px;
+            font-size: 18px;
+            font-family: 'Heebo', sans-serif;
+            cursor: pointer;
+            background-color: #4CAF50; /* צבע ירוק בסיס */
+            color: white;
+            border: none;
+            border-radius: 50px; /* כפתור עגול לגמרי בקצוות */
+            transition: all 0.3s ease; /* מעבר חלק לאנימציה */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2); /* צל עדין לכפתור */
+        }
+
+        /* מה קורה כשעוברים על הכפתור או לוחצים */
+        .interactive-btn:hover, .interactive-btn:active {
+            background-color: #66bb6a; /* ירוק בהיר יותר */
+            box-shadow: 0 0 20px rgba(102, 187, 106, 0.8); /* הילה זוהרת */
+            transform: translateY(-3px); /* הכפתור עולה טיפה למעלה */
+        }
+    </style>
 </head>
-<body style="text-align: center; font-family: Arial, sans-serif; background-color: #f0f0f0;">
-    <h1 style="color: #2c3e50;">הדרך להאמין בעצמך מתחילה כאן</h1>
-    <p>.</p>
-    <button style="padding: 10px 20px; font-size: 16px; cursor: pointer;">לחץ עליי</button>
+<body>
+
+    <div class="content-box">
+        <h1>הדרך להאמין בעצמך מתחילה כאן.</h1>
+        
+        <button class="interactive-btn">
+            דף הבית
+        </button>
+    </div>
+
 </body>
 </html>
