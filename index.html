@@ -32,39 +32,26 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            background-color: #000; /* ברירת מחדל שחור */
-        }
-
-        /* --- מצגת רקע מתחלפת --- */
-        .background-slider {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
             background-color: #000;
         }
 
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0;
-            animation: fadeAnimation 35s infinite linear;
+        /* --- נגישות --- */
+        *:focus-visible { outline: 2px solid #d4af37; outline-offset: 2px; }
+
+        /* --- מצגת רקע --- */
+        .background-slider {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background-color: #000;
         }
+        .slide {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover; background-position: center; background-repeat: no-repeat;
+            opacity: 0; animation: fadeAnimation 35s infinite linear;
+        }
+        .stop-animations .slide { animation: none !important; opacity: 1 !important; display: none; }
+        .stop-animations .slide:first-child { display: block; }
 
         @keyframes fadeAnimation {
-            0% { opacity: 0; }
-            5% { opacity: 1; }
-            20% { opacity: 1; }
-            25% { opacity: 0; }
-            100% { opacity: 0; }
+            0% { opacity: 0; } 5% { opacity: 1; } 20% { opacity: 1; } 25% { opacity: 0; } 100% { opacity: 0; }
         }
 
         .slide:nth-child(1) { animation-delay: 0s; }
@@ -76,41 +63,24 @@
         .slide:nth-child(7) { animation-delay: 30s; }
 
         .overlay {
-            background-color: rgba(0, 0, 0, 0.3);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+            background-color: rgba(0, 0, 0, 0.3); position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
         }
 
-        /* --- תפריט עליון --- */
+        /* --- Header --- */
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            background-color: rgba(10, 10, 10, 0.95);
-            z-index: 1000;
-            border-bottom: 1px solid #333;
-            backdrop-filter: blur(10px);
+            display: flex; justify-content: space-between; align-items: center; padding: 10px 5%;
+            position: fixed; width: 100%; top: 0; background-color: rgba(10, 10, 10, 0.95);
+            z-index: 1000; border-bottom: 1px solid #333; backdrop-filter: blur(10px);
         }
-
         .header-right { display: flex; align-items: center; gap: 15px; }
         .logo { font-weight: 900; font-size: 1.5rem; color: #fff; text-decoration: none; letter-spacing: 1px; }
         .hamburger-btn { display: none; font-size: 1.8rem; background: none; border: none; color: #d4af37; cursor: pointer; }
-
         .nav-links { display: flex; gap: 20px; }
         .nav-links a, .nav-links button {
             color: #ccc; text-decoration: none; font-weight: 500; font-size: 1rem;
             transition: color 0.3s; position: relative; background: none; border: none; font-family: inherit; cursor: pointer;
         }
         .nav-links a:hover, .nav-links button:hover { color: #d4af37; }
-
         .header-left { display: flex; align-items: center; }
         .phone-link {
             border: 1px solid #C0C0C0; background-color: rgba(255, 255, 255, 0.05); padding: 8px 12px;
@@ -148,6 +118,67 @@
             border: 3px solid #d4af37; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             background-image: url('https://i.imgur.com/z2JBYCJ.jpeg');
             background-size: 180%; background-position: center center; background-repeat: no-repeat;
+        }
+
+        /* --- במה נעסוק (חדש!) --- */
+        .topics-section {
+            padding: 80px 5%;
+            background-color: #111; /* רקע כהה */
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid #333;
+        }
+        .topics-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            max-width: 1100px;
+            margin: 40px auto 40px auto;
+        }
+        .topic-card {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            padding: 30px 20px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 300px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .topic-card:hover {
+            transform: translateY(-5px);
+            border-color: #d4af37;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.15);
+        }
+        .topic-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background-color: #d4af37;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        .topic-card:hover::before { transform: scaleX(1); }
+        
+        .topic-title {
+            color: #d4af37; font-size: 1.4rem; font-weight: 700; margin-bottom: 10px;
+        }
+        .topic-desc {
+            color: #ccc; font-size: 1rem;
+        }
+        .audience-badge {
+            margin-top: 40px;
+            display: inline-block;
+            background-color: rgba(212, 175, 55, 0.1);
+            border: 1px solid #d4af37;
+            padding: 15px 30px;
+            border-radius: 50px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem;
         }
 
         /* --- גופים --- */
@@ -234,52 +265,20 @@
         .form-group input, .form-group textarea { width: 100%; padding: 12px; background-color: #333; border: 1px solid #444; color: white; border-radius: 8px; font-family: 'Heebo'; }
         .submit-btn { width: 100%; background-color: #d4af37; padding: 12px; border: none; border-radius: 8px; font-weight: 900; cursor: pointer; margin-top: 10px; }
 
-        /* === מצב נגישות מוגבר (החדש!) === */
-        body.accessibility-mode {
-            background-color: #000 !important;
-            color: #ffff00 !important; /* צהוב נגישות */
-        }
-        /* הסתרת רקעים מסיחים */
-        body.accessibility-mode .background-slider,
-        body.accessibility-mode .overlay {
-            display: none !important;
-        }
-        /* הדגשת טקסטים וקישורים */
-        body.accessibility-mode p, 
-        body.accessibility-mode h1, 
-        body.accessibility-mode h2, 
-        body.accessibility-mode h3,
-        body.accessibility-mode span,
-        body.accessibility-mode li,
-        body.accessibility-mode label {
-            color: #ffff00 !important;
-            text-shadow: none !important;
-        }
-        body.accessibility-mode a, 
-        body.accessibility-mode button:not(.close-btn) {
-            color: #00ff00 !important; /* ירוק לקישורים */
-            text-decoration: underline !important;
-            border-color: #00ff00 !important;
-        }
-        /* הפיכת רקעים שקופים לשחורים */
-        body.accessibility-mode header,
-        body.accessibility-mode .about-section,
-        body.accessibility-mode .video-section,
-        body.accessibility-mode .clients-section,
-        body.accessibility-mode .recommendations-section,
-        body.accessibility-mode .rec-bubble,
-        body.accessibility-mode .modal-content,
+        /* === מצב נגישות מוגבר === */
+        body.accessibility-mode { background-color: #000 !important; color: #ffff00 !important; }
+        body.accessibility-mode .background-slider, body.accessibility-mode .overlay { display: none !important; }
+        body.accessibility-mode p, body.accessibility-mode h1, body.accessibility-mode h2, body.accessibility-mode h3,
+        body.accessibility-mode span, body.accessibility-mode li, body.accessibility-mode label { color: #ffff00 !important; text-shadow: none !important; }
+        body.accessibility-mode a, body.accessibility-mode button:not(.close-btn) { color: #00ff00 !important; text-decoration: underline !important; border-color: #00ff00 !important; }
+        body.accessibility-mode header, body.accessibility-mode .about-section, body.accessibility-mode .video-section,
+        body.accessibility-mode .clients-section, body.accessibility-mode .recommendations-section, body.accessibility-mode .topics-section,
+        body.accessibility-mode .topic-card, body.accessibility-mode .rec-bubble, body.accessibility-mode .modal-content,
         body.accessibility-mode .footer-content {
-            background: #000 !important;
-            background-image: none !important;
-            border-color: #ffff00 !important;
-            backdrop-filter: none !important;
-            box-shadow: none !important;
+            background: #000 !important; background-image: none !important; border-color: #ffff00 !important;
+            backdrop-filter: none !important; box-shadow: none !important;
         }
-        /* הדגשת פוקוס */
-        body.accessibility-mode *:focus-visible {
-            outline: 3px solid #00ff00 !important;
-        }
+        body.accessibility-mode *:focus-visible { outline: 3px solid #00ff00 !important; }
 
         /* --- התאמות מדיה --- */
         @media (max-width: 900px) {
@@ -326,9 +325,8 @@
             <a href="#" class="logo" aria-label="לוגו אופק - חזרה לדף הבית">OFEK.</a>
             <nav id="navMenu" class="nav-links">
                 <a href="#about" onclick="toggleMenu()">אודות</a>
-                <a href="#videos" onclick="toggleMenu()">מדיה</a>
+                <a href="#topics" onclick="toggleMenu()">נושאים</a> <a href="#videos" onclick="toggleMenu()">מדיה</a>
                 <a href="#recommendations" onclick="toggleMenu()">היו הושפעו והמליצו</a>
-                <a href="#" onclick="toggleMenu()">בלוג אישי</a>
                 <button onclick="openModal(); toggleMenu();" style="text-align:right;">יצירת קשר</button>
             </nav>
         </div>
@@ -365,6 +363,41 @@
                 </p>
             </div>
             <div class="about-image" role="img" aria-label="אופק בן לולו במדים"></div>
+        </div>
+    </section>
+
+    <section id="topics" class="topics-section">
+        <h2 class="section-title">על מה נדבר בהרצאה?</h2>
+        
+        <div class="topics-grid">
+            <div class="topic-card">
+                <div class="topic-title">ביטחון עצמי ומסוגלות</div>
+                <div class="topic-desc">איך לבנות עמוד שדרה פנימי חזק שלא תלוי בסביבה.</div>
+            </div>
+            <div class="topic-card">
+                <div class="topic-title">ערכים אוניברסליים</div>
+                <div class="topic-desc">חיבור עמוק לערכי ליבה המשותפים לכל אדם באשר הוא.</div>
+            </div>
+            <div class="topic-card">
+                <div class="topic-title">יצירת שינוי בחיים</div>
+                <div class="topic-desc">כלים פרקטיים ליציאה מאזור הנוחות והתמודדות עם משברים.</div>
+            </div>
+            <div class="topic-card">
+                <div class="topic-title">מציאת משמעות</div>
+                <div class="topic-desc">גילוי ה"למה" שמניע אותנו לקום בבוקר ולפעול.</div>
+            </div>
+            <div class="topic-card">
+                <div class="topic-title">מנהיגות אישית</div>
+                <div class="topic-desc">לקחת אחריות על החיים שלך ולהוביל את עצמך להצלחה.</div>
+            </div>
+            <div class="topic-card">
+                <div class="topic-title">קבלת החלטות</div>
+                <div class="topic-desc">איך לקבל החלטות אמיצות בצמתים חשובים בחיים.</div>
+            </div>
+        </div>
+
+        <div class="audience-badge">
+            ההרצאה מודולרית ומונגשת לכלל המגזרים: חילוניים, דתיים, מסורתיים, נוער בסיכון ומצטיינים. השיח הוא בגובה העיניים ומחבר בין לבבות.
         </div>
     </section>
 
@@ -438,7 +471,8 @@
                 <ul class="footer-links">
                     <li><a href="#">דף הבית</a></li>
                     <li><a href="#about">אודות אופק</a></li>
-                    <li><a href="#videos">מדיה וסרטונים</a></li>
+                    <li><a href="#topics">נושאים</a></li>
+                    <li><a href="#videos">מדיה</a></li>
                     <li><a href="#recommendations">המלצות</a></li>
                 </ul>
             </div>
@@ -491,8 +525,6 @@
         var menu = document.getElementById("navMenu");
         menu.classList.toggle("active");
     }
-    
-    // פונקציית נגישות משופרת
     function toggleAccessibility() {
         document.body.classList.toggle("accessibility-mode");
         var btn = document.querySelector('.a11y-btn');
