@@ -47,4 +47,417 @@
 
         @keyframes fadeAnimation {
             0% { opacity: 0; }
-            5% { opacity:
+            5% { opacity: 1; }
+            25% { opacity: 1; }
+            30% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+        .slide:nth-child(1) { animation-delay: 0s; }
+        .slide:nth-child(2) { animation-delay: 5s; }
+        .slide:nth-child(3) { animation-delay: 10s; }
+        .slide:nth-child(4) { animation-delay: 15s; }
+        .slide:nth-child(5) { animation-delay: 20s; }
+
+        /* --- שכבת כהות (Overlay) - תוקנה ל-0.4 לבהירות --- */
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.4); /* כאן השינוי לבהירות */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+
+        /* --- תפריט עליון (Header) משודרג --- */
+        header {
+            display: flex;
+            justify-content: space-between; /* מרווח בין ימין לשמאל */
+            align-items: center;
+            padding: 15px 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background-color: rgba(10, 10, 10, 0.95);
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+            backdrop-filter: blur(10px);
+        }
+
+        /* קבוצה ימנית: לוגו + תפריט */
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .logo { 
+            font-weight: 900; 
+            font-size: 1.8rem; 
+            color: #fff; 
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        /* סרגל הניווט (החלונות) */
+        .nav-links {
+            display: none; /* מוסתר במובייל */
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37; /* זהב במעבר עכבר */
+        }
+        
+        /* קו תחתון קטן כשעוברים על הקישור */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            right: 0;
+            background-color: #d4af37;
+            transition: width 0.3s;
+        }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* קבוצה שמאלית: טלפון */
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .phone-link {
+            color: #d4af37; /* זהב */
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s;
+        }
+
+        .phone-link:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        /* כפתור צור קשר קטן למובייל */
+        .mobile-cta {
+            background-color: #d4af37;
+            color: #000;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin-right: 15px;
+            display: block; /* מוצג רק במובייל במקום התפריט */
+        }
+
+        /* --- איזור ה-Hero --- */
+        .hero-section {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            padding: 160px 5% 80px 5%;
+            min-height: 90vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            text-align: center;
+            margin-top: 40px;
+            max-width: 600px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-title span { color: #d4af37; }
+        
+        .hero-subtitle { 
+            font-size: 1.2rem; 
+            color: #e0e0e0; 
+            margin-bottom: 35px;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        }
+
+        .cta-button-large {
+            display: inline-block;
+            background-color: #d4af37;
+            color: #000;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: transform 0.2s, background-color 0.3s;
+            border: 2px solid #d4af37;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .cta-button-large:hover { 
+            transform: scale(1.05); 
+            background-color: transparent; 
+            color: #d4af37; 
+        }
+
+        /* תמונת פרופיל */
+        .hero-image-container {
+            width: 100%;
+            max-width: 350px;
+            height: 450px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 3px solid #d4af37;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background-image: url('https://i.imgur.com/z2JBYCJ.jpeg'); 
+            background-size: cover;
+            background-position: center top; 
+        }
+
+        /* --- סקשן סרטונים --- */
+        .video-section {
+            padding: 80px 0;
+            background-color: rgba(17, 17, 17, 0.8); 
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(5px);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #d4af37;
+            margin-bottom: 40px;
+            font-weight: 900;
+        }
+
+        .video-scroller {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px 5%;
+        }
+
+        .video-card {
+            width: 100%;
+            max-width: 320px;
+            aspect-ratio: 9 / 16;
+            background-color: #000;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #333;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+        }
+
+        .video-card:hover { transform: translateY(-5px); border-color: #d4af37; }
+        iframe { width: 100%; height: 100%; border: none; }
+
+        /* --- מודל (חלון קופץ) --- */
+        .modal {
+            display: none;
+            position: fixed; 
+            z-index: 2000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-content {
+            background-color: #1a1a1a;
+            margin: 5% auto;
+            padding: 30px;
+            border: 2px solid #d4af37;
+            width: 90%;
+            max-width: 450px;
+            border-radius: 15px;
+            position: relative;
+            text-align: right;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+        }
+
+        .close-btn { color: #aaa; float: left; font-size: 30px; font-weight: bold; cursor: pointer; }
+        .close-btn:hover { color: #d4af37; }
+        .form-title { font-size: 1.8rem; margin-bottom: 25px; color: #d4af37; font-weight: 900; text-align: center; }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: #e0e0e0; font-weight: 700; }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background-color: #333;
+            border: 1px solid #444;
+            color: white;
+            border-radius: 8px;
+            font-family: 'Heebo', sans-serif;
+            font-size: 1rem;
+        }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #d4af37; background-color: #444; }
+
+        .submit-btn {
+            width: 100%;
+            background-color: #d4af37;
+            color: 000;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 900;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+        .submit-btn:hover { background-color: #fff; }
+
+        /* --- התאמה למחשב (מסכים רחבים) --- */
+        @media (min-width: 900px) {
+            .nav-links { display: flex; } /* מציג את התפריט במחשב */
+            .mobile-cta { display: none; } /* מסתיר כפתור מובייל במחשב */
+            
+            .hero-section {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: right;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding-top: 180px;
+            }
+            .hero-text { text-align: right; width: 50%; margin-top: 0; }
+            .hero-title { font-size: 4.5rem; }
+            .hero-subtitle { font-size: 1.5rem; }
+            .hero-image-container { width: 400px; height: 550px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-slider">
+        <div class="slide" style="background-image: url('https://i.imgur.com/xTcz0C4.jpeg');"></div>
+        <div class="slide" style="background-image: url('https://i.imgur.com/K2dTdSg.jpeg');"></div>
+        <div class="slide" style="background-image: url('https://i.imgur.com/AnjR2mF.jpeg');"></div>
+        <div class="slide" style="background-image: url('https://i.imgur.com/NK5m3sc.jpeg');"></div>
+        <div class="slide" style="background-image: url('https://i.imgur.com/AKjlem3.jpeg');"></div>
+    </div>
+    
+    <div class="overlay"></div>
+
+
+    <header>
+        <div class="header-right">
+            <a href="#" class="logo">OFEK.</a>
+            
+            <nav class="nav-links">
+                <a href="#">אודות</a>
+                <a href="#lectures">הרצאות</a>
+                <a href="#">היו הושפעו והמליצו</a>
+                <a href="#videos">מדיה</a>
+                <a href="#">בלוג אישי</a>
+                <button onclick="openModal()" style="background:none; border:none; color: inherit; font: inherit; cursor: pointer;">יצירת קשר</button>
+            </nav>
+        </div>
+
+        <div class="header-left">
+            <button onclick="openModal()" class="mobile-cta">צור קשר</button>
+            
+            <a href="tel:0533036662" class="phone-link">
+                053-3036662
+                <span style="font-size: 1.5rem;">📱</span>
+            </a>
+        </div>
+    </header>
+
+
+    <section class="hero-section">
+        <div class="hero-text">
+            <h1 class="hero-title">
+                הדרך למימוש עצמי <br>
+                <span>מתחילה בהחלטה אחת.</span>
+            </h1>
+            <p class="hero-subtitle">
+                בהרצאה סוחפת ומרגשת, אופק חושף את הכלים המנטליים שיעזרו לכם לשבור את תקרת הזכוכית ולהשיג את המטרות שתמיד חלמתם עליהן.
+            </p>
+            
+            <button onclick="openModal()" class="cta-button-large">שריינו תאריך להרצאה</button>
+        </div>
+
+        <div class="hero-image-container"></div>
+    </section>
+
+
+    <section id="videos" class="video-section">
+        <h2 class="section-title">טעימה מהשטח</h2>
+        <div class="video-scroller">
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/7t-ncKGtFes" title="הרצאה של אופק" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 class="form-title">שריינו תאריך להרצאה</h2>
+            
+            <form action="https://formsubmit.co/ofekpator2890@gmail.com" method="POST">
+                <input type="hidden" name="_next" value="https://eliranalfasi36.github.io/OfekBLB/thankyou.html">
+                <input type="hidden" name="_captcha" value="false">
+                
+                <div class="form-group">
+                    <label>שם מלא</label>
+                    <input type="text" name="name" required placeholder="השם שלך...">
+                </div>
+                
+                <div class="form-group">
+                    <label>מספר טלפון</label>
+                    <input type="tel" name="phone" required placeholder="050-0000000">
+                </div>
+                
+                <div class="form-group">
+                    <label>פנייה / הודעה</label>
+                    <textarea name="message" rows="4" placeholder="אשמח לשמוע פרטים על..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">שלח פנייה</button>
+            </form>
+        </div>
+    </div>
+
+<script>
+    function openModal() { document.getElementById("contactModal").style.display = "block"; }
+    function closeModal() { document.getElementById("contactModal").style.display = "none"; }
+    window.onclick = function(event) {
+        var modal = document.getElementById("contactModal");
+        if (event.target == modal) { modal.style.display = "none"; }
+    }
+</script>
+
+</body>
+</html>
