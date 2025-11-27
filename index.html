@@ -42,7 +42,8 @@
             background-position: center;
             background-repeat: no-repeat;
             opacity: 0;
-            animation: fadeAnimation 30s infinite linear;
+            /* עדכנו ל-35 שניות כדי להכיל 7 שקופיות (5 תמונות + GIF כפול) */
+            animation: fadeAnimation 35s infinite linear;
         }
 
         @keyframes fadeAnimation {
@@ -53,16 +54,21 @@
             100% { opacity: 0; }
         }
 
+        /* תזמון: כל תמונה מקבלת 5 שניות */
         .slide:nth-child(1) { animation-delay: 0s; }
         .slide:nth-child(2) { animation-delay: 5s; }
         .slide:nth-child(3) { animation-delay: 10s; }
         .slide:nth-child(4) { animation-delay: 15s; }
         .slide:nth-child(5) { animation-delay: 20s; }
+        
+        /* ה-GIF מתחיל ב-25 שניות */
         .slide:nth-child(6) { animation-delay: 25s; }
+        /* ה-GIF ממשיך מיד אחריו (יוצר רצף של 10 שניות) */
+        .slide:nth-child(7) { animation-delay: 30s; }
 
-        /* שכבת כהות (עודכנה ל-0.3 לבהירות רבה יותר) */
+        /* שכבת כהות (בהירה - 0.3) */
         .overlay {
-            background-color: rgba(0, 0, 0, 0.3); /* כאן השינוי */
+            background-color: rgba(0, 0, 0, 0.3);
             position: fixed;
             top: 0;
             left: 0;
@@ -139,14 +145,14 @@
             box-shadow: 0 0 10px rgba(192, 192, 192, 0.3);
         }
 
-        /* --- איזור ה-Hero (עודכן למירכוז כי אין תמונה) --- */
+        /* --- איזור ה-Hero (ללא תמונה במרכז) --- */
         .hero-section {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: 160px 5% 80px 5%;
-            min-height: 80vh; /* קצת פחות גבוה בלי התמונה */
+            min-height: 80vh;
             position: relative;
             z-index: 1;
             text-align: center;
@@ -155,7 +161,7 @@
         .hero-text { 
             text-align: center; 
             margin-top: 0; 
-            max-width: 800px; /* הרחבתי קצת את הטקסט */
+            max-width: 800px;
             width: 100%;
         }
 
@@ -183,8 +189,6 @@
             cursor: pointer;
         }
         .cta-button-large:hover { transform: scale(1.05); background-color: transparent; color: #d4af37; }
-
-        /* (הסרנו את ה-CSS של hero-image-container כי הוא לא בשימוש) */
 
 
         /* --- סקשן סרטונים --- */
@@ -328,14 +332,23 @@
 
         /* --- התאמה למחשב --- */
         @media (min-width: 900px) {
-            /* Hero מותאם למחשב - ללא תמונה, טקסט ממורכז */
             .hero-section {
-                padding-top: 200px;
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: right;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding-top: 180px;
             }
-            .hero-title { font-size: 5rem; }
+            .hero-text { text-align: right; width: 50%; margin-top: 0; }
+            .hero-title { font-size: 4.5rem; }
             .hero-subtitle { font-size: 1.5rem; }
+            /* אין תמונה, אז נבטל את הרוחב של הקונטיינר הריק במחשב */
+            .hero-image-container { display: none; }
             
-            /* (הסרנו את ההגדרות הישנות של חלוקת מסך) */
+            /* נמרכז את הטקסט במחשב כי הוא עכשיו לבד */
+            .hero-section { justify-content: center; text-align: center; }
+            .hero-text { width: 100%; max-width: 900px; text-align: center; margin: 0 auto; }
         }
     </style>
 </head>
@@ -347,7 +360,9 @@
         <div class="slide" style="background-image: url('https://i.imgur.com/AnjR2mF.jpeg');"></div>
         <div class="slide" style="background-image: url('https://i.imgur.com/NK5m3sc.jpeg');"></div>
         <div class="slide" style="background-image: url('https://i.imgur.com/AKjlem3.jpeg');"></div>
-        <div class="slide" style="background-image: url('https://i.imgur.com/Ip3FoRz.gif');"></div>
+        
+        <div class="slide" style="background-image: url('https://i.imgur.com/1SdLuu8.gif');"></div>
+        <div class="slide" style="background-image: url('https://i.imgur.com/1SdLuu8.gif');"></div>
     </div>
     <div class="overlay"></div>
 
@@ -379,7 +394,7 @@
             </p>
             <button onclick="openModal()" class="cta-button-large">שריינו תאריך להרצאה</button>
         </div>
-        </section>
+    </section>
 
     <section id="videos" class="video-section">
         <h2 class="section-title">טעימה מהשטח</h2>
