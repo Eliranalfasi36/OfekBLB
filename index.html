@@ -105,7 +105,62 @@
             background-image: url('https://i.imgur.com/z2JBYCJ.jpeg'); 
             background-size: cover;
             background-position: center top; 
+            /* --- סקשן סרטונים (Carousel) --- */
+        .video-section {
+            padding: 80px 0;
+            background-color: #111; /* קצת יותר בהיר מהרקע הראשי */
+            text-align: center;
         }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #d4af37;
+            margin-bottom: 40px;
+            font-weight: 900;
+        }
+
+        /* המיכל של הגלילה */
+        .video-scroller {
+            display: flex;
+            overflow-x: auto; /* מאפשר גלילה לצדדים */
+            gap: 20px;
+            padding: 20px 5%;
+            scroll-behavior: smooth; 
+            
+            /* הסתרת פס הגלילה למראה נקי */
+            scrollbar-width: none; 
+            -ms-overflow-style: none;
+        }
+        
+        /* הסתרת פס גלילה לכרום וספארי */
+        .video-scroller::-webkit-scrollbar { 
+            display: none; 
+        }
+
+        /* הכרטיס של הסרטון */
+        .video-card {
+            min-width: 280px; /* רוחב קבוע לכל סרטון */
+            height: 500px; /* גובה של טיקטוק/שורטס */
+            background-color: #000;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #333;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            border-color: #d4af37;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        }
+        
 
         /* --- עיצוב החלון הקופץ (Modal) --- */
         .modal {
@@ -213,7 +268,25 @@
         <div class="hero-image-container">
             </div>
     </section>
+<section class="video-section">
+        <h2 class="section-title">טעימה מהשטח</h2>
+        
+        <div class="video-scroller">
+            
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/7t-ncKGtFes" title="YouTube Short" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
 
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/S2nBBMbjS8w" title="YouTube video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/5qap5aO4i9A" title="YouTube video 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            
+        </div>
+    </section>
     <div id="contactModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
