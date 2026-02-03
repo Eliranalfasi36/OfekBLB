@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>אופק בן לולו שיחות</title>
-    <meta name="description" content="הרצאות לבני נוער מכל הציבורים על מגוון נושאים. שיחות על מנהיגות, חוסן מנטלי ומימוש עצמי.">
+    <title>אופק בן לולו - הרצאות וסדנאות מנהיגות</title>
+    <meta name="description" content="הרצאות מוטיבציה, מנהיגות וסיפורי צבא לבני נוער וצוותי חינוך. סיפור אישי של נער בעייתי שהפך לקצין לוחם. מתאים למכינות, תיכונים ונוער בסיכון.">
+    <meta name="keywords" content="הרצאות מוטיבציה, סדנאות מנהיגות, נוער בסיכון, הרצאות לצוותי חינוך, סיפורי צבא, אופק בן לולו">
     <meta name="theme-color" content="#0a0a0a">
     <link rel="icon" type="image/png" href="https://i.imgur.com/z2JBYCJ.jpeg">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://eliranalfasi36.github.io/OfekBLB/">
-    <meta property="og:title" content="אופק בן לולו שיחות">
-    <meta property="og:description" content="הרצאות לבני נוער, מכינות וארגונים על מנהיגות וחוסן מנטלי.">
+    <meta property="og:title" content="אופק בן לולו - לנצח את המחשבות">
+    <meta property="og:description" content="הרצאה סוחפת על שינוי, אחריות וקבלת החלטות. מנער בסיכון לקצין לוחם.">
     <meta property="og:image" content="https://i.imgur.com/z2JBYCJ.jpeg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -94,10 +95,10 @@
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             padding: 160px 5% 80px 5%; min-height: 80vh; position: relative; z-index: 1; text-align: center;
         }
-        .hero-text { text-align: center; width: 100%; max-width: 800px; }
+        .hero-text { text-align: center; width: 100%; max-width: 900px; }
         .hero-title { font-size: 2.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
         .hero-title span { color: #d4af37; }
-        .hero-subtitle { font-size: 1.2rem; color: #e0e0e0; margin-bottom: 35px; }
+        .hero-subtitle { font-size: 1.3rem; color: #e0e0e0; margin-bottom: 35px; max-width: 800px; margin-left: auto; margin-right: auto; }
         .cta-button-large {
             display: inline-block; background-color: #d4af37; color: #000; padding: 15px 40px;
             border-radius: 50px; font-weight: 700; font-size: 1.2rem; text-decoration: none;
@@ -120,10 +121,10 @@
             background-size: 180%; background-position: center center; background-repeat: no-repeat;
         }
 
-        /* --- במה נעסוק (חדש!) --- */
+        /* --- במה נעסוק (מעודכן לפי השאלון) --- */
         .topics-section {
             padding: 80px 5%;
-            background-color: #111; /* רקע כהה */
+            background-color: #111;
             text-align: center;
             position: relative;
             z-index: 1;
@@ -164,7 +165,7 @@
         .topic-card:hover::before { transform: scaleX(1); }
         
         .topic-title {
-            color: #d4af37; font-size: 1.4rem; font-weight: 700; margin-bottom: 10px;
+            color: #d4af37; font-size: 1.3rem; font-weight: 700; margin-bottom: 10px;
         }
         .topic-desc {
             color: #ccc; font-size: 1rem;
@@ -179,8 +180,10 @@
             color: #fff;
             font-weight: 700;
             font-size: 1.1rem;
+            max-width: 800px;
+            line-height: 1.5;
         }
-
+        
         /* --- גופים --- */
         .clients-section {
             padding: 60px 5%; background-color: #1a1a1a; text-align: center; position: relative; z-index: 1; border-top: 1px solid #333; border-bottom: 1px solid #333;
@@ -269,7 +272,7 @@
         body.accessibility-mode { background-color: #000 !important; color: #ffff00 !important; }
         body.accessibility-mode .background-slider, body.accessibility-mode .overlay { display: none !important; }
         body.accessibility-mode p, body.accessibility-mode h1, body.accessibility-mode h2, body.accessibility-mode h3,
-        body.accessibility-mode span, body.accessibility-mode li, body.accessibility-mode label { color: #ffff00 !important; text-shadow: none !important; }
+        body.accessibility-mode span, body.accessibility-mode li, body.accessibility-mode label, body.accessibility-mode .topic-desc { color: #ffff00 !important; text-shadow: none !important; }
         body.accessibility-mode a, body.accessibility-mode button:not(.close-btn) { color: #00ff00 !important; text-decoration: underline !important; border-color: #00ff00 !important; }
         body.accessibility-mode header, body.accessibility-mode .about-section, body.accessibility-mode .video-section,
         body.accessibility-mode .clients-section, body.accessibility-mode .recommendations-section, body.accessibility-mode .topics-section,
@@ -325,7 +328,8 @@
             <a href="#" class="logo" aria-label="לוגו אופק - חזרה לדף הבית">OFEK.</a>
             <nav id="navMenu" class="nav-links">
                 <a href="#about" onclick="toggleMenu()">אודות</a>
-                <a href="#topics" onclick="toggleMenu()">נושאים</a> <a href="#videos" onclick="toggleMenu()">מדיה</a>
+                <a href="#topics" onclick="toggleMenu()">הרצאות</a>
+                <a href="#videos" onclick="toggleMenu()">מדיה</a>
                 <a href="#recommendations" onclick="toggleMenu()">היו הושפעו והמליצו</a>
                 <button onclick="openModal(); toggleMenu();" style="text-align:right;">יצירת קשר</button>
             </nav>
@@ -342,7 +346,7 @@
                 <span>מתחילה בהחלטה אחת.</span>
             </h1>
             <p class="hero-subtitle">
-                בהרצאה סוחפת ומרגשת, אופק חושף את הכלים המנטליים שיעזרו לכם לשבור את תקרת הזכוכית ולהשיג את המטרות שתמיד חלמתם עליהן.
+                הרצאות סוחפות בגובה העיניים על שינוי, אחריות וקבלת החלטות. הסיפור של נער שהיה שם בעצמו והפך לקצין לוחם - ועכשיו מלמד איך לנצח את המחשבות.
             </p>
             <button onclick="openModal()" class="cta-button-large">שריינו תאריך להרצאה</button>
         </div>
@@ -353,13 +357,13 @@
             <div class="about-text">
                 <h2>נעים להכיר, אופק</h2>
                 <p>
-                    לאחר שירות משמעותי כקצין לוחם בצה"ל, שבו הובלתי חיילים במצבי קיצון, הבנתי שהקרב האמיתי הוא לא תמיד בשטח – אלא בראש שלנו.
+                    הסיפור שלי הוא לא סיפור רגיל של הצלחה. הייתי "נער בעייתי", כזה שאף אחד לא האמין בו. אבל דווקא מהמקום הזה, צמחתי להיות קצין לוחם ומפקד.
                 </p>
                 <p>
-                    את התובנות שרכשתי תחת אלונקה ובתוך הבוץ, תרגמתי לכלים פרקטיים למנהיגות אישית, פיתוח חוסן מנטלי ויכולת לקבל החלטות תחת לחץ.
+                    היתרון שלי הוא שאני לא מדבר "מלמעלה". אני מבין את הנוער מבפנים כי הייתי שם. אני מדבר איתם בגובה העיניים, בלי סיסמאות, ונוגע גם באלו שמרצים אחרים לא מצליחים להגיע אליהם.
                 </p>
                 <p>
-                    כיום אני מרצה ומעביר סדנאות לבני נוער, מכינות וארגונים, במטרה לתת להם את הכלים לפרוץ את הגבולות של עצמם.
+                    המטרה שלי היא שכל נער ונערה יצאו מההרצאה עם תחושת מסוגלות, אמון בעצמם ורצון לקחת אחריות על הבחירות שלהם.
                 </p>
             </div>
             <div class="about-image" role="img" aria-label="אופק בן לולו במדים"></div>
@@ -367,37 +371,30 @@
     </section>
 
     <section id="topics" class="topics-section">
-        <h2 class="section-title">על מה נדבר בהרצאה?</h2>
+        <h2 class="section-title">ההרצאות והסדנאות</h2>
         
         <div class="topics-grid">
             <div class="topic-card">
-                <div class="topic-title">ביטחון עצמי ומסוגלות</div>
-                <div class="topic-desc">איך לבנות עמוד שדרה פנימי חזק שלא תלוי בסביבה.</div>
+                <div class="topic-title">מנער בסיכון לקצונה</div>
+                <div class="topic-desc">סיפור אישי עוצמתי על שינוי, אמונה עצמית והוכחה שהכל אפשרי, גם כשאף אחד לא מאמין בך.</div>
             </div>
             <div class="topic-card">
-                <div class="topic-title">ערכים אוניברסליים</div>
-                <div class="topic-desc">חיבור עמוק לערכי ליבה המשותפים לכל אדם באשר הוא.</div>
+                <div class="topic-title">אחריות וקבלת החלטות</div>
+                <div class="topic-desc">כלים פרקטיים איך לקחת את המושכות לידיים, לעמוד מאחורי הבחירות שלך ולהתבגר.</div>
             </div>
             <div class="topic-card">
-                <div class="topic-title">יצירת שינוי בחיים</div>
-                <div class="topic-desc">כלים פרקטיים ליציאה מאזור הנוחות והתמודדות עם משברים.</div>
+                <div class="topic-title">לנצח את המחשבות</div>
+                <div class="topic-desc">סדנה להתמודדות עם אדישות, חוסר מוטיבציה ומחשבות מגבילות שתוקעות אותנו במקום.</div>
             </div>
             <div class="topic-card">
-                <div class="topic-title">מציאת משמעות</div>
-                <div class="topic-desc">גילוי ה"למה" שמניע אותנו לקום בבוקר ולפעול.</div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-title">מנהיגות אישית</div>
-                <div class="topic-desc">לקחת אחריות על החיים שלך ולהוביל את עצמך להצלחה.</div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-title">קבלת החלטות</div>
-                <div class="topic-desc">איך לקבל החלטות אמיצות בצמתים חשובים בחיים.</div>
+                <div class="topic-title">חוסן מנטלי ופיקודי</div>
+                <div class="topic-desc">תובנות מהשטח ומהצבא על התמודדות עם משברים, לחץ ועומס רגשי בתקופה מורכבת.</div>
             </div>
         </div>
 
         <div class="audience-badge">
-            ההרצאה מודולרית ומונגשת לכלל המגזרים: חילוניים, דתיים, מסורתיים, נוער בסיכון ומצטיינים. השיח הוא בגובה העיניים ומחבר בין לבבות.
+            <strong>מתאים לכל המגזרים:</strong> תיכונים, מכינות קדם-צבאיות, אולפנות, ישיבות, מתנ"סים ונוער בסיכון.<br>
+            השיח הוא ערכי ומחבר, מדבר לכולם ולא דתי/מטיף.
         </div>
     </section>
 
@@ -419,6 +416,9 @@
             <div class="client-item">
                 <svg class="client-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                 <span class="client-text">רשויות מקומיות ומתנ"סים</span>
+            </div>
+            <div class="client-item" style="width: 100%; margin-top:20px;">
+                <span class="client-text" style="color:#d4af37;">וגם: אולפנות, ישיבות ומוסדות חינוך מכל הזרמים</span>
             </div>
         </div>
     </section>
@@ -471,13 +471,14 @@
                 <ul class="footer-links">
                     <li><a href="#">דף הבית</a></li>
                     <li><a href="#about">אודות אופק</a></li>
-                    <li><a href="#topics">נושאים</a></li>
-                    <li><a href="#videos">מדיה</a></li>
+                    <li><a href="#topics">הרצאות וסדנאות</a></li>
+                    <li><a href="#videos">מדיה וסרטונים</a></li>
                     <li><a href="#recommendations">המלצות</a></li>
                 </ul>
             </div>
             <div class="footer-column">
-                <h3>צור קשר</h3>
+
+                  <h3>צור קשר</h3>
                 <ul class="footer-links">
                     <li><a href="tel:0533036662">053-3036662</a></li>
                     <li><a href="mailto:ofekpator2890@gmail.com">ofekpator2890@gmail.com</a></li>
