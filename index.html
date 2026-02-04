@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>אופק בן לולו - הרצאות וסדנאות מנהיגות</title>
-    <meta name="description" content="הרצאות מוטיבציה, מנהיגות וסיפורי צבא לבני נוער וצוותי חינוך. סיפור אישי של נער בעייתי שהפך לקצין לוחם. מתאים למכינות, תיכונים ונוער בסיכון.">
-    <meta name="keywords" content="הרצאות מוטיבציה, סדנאות מנהיגות, נוער בסיכון, הרצאות לצוותי חינוך, סיפורי צבא, אופק בן לולו">
+    <meta name="description" content="הרצאות סוחפות בגובה העיניים על מנהיגות, חוסן מנטלי וקבלת החלטות. תובנות של קצין לוחם מהשטח לחיים האמיתיים.">
+    <meta name="keywords" content="הרצאות מנהיגות, חוסן מנטלי, קבלת החלטות, גבורה, ערכים, אופק בן לולו, הרצאות לתיכונים, הרצאות למכינות">
     <meta name="theme-color" content="#0a0a0a">
     <link rel="icon" type="image/png" href="https://i.imgur.com/z2JBYCJ.jpeg">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://eliranalfasi36.github.io/OfekBLB/">
     <meta property="og:title" content="אופק בן לולו - לנצח את המחשבות">
-    <meta property="og:description" content="הרצאה סוחפת על שינוי, אחריות וקבלת החלטות. מנער בסיכון לקצין לוחם.">
+    <meta property="og:description" content="מנהיגות, גבורה וערכים. הרצאה בגובה העיניים מקצין לוחם.">
     <meta property="og:image" content="https://i.imgur.com/z2JBYCJ.jpeg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -111,7 +111,7 @@
             padding: 100px 5%; background-color: rgba(10, 10, 10, 0.85); position: relative; z-index: 1; backdrop-filter: blur(5px);
         }
         .about-container { display: flex; flex-direction: column-reverse; align-items: center; gap: 40px; max-width: 1100px; margin: 0 auto; }
-        .about-text { flex: 1; text-align: center; }
+        .about-text { flex: 1; text-align: right; }
         .about-text h2 { font-size: 2.2rem; color: #d4af37; margin-bottom: 20px; font-weight: 900; }
         .about-text p { font-size: 1.1rem; color: #ccc; margin-bottom: 15px; }
         .about-image {
@@ -121,7 +121,7 @@
             background-size: 180%; background-position: center center; background-repeat: no-repeat;
         }
 
-        /* --- במה נעסוק (מעודכן לפי השאלון) --- */
+        /* --- במה נעסוק (מעודכן ל-6 נושאים) --- */
         .topics-section {
             padding: 80px 5%;
             background-color: #111;
@@ -135,7 +135,7 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 25px;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 40px auto 40px auto;
         }
         .topic-card {
@@ -144,10 +144,13 @@
             padding: 30px 20px;
             border-radius: 12px;
             width: 100%;
-            max-width: 300px;
+            max-width: 350px; /* קצת יותר רחב להכיל טקסט */
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .topic-card:hover {
             transform: translateY(-5px);
@@ -165,11 +168,13 @@
         .topic-card:hover::before { transform: scaleX(1); }
         
         .topic-title {
-            color: #d4af37; font-size: 1.3rem; font-weight: 700; margin-bottom: 10px;
+            color: #d4af37; font-size: 1.4rem; font-weight: 700; margin-bottom: 10px;
         }
         .topic-desc {
             color: #ccc; font-size: 1rem;
         }
+        
+        /* באדג' הקהל */
         .audience-badge {
             margin-top: 40px;
             display: inline-block;
@@ -183,7 +188,7 @@
             max-width: 800px;
             line-height: 1.5;
         }
-        
+
         /* --- גופים --- */
         .clients-section {
             padding: 60px 5%; background-color: #1a1a1a; text-align: center; position: relative; z-index: 1; border-top: 1px solid #333; border-bottom: 1px solid #333;
@@ -296,6 +301,7 @@
             .client-item { width: 40%; }
             .footer-content { flex-direction: column; text-align: center; }
             .social-icons { justify-content: center; }
+            .about-text { text-align: center; } /* במובייל המרכוז עובד יותר טוב */
         }
 
         @media (min-width: 900px) {
@@ -346,7 +352,7 @@
                 <span>מתחילה בהחלטה אחת.</span>
             </h1>
             <p class="hero-subtitle">
-                הרצאות סוחפות בגובה העיניים על שינוי, אחריות וקבלת החלטות. הסיפור של נער שהיה שם בעצמו והפך לקצין לוחם - ועכשיו מלמד איך לנצח את המחשבות.
+                הרצאות בגובה העיניים על מנהיגות, חוסן מנטלי וקבלת החלטות. תובנות מהשטח שתורגמו לכלים פרקטיים, בהרצאה שתשאיר אתכם עם כוח לפעול.
             </p>
             <button onclick="openModal()" class="cta-button-large">שריינו תאריך להרצאה</button>
         </div>
@@ -357,13 +363,16 @@
             <div class="about-text">
                 <h2>נעים להכיר, אופק</h2>
                 <p>
-                    הסיפור שלי הוא לא סיפור רגיל של הצלחה. הייתי "נער בעייתי", כזה שאף אחד לא האמין בו. אבל דווקא מהמקום הזה, צמחתי להיות קצין לוחם ומפקד.
+                    לאחר שירות משמעותי כקצין לוחם בצה"ל, שבו הובלתי חיילים במצבי קיצון, הבנתי שהקרב האמיתי הוא לא תמיד בשטח – אלא בראש שלנו.
                 </p>
                 <p>
-                    היתרון שלי הוא שאני לא מדבר "מלמעלה". אני מבין את הנוער מבפנים כי הייתי שם. אני מדבר איתם בגובה העיניים, בלי סיסמאות, ונוגע גם באלו שמרצים אחרים לא מצליחים להגיע אליהם.
+                    את התובנות שרכשתי תחת אלונקה ובתוך הבוץ, תרגמתי לכלים פרקטיים למנהיגות אישית, פיתוח חוסן מנטלי ויכולת לקבל החלטות תחת לחץ.
                 </p>
                 <p>
-                    המטרה שלי היא שכל נער ונערה יצאו מההרצאה עם תחושת מסוגלות, אמון בעצמם ורצון לקחת אחריות על הבחירות שלהם.
+                    כאשר שינוי, לקיחת אחריות וקבלת החלטות אלו אבני הדרך.
+                </p>
+                <p>
+                    כיום אני מרצה ומעביר סדנאות לבני נוער, מכינות וארגונים, במטרה לתת להם את הכלים לפרוץ את הגבולות של עצמם.
                 </p>
             </div>
             <div class="about-image" role="img" aria-label="אופק בן לולו במדים"></div>
@@ -371,30 +380,43 @@
     </section>
 
     <section id="topics" class="topics-section">
-        <h2 class="section-title">ההרצאות והסדנאות</h2>
+        <h2 class="section-title">על מה נדבר בהרצאה?</h2>
         
         <div class="topics-grid">
             <div class="topic-card">
-                <div class="topic-title">מנער בסיכון לקצונה</div>
-                <div class="topic-desc">סיפור אישי עוצמתי על שינוי, אמונה עצמית והוכחה שהכל אפשרי, גם כשאף אחד לא מאמין בך.</div>
+                <div class="topic-title">שינוי</div>
+                <div class="topic-desc">איך לחולל שינוי אמיתי בי ובסביבה שלי? התמודדות עצמית ומה באמת נדרש ממני כדי להשתנות ולצמוח.</div>
             </div>
+
             <div class="topic-card">
-                <div class="topic-title">אחריות וקבלת החלטות</div>
-                <div class="topic-desc">כלים פרקטיים איך לקחת את המושכות לידיים, לעמוד מאחורי הבחירות שלך ולהתבגר.</div>
+                <div class="topic-title">לקיחת אחריות</div>
+                <div class="topic-desc">החשיבות הקריטית של לקיחת אחריות על חיי. הבנה שהכוח לשינוי נמצא בידיים שלנו, ללא תירוצים.</div>
             </div>
+
             <div class="topic-card">
-                <div class="topic-title">לנצח את המחשבות</div>
-                <div class="topic-desc">סדנה להתמודדות עם אדישות, חוסר מוטיבציה ומחשבות מגבילות שתוקעות אותנו במקום.</div>
+                <div class="topic-title">קבלת החלטות</div>
+                <div class="topic-desc">כיצד אגיע להחלטות אמיצות בצמתים מורכבים בחיי? כלים לניתוח מצבים ובחירה בדרך הנכונה תחת לחץ.</div>
             </div>
+
             <div class="topic-card">
-                <div class="topic-title">חוסן מנטלי ופיקודי</div>
-                <div class="topic-desc">תובנות מהשטח ומהצבא על התמודדות עם משברים, לחץ ועומס רגשי בתקופה מורכבת.</div>
+                <div class="topic-title">מנהיגות אישית</div>
+                <div class="topic-desc">לקחת אחריות על החיים שלך ולהוביל את עצמך להצלחה, לפני שמובילים אחרים.</div>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-title">גבורה</div>
+                <div class="topic-desc">סיפורי גבורה מרוח התקופה וחיבור לגבורה שבתוכי. גילוי הכוחות הפנימיים ברגעי משבר.</div>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-title">ערכים אוניברסליים</div>
+                <div class="topic-desc">חיבור עמוק לערכי ליבה המשותפים לכל אדם באשר הוא. יצירת שפה משותפת ומכבדת.</div>
             </div>
         </div>
 
         <div class="audience-badge">
-            <strong>מתאים לכל המגזרים:</strong> תיכונים, מכינות קדם-צבאיות, אולפנות, ישיבות, מתנ"סים ונוער בסיכון.<br>
-            השיח הוא ערכי ומחבר, מדבר לכולם ולא דתי/מטיף.
+            <strong>למי זה מתאים?</strong> תיכונים, מכינות קדם-צבאיות, אולפנות, ישיבות, מתנ"סים וארגונים.<br>
+            השיח הוא בגובה העיניים, ערכי ומחבר, ומותאם לכלל המגזרים.
         </div>
     </section>
 
@@ -477,8 +499,7 @@
                 </ul>
             </div>
             <div class="footer-column">
-
-                  <h3>צור קשר</h3>
+                <h3>צור קשר</h3>
                 <ul class="footer-links">
                     <li><a href="tel:0533036662">053-3036662</a></li>
                     <li><a href="mailto:ofekpator2890@gmail.com">ofekpator2890@gmail.com</a></li>
