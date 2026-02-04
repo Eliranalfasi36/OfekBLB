@@ -121,7 +121,7 @@
             background-size: 180%; background-position: center center; background-repeat: no-repeat;
         }
 
-        /* --- במה נעסוק (מעודכן ל-6 נושאים) --- */
+        /* --- במה נעסוק --- */
         .topics-section {
             padding: 80px 5%;
             background-color: #111;
@@ -144,7 +144,7 @@
             padding: 30px 20px;
             border-radius: 12px;
             width: 100%;
-            max-width: 350px; /* קצת יותר רחב להכיל טקסט */
+            max-width: 350px; 
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -174,7 +174,6 @@
             color: #ccc; font-size: 1rem;
         }
         
-        /* באדג' הקהל */
         .audience-badge {
             margin-top: 40px;
             display: inline-block;
@@ -211,6 +210,45 @@
             border: 1px solid #333; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
         iframe { width: 100%; height: 100%; border: none; }
+
+        /* --- כתבה בעיתון (חדש!) --- */
+        .press-section {
+            padding: 80px 5%;
+            background-color: #0f0f0f; /* גוון כהה מעט שונה */
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+        .press-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .press-item {
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            border: 1px solid #333;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+            background-color: #000;
+        }
+        .press-item:hover {
+            transform: scale(1.02);
+            border-color: #d4af37;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .press-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
 
         /* --- המלצות --- */
         .recommendations-section {
@@ -282,6 +320,7 @@
         body.accessibility-mode header, body.accessibility-mode .about-section, body.accessibility-mode .video-section,
         body.accessibility-mode .clients-section, body.accessibility-mode .recommendations-section, body.accessibility-mode .topics-section,
         body.accessibility-mode .topic-card, body.accessibility-mode .rec-bubble, body.accessibility-mode .modal-content,
+        body.accessibility-mode .press-section, body.accessibility-mode .press-item,
         body.accessibility-mode .footer-content {
             background: #000 !important; background-image: none !important; border-color: #ffff00 !important;
             backdrop-filter: none !important; box-shadow: none !important;
@@ -301,7 +340,7 @@
             .client-item { width: 40%; }
             .footer-content { flex-direction: column; text-align: center; }
             .social-icons { justify-content: center; }
-            .about-text { text-align: center; } /* במובייל המרכוז עובד יותר טוב */
+            .about-text { text-align: center; } 
         }
 
         @media (min-width: 900px) {
@@ -336,7 +375,8 @@
                 <a href="#about" onclick="toggleMenu()">אודות</a>
                 <a href="#topics" onclick="toggleMenu()">הרצאות</a>
                 <a href="#videos" onclick="toggleMenu()">מדיה</a>
-                <a href="#recommendations" onclick="toggleMenu()">היו הושפעו והמליצו</a>
+                <a href="#press" onclick="toggleMenu()">בתקשורת</a>
+                <a href="#recommendations" onclick="toggleMenu()">המלצות</a>
                 <button onclick="openModal(); toggleMenu();" style="text-align:right;">יצירת קשר</button>
             </nav>
         </div>
@@ -453,6 +493,18 @@
             </div>
             <div class="video-card">
                 <iframe src="https://www.youtube.com/embed/Zu6iP0Ju3lg" title="הרצאה של אופק 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="press" class="press-section">
+        <h2 class="section-title">הסיפור האישי בעיתונות</h2>
+        <div class="press-container">
+            <div class="press-item">
+                <img src="https://i.imgur.com/BEj2u9o.jpeg" alt="כתבה על אופק בן לולו - חלק 1" loading="lazy">
+            </div>
+            <div class="press-item">
+                <img src="https://i.imgur.com/dvarWDd.jpeg" alt="כתבה על אופק בן לולו - חלק 2" loading="lazy">
             </div>
         </div>
     </section>
