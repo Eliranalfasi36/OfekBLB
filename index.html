@@ -7,7 +7,8 @@
     <title>אופק בן לולו - הרצאות וסדנאות מנהיגות</title>
     <meta name="description" content="הרצאות סוחפות בגובה העיניים על מנהיגות, חוסן מנטלי וקבלת החלטות. תובנות של קצין לוחם מהשטח לחיים האמיתיים.">
     <meta name="keywords" content="הרצאות מנהיגות, חוסן מנטלי, קבלת החלטות, גבורה, ערכים, אופק בן לולו, הרצאות לתיכונים, הרצאות למכינות">
-    <meta name="theme-color" content="#001f3f"> <link rel="icon" type="image/png" href="https://i.imgur.com/z2JBYCJ.jpeg">
+    <meta name="theme-color" content="#001f3f">
+    <link rel="icon" type="image/png" href="https://i.imgur.com/z2JBYCJ.jpeg">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://eliranalfasi36.github.io/OfekBLB/">
@@ -32,43 +33,43 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            /* צבע רקע כחול נייבי - משדר אמינות ויציבות */
-            background-color: #001f3f;
+            background-color: #001f3f; /* כחול נייבי */
         }
 
         /* --- נגישות --- */
         *:focus-visible { outline: 2px solid #d4af37; outline-offset: 2px; }
 
-        /* --- מצגת רקע (רק 2 גיפים) --- */
+        /* --- רקע וידאו/גיף משולב --- */
         .background-slider {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background-color: #001f3f;
         }
-        .slide {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-size: cover; background-position: center; background-repeat: no-repeat;
-            opacity: 0; 
-            /* אנימציה מותאמת ל-2 שקופיות בלבד */
-            animation: fadeTwoSlides 16s infinite; 
-        }
         
-        .stop-animations .slide { animation: none !important; opacity: 1 !important; display: none; }
-        .stop-animations .slide:first-child { display: block; }
+        /* מחלקה משותפת לתמונות ווידאו ברקע */
+        .slide-media {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; /* מבטיח שהוידאו יכסה את כל המסך */
+            opacity: 0;
+            animation: fadeTwoSlides 16s infinite;
+        }
+
+        .stop-animations .slide-media { animation: none !important; opacity: 0 !important; display: none; }
+        .stop-animations .slide-media:first-child { display: block !important; opacity: 1 !important; }
 
         @keyframes fadeTwoSlides {
             0% { opacity: 0; }
             10% { opacity: 1; }
-            45% { opacity: 1; }
-            55% { opacity: 0; }
+            40% { opacity: 1; }
+            50% { opacity: 0; }
             100% { opacity: 0; }
         }
 
-        /* כל גיף מקבל חצי מהזמן הכולל. דיליי של חצי מחזור לשני */
-        .slide:nth-child(1) { animation-delay: 0s; }
-        .slide:nth-child(2) { animation-delay: 8s; } /* חצי מ-16 שניות */
+        /* תזמון: כל מדיה מקבלת 8 שניות */
+        .slide-media:nth-child(1) { animation-delay: 0s; }
+        .slide-media:nth-child(2) { animation-delay: 8s; }
 
         .overlay {
-            /* שכבה כהה מעל הגיפים כדי שהטקסט יהיה קריא */
-            background-color: rgba(0, 31, 63, 0.75); /* כחול נייבי שקוף */
+            /* הורדתי את האטימות ל-0.4 (40%) כדי שהוידאו יבלוט */
+            background-color: rgba(0, 31, 63, 0.4); 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
         }
 
@@ -76,8 +77,8 @@
         header {
             display: flex; justify-content: space-between; align-items: center; padding: 10px 5%;
             position: fixed; width: 100%; top: 0; 
-            background-color: rgba(0, 31, 63, 0.95); /* נייבי */
-            z-index: 1000; border-bottom: 1px solid #d4af37; /* פס זהב עדין */
+            background-color: rgba(0, 31, 63, 0.95);
+            z-index: 1000; border-bottom: 1px solid #d4af37;
             backdrop-filter: blur(10px);
         }
         .header-right { display: flex; align-items: center; gap: 15px; }
@@ -88,7 +89,7 @@
             color: #e0e0e0; text-decoration: none; font-weight: 500; font-size: 1rem;
             transition: color 0.3s; position: relative; background: none; border: none; font-family: inherit; cursor: pointer;
         }
-        .nav-links a:hover, .nav-links button:hover { color: #d4af37; } /* זהב בהובר */
+        .nav-links a:hover, .nav-links button:hover { color: #d4af37; }
         .header-left { display: flex; align-items: center; }
         .phone-link {
             border: 1px solid #d4af37; background-color: rgba(212, 175, 55, 0.1); padding: 8px 12px;
@@ -104,10 +105,10 @@
         }
         .hero-text { text-align: center; width: 100%; max-width: 900px; }
         .hero-title { font-size: 2.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        .hero-title span { color: #d4af37; } /* זהב */
-        .hero-subtitle { font-size: 1.3rem; color: #e0e0e0; margin-bottom: 35px; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .hero-title span { color: #d4af37; }
+        .hero-subtitle { font-size: 1.3rem; color: #e0e0e0; margin-bottom: 35px; max-width: 800px; margin-left: auto; margin-right: auto; text-shadow: 1px 1px 5px rgba(0,0,0,0.7); }
         .cta-button-large {
-            display: inline-block; background-color: #d4af37; color: #001f3f; /* טקסט כחול על כפתור זהב */
+            display: inline-block; background-color: #d4af37; color: #001f3f;
             padding: 15px 40px; border-radius: 50px; font-weight: 800; font-size: 1.2rem; text-decoration: none;
             transition: transform 0.2s, background-color 0.3s; border: 2px solid #d4af37; cursor: pointer;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
@@ -116,8 +117,7 @@
 
         /* --- אודות --- */
         .about-section {
-            padding: 100px 5%; background-color: rgba(0, 31, 63, 0.9); /* נייבי שקוף */
-            position: relative; z-index: 1; backdrop-filter: blur(5px);
+            padding: 100px 5%; background-color: rgba(0, 31, 63, 0.9); position: relative; z-index: 1; backdrop-filter: blur(5px);
         }
         .about-container { display: flex; flex-direction: column-reverse; align-items: center; gap: 40px; max-width: 1100px; margin: 0 auto; }
         .about-text { flex: 1; text-align: right; }
@@ -132,88 +132,44 @@
 
         /* --- במה נעסוק --- */
         .topics-section {
-            padding: 80px 5%;
-            background-color: #001a35; /* נייבי כהה יותר */
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            border-top: 1px solid #113f6b;
+            padding: 80px 5%; background-color: #001a35; text-align: center; position: relative; z-index: 1; border-top: 1px solid #113f6b;
         }
         .topics-grid {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 25px;
-            max-width: 1200px;
-            margin: 40px auto 40px auto;
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 25px; max-width: 1200px; margin: 40px auto 40px auto;
         }
         .topic-card {
-            background-color: #002b55; /* רקע כחול מעט בהיר יותר לכרטיס */
-            border: 1px solid #113f6b;
-            padding: 30px 20px;
-            border-radius: 12px;
-            width: 100%;
-            max-width: 350px; 
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background-color: #002b55; border: 1px solid #113f6b; padding: 30px 20px; border-radius: 12px; width: 100%; max-width: 350px; 
+            transition: all 0.3s ease; position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center;
         }
-        .topic-card:hover {
-            transform: translateY(-5px);
-            border-color: #d4af37;
-            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.15);
-        }
+        .topic-card:hover { transform: translateY(-5px); border-color: #d4af37; box-shadow: 0 5px 20px rgba(212, 175, 55, 0.15); }
         .topic-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 3px;
-            background-color: #d4af37;
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background-color: #d4af37;
+            transform: scaleX(0); transition: transform 0.3s ease;
         }
         .topic-card:hover::before { transform: scaleX(1); }
-        
-        .topic-title {
-            color: #d4af37; font-size: 1.4rem; font-weight: 700; margin-bottom: 10px;
-        }
-        .topic-desc {
-            color: #e0e0e0; font-size: 1rem;
-        }
-        
+        .topic-title { color: #d4af37; font-size: 1.4rem; font-weight: 700; margin-bottom: 10px; }
+        .topic-desc { color: #e0e0e0; font-size: 1rem; }
         .audience-badge {
-            margin-top: 40px;
-            display: inline-block;
-            background-color: rgba(212, 175, 55, 0.15);
-            border: 1px solid #d4af37;
-            padding: 15px 30px;
-            border-radius: 50px;
-            color: #fff;
-            font-weight: 700;
-            font-size: 1.1rem;
-            max-width: 800px;
-            line-height: 1.5;
+            margin-top: 40px; display: inline-block; background-color: rgba(212, 175, 55, 0.15);
+            border: 1px solid #d4af37; padding: 15px 30px; border-radius: 50px; color: #fff; font-weight: 700; font-size: 1.1rem; max-width: 800px; line-height: 1.5;
         }
 
-        /* --- גופים (מעודכן עם לוגואים) --- */
+        /* --- גופים (לוגואים גלויים) --- */
         .clients-section {
-            padding: 60px 5%; background-color: #001f3f; text-align: center; position: relative; z-index: 1; 
-            border-top: 1px solid #113f6b; border-bottom: 1px solid #113f6b;
+            padding: 60px 5%; background-color: #001f3f; text-align: center; position: relative; z-index: 1; border-top: 1px solid #113f6b; border-bottom: 1px solid #113f6b;
         }
         .clients-title { font-size: 1.5rem; color: #8faec9; margin-bottom: 40px; font-weight: 400; letter-spacing: 1px; }
         .clients-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 50px; max-width: 1200px; margin: 0 auto; align-items: center; }
         .client-item { display: flex; flex-direction: column; align-items: center; width: 160px; }
         
-        /* התאמת גודל ללוגואים החדשים */
+        /* לוגואים - ללא פילטר, גלויים תמיד */
         .client-logo-img { 
             width: auto; height: 80px; margin-bottom: 15px; 
-            object-fit: contain; filter: brightness(0) invert(1); /* הופך לוגואים ללבן כדי שישתלבו ברקע כהה */
-            transition: transform 0.3s, filter 0.3s;
+            object-fit: contain; 
+            /* הסרתי את הפילטר שהופך ללבן - עכשיו רואים צבעים */
+            transition: transform 0.3s;
         }
-        /* אם הלוגו צבעוני, נבטל את הפילטר בהובר */
-        .client-item:hover .client-logo-img { transform: scale(1.1); filter: none; }
+        .client-item:hover .client-logo-img { transform: scale(1.1); }
         
         .client-icon { width: 60px; height: 60px; margin-bottom: 15px; fill: #d4af37; transition: transform 0.3s; }
         .client-item:hover .client-icon { transform: scale(1.1); }
@@ -233,42 +189,15 @@
 
         /* --- כתבה בעיתון --- */
         .press-section {
-            padding: 80px 5%;
-            background-color: #001220; /* כהה מאוד */
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            border-top: 1px solid #113f6b;
-            border-bottom: 1px solid #113f6b;
+            padding: 80px 5%; background-color: #001220; text-align: center; position: relative; z-index: 1; border-top: 1px solid #113f6b; border-bottom: 1px solid #113f6b;
         }
-        .press-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            max-width: 900px;
-            margin: 0 auto;
-        }
+        .press-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; max-width: 900px; margin: 0 auto; }
         .press-item {
-            flex: 1;
-            min-width: 300px;
-            max-width: 400px;
-            border: 1px solid #333;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s, border-color 0.3s;
-            background-color: #000;
+            flex: 1; min-width: 300px; max-width: 400px; border: 1px solid #333; border-radius: 10px; overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s; background-color: #000;
         }
-        .press-item:hover {
-            transform: scale(1.02);
-            border-color: #d4af37;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .press-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+        .press-item:hover { transform: scale(1.02); border-color: #d4af37; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .press-item img { width: 100%; height: auto; display: block; }
 
         /* --- המלצות --- */
         .recommendations-section {
@@ -345,7 +274,6 @@
             background: #000 !important; background-image: none !important; border-color: #ffff00 !important;
             backdrop-filter: none !important; box-shadow: none !important;
         }
-        body.accessibility-mode .client-logo-img { filter: none !important; } /* לא להעלים לוגואים בנגישות */
         body.accessibility-mode *:focus-visible { outline: 3px solid #00ff00 !important; }
 
         /* --- התאמות מדיה --- */
@@ -378,8 +306,8 @@
 <body>
 
     <div class="background-slider" id="bgSlider">
-        <div class="slide" style="background-image: url('https://i.imgur.com/1SdLuu8.gif');"></div>
-        <div class="slide" style="background-image: url('https://i.imgur.com/5HclV61.gif');"></div>
+        <img src="https://i.imgur.com/1SdLuu8.gif" alt="רקע וידאו" class="slide-media">
+        <video src="https://i.imgur.com/kRLzFGv.mp4" class="slide-media" autoplay muted loop playsinline></video>
     </div>
     <div class="overlay"></div>
 
