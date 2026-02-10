@@ -44,10 +44,9 @@
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background-color: #001f3f;
         }
         
-        /* מחלקה משותפת לתמונות ווידאו ברקע */
         .slide-media {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover; /* מבטיח שהוידאו יכסה את כל המסך */
+            object-fit: cover;
             opacity: 0;
             animation: fadeTwoSlides 16s infinite;
         }
@@ -63,12 +62,10 @@
             100% { opacity: 0; }
         }
 
-        /* תזמון: כל מדיה מקבלת 8 שניות */
         .slide-media:nth-child(1) { animation-delay: 0s; }
         .slide-media:nth-child(2) { animation-delay: 8s; }
 
         .overlay {
-            /* הורדתי את האטימות ל-0.4 (40%) כדי שהוידאו יבלוט */
             background-color: rgba(0, 31, 63, 0.4); 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
         }
@@ -91,10 +88,16 @@
         }
         .nav-links a:hover, .nav-links button:hover { color: #d4af37; }
         .header-left { display: flex; align-items: center; }
+        
+        /* כפתור וואטסאפ משודרג */
         .phone-link {
             border: 1px solid #d4af37; background-color: rgba(212, 175, 55, 0.1); padding: 8px 12px;
             border-radius: 2px; color: #d4af37; font-weight: 700; text-decoration: none; font-size: 1rem;
             transition: all 0.3s; letter-spacing: 1px;
+            display: flex; align-items: center; gap: 8px; /* רווח בין האייקון למספר */
+        }
+        .phone-link svg {
+            width: 18px; height: 18px; fill: currentColor;
         }
         .phone-link:hover { background-color: #d4af37; color: #001f3f; box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
 
@@ -154,25 +157,18 @@
             border: 1px solid #d4af37; padding: 15px 30px; border-radius: 50px; color: #fff; font-weight: 700; font-size: 1.1rem; max-width: 800px; line-height: 1.5;
         }
 
-        /* --- גופים (לוגואים גלויים) --- */
+        /* --- גופים (מעודכן: רק לוגואים ספציפיים) --- */
         .clients-section {
             padding: 60px 5%; background-color: #001f3f; text-align: center; position: relative; z-index: 1; border-top: 1px solid #113f6b; border-bottom: 1px solid #113f6b;
         }
         .clients-title { font-size: 1.5rem; color: #8faec9; margin-bottom: 40px; font-weight: 400; letter-spacing: 1px; }
         .clients-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 50px; max-width: 1200px; margin: 0 auto; align-items: center; }
         .client-item { display: flex; flex-direction: column; align-items: center; width: 160px; }
-        
-        /* לוגואים - ללא פילטר, גלויים תמיד */
         .client-logo-img { 
             width: auto; height: 80px; margin-bottom: 15px; 
-            object-fit: contain; 
-            /* הסרתי את הפילטר שהופך ללבן - עכשיו רואים צבעים */
-            transition: transform 0.3s;
+            object-fit: contain; transition: transform 0.3s;
         }
         .client-item:hover .client-logo-img { transform: scale(1.1); }
-        
-        .client-icon { width: 60px; height: 60px; margin-bottom: 15px; fill: #d4af37; transition: transform 0.3s; }
-        .client-item:hover .client-icon { transform: scale(1.1); }
         .client-text { font-size: 1rem; color: #fff; font-weight: 700; }
 
         /* --- סרטונים --- */
@@ -203,18 +199,26 @@
         .recommendations-section {
             padding: 80px 5%; background-color: #001f3f; text-align: center; position: relative; z-index: 1; border-top: 1px solid #113f6b; scroll-margin-top: 80px; 
         }
-        .recommendation-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; }
-        .rec-bubble {
-            background-image: linear-gradient(rgba(0,31,63,0.7), rgba(0,31,63,0.7)), url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGNsajB6d3ZoMDgwZGpsM3Z1ejQzZ3BuMmJoM2h0MGkzbzlnaHBtZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2csuIJj6TmuKA/giphy.gif');
-            background-size: cover; background-position: center; color: #fff; padding: 25px; border-radius: 20px;
-            max-width: 350px; text-align: right; box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-            position: relative; font-size: 0.95rem; line-height: 1.5; border: 1px solid #113f6b; transition: transform 0.3s;
+        .recommendation-container { 
+            display: flex; justify-content: center; flex-direction: column; gap: 20px; max-width: 800px; margin: 0 auto;
         }
-        .rec-bubble:hover { transform: translateY(-5px); border-color: #d4af37; }
-        .rec-name {
-            margin-top: 15px; font-weight: 900; font-size: 0.9rem; color: #d4af37;
-            border-top: 1px solid rgba(255,255,255,0.3); padding-top: 10px; display: inline-block; width: 100%;
+        .rec-card {
+            background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease; text-align: right; border: 1px solid #d4af37; cursor: pointer;
         }
+        .rec-card:hover { box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3); transform: translateY(-2px); }
+        .rec-header {
+            padding: 20px; display: flex; justify-content: space-between; align-items: center; background-color: #fff; color: #001f3f;
+        }
+        .rec-title { font-weight: 900; font-size: 1.1rem; }
+        .rec-role { font-weight: 400; font-size: 0.95rem; color: #666; margin-right: 10px; }
+        .rec-icon { font-size: 1.5rem; color: #d4af37; font-weight: bold; transition: transform 0.3s; }
+        .rec-body {
+            max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out, padding 0.5s;
+            padding: 0 20px; color: #333; font-size: 1rem; line-height: 1.6; background-color: #f9f9f9;
+        }
+        .rec-card.active .rec-body { max-height: 500px; padding: 20px; border-top: 1px solid #eee; }
+        .rec-card.active .rec-icon { transform: rotate(45deg); }
 
         /* --- Footer --- */
         .site-footer {
@@ -268,12 +272,18 @@
         body.accessibility-mode a, body.accessibility-mode button:not(.close-btn) { color: #00ff00 !important; text-decoration: underline !important; border-color: #00ff00 !important; }
         body.accessibility-mode header, body.accessibility-mode .about-section, body.accessibility-mode .video-section,
         body.accessibility-mode .clients-section, body.accessibility-mode .recommendations-section, body.accessibility-mode .topics-section,
-        body.accessibility-mode .topic-card, body.accessibility-mode .rec-bubble, body.accessibility-mode .modal-content,
+        body.accessibility-mode .topic-card, body.accessibility-mode .modal-content,
         body.accessibility-mode .press-section, body.accessibility-mode .press-item,
         body.accessibility-mode .footer-content {
             background: #000 !important; background-image: none !important; border-color: #ffff00 !important;
             backdrop-filter: none !important; box-shadow: none !important;
         }
+        body.accessibility-mode .rec-card { background: #000 !important; border-color: #ffff00 !important; }
+        body.accessibility-mode .rec-header { background: #000 !important; color: #ffff00 !important; }
+        body.accessibility-mode .rec-body { background: #000 !important; color: #ffff00 !important; }
+        body.accessibility-mode .rec-role { color: #00ff00 !important; }
+        
+        body.accessibility-mode .client-logo-img { filter: none !important; } 
         body.accessibility-mode *:focus-visible { outline: 3px solid #00ff00 !important; }
 
         /* --- התאמות מדיה --- */
@@ -325,7 +335,10 @@
             </nav>
         </div>
         <div class="header-left">
-            <a href="tel:0533036662" class="phone-link" aria-label="התקשר לאופק">053-3036662</a>
+            <a href="https://wa.me/972533036662" class="phone-link" aria-label="שלח הודעה בווטסאפ" target="_blank">
+                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                053-3036662
+            </a>
         </div>
     </header>
 
@@ -418,16 +431,6 @@
             </div>
 
             <div class="client-item">
-                <svg class="client-icon" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
-                <span class="client-text">תיכונים וחטיבות עליונות</span>
-            </div>
-
-            <div class="client-item">
-                <svg class="client-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                <span class="client-text">רשויות מקומיות</span>
-            </div>
-
-            <div class="client-item">
                 <img src="https://th.bing.com/th/id/R.c53113fa2c40ceafb3978c4e36162c2a?rik=zA5GZLA%2fYhK9LA&pid=ImgRaw&r=0" alt="ישיבת אור עקיבא" class="client-logo-img">
                 <span class="client-text">ישיבת אור עקיבא</span>
             </div>
@@ -465,18 +468,77 @@
     <section id="recommendations" class="recommendations-section">
         <h2 class="section-title">היו, השפיעו והמליצו</h2>
         <div class="recommendation-container">
-            <div class="rec-bubble">
-                רוצה להמליץ על השיחה של אופק...<br>
-                <span class="rec-name">אילנה זמיר, רכזת חברתית, אולפנת ראשל"צ</span>
+            
+            <div class="rec-card" onclick="toggleRec(this)">
+                <div class="rec-header">
+                    <span class="rec-title">ענת יוספי <span class="rec-role">| מעגלים</span></span>
+                    <span class="rec-icon">+</span>
+                </div>
+                <div class="rec-body">
+                    <p>אופק היקר!<br>
+                    תודה על המילים, על הכריזמה ועל הנוכחות.<br>
+                    התחלת גבוה את ימי ההערכות ומשם המשכנו לגבהים נוספים.<br>
+                    אתה ההצלחה של מעגלים!!<br>
+                    ב"ה, הייתה שיחה משמעותית ומוצלחת!!</p>
+                    <p style="margin-top:10px; font-weight:bold;">ענת יוספי, מנהלת חינוכית, מעגלים.</p>
+                </div>
             </div>
-            <div class="rec-bubble">
-                תודה אופק!! היה מעולה היום...<br>
-                <span class="rec-name">בת-שבע, רכזת חברתית, אולפנת בית שולמית, ירושלים</span>
+
+            <div class="rec-card" onclick="toggleRec(this)">
+                <div class="rec-header">
+                    <span class="rec-title">הרב יהונתן זומר <span class="rec-role">| ישיבת בנ"ע מירון</span></span>
+                    <span class="rec-icon">+</span>
+                </div>
+                <div class="rec-body">
+                    <p>היה פשוט מצוין! התלמידים התחברו מאוד, במיוחד לשיחה בערב שהייתה משמעותית ונגעה בהם.<br>
+                    שמחנו גם על שיחות המסדרון והזמינות שלך לאורך כל השבת זה הוסיף המון ערך.<br>
+                    ראו שאתה מגיע עם לב פתוח ויכולת חיבור אמיתית. תודה על תרומה גדולה ומשמעותית!</p>
+                    <p style="margin-top:10px; font-weight:bold;">הרב יהונתן זומר, מנהל ישיבת בני עקיבא, מירון.</p>
+                </div>
             </div>
-            <div class="rec-bubble">
-                אופק היה אצלנו בשיחה משמעותית...<br>
-                <span class="rec-name">רייני לוי, מחנכת ורכזת חברתית, אולפנית אור עקיבא</span>
+
+            <div class="rec-card" onclick="toggleRec(this)">
+                <div class="rec-header">
+                    <span class="rec-title">יניב <span class="rec-role">| אור תורה בנים, רמות</span></span>
+                    <span class="rec-icon">+</span>
+                </div>
+                <div class="rec-body">
+                    <p>אופק הגיע אלינו למאהל הגבורה בירושלים ודיבר עם התלמידים בגובה העיניים עם המון חום, הומור ורגש.<br>
+                    השיחה הצליחה לרגש, לגעת ולשקף לתלמידים נק' עמוקות גם ברמה האישית וגם כחברה.<br>
+                    מעבר לתוכן המצוין, הסגנון, השיח הישיר, הקשר עם התלמידים, ההתאמה בזמן אמת פשוט עשו את ההבדל.<br>
+                    והכי חשוב? אופק נשאר גם אחרי - הקשיב, חיבר, נתן מקום.<br>
+                    חוויה חינוכית אמיתית.</p>
+                    <p style="margin-top:10px; font-weight:bold;">יניב, מחנך ורכז חברתי, אור תורה בנים, רמות.</p>
+                </div>
             </div>
+
+            <div class="rec-card" onclick="toggleRec(this)">
+                <div class="rec-header">
+                    <span class="rec-title">יעקב בנימיני <span class="rec-role">| ישיבת בנ"ע מירון</span></span>
+                    <span class="rec-icon">+</span>
+                </div>
+                <div class="rec-body">
+                    <p>אופק בן לולו האלוף היה אצלנו בשבת ישיבה במירון,<br>
+                    התלמידים היו מרותקים והתחברו מאד לשיחות. הנושאים היו רלוונטיים ונוגעים לחיים שלהם והם קיבלו הרבה מוטיבציה וכלים.<br>
+                    ממליצים מאוד!</p>
+                    <p style="margin-top:10px; font-weight:bold;">יעקב בנימיני, מחנך ורכז חברתי, ישיבת בני עקיבא, מירון.</p>
+                </div>
+            </div>
+
+            <div class="rec-card" onclick="toggleRec(this)">
+                <div class="rec-header">
+                    <span class="rec-title">אילנה זמיר <span class="rec-role">| אולפנת ראשל"צ</span></span>
+                    <span class="rec-icon">+</span>
+                </div>
+                <div class="rec-body">
+                    <p>רוצה להמליץ על השיחה של אופק, השיחה הייתה משמעותית. העביר לכיתות ט-יא.<br>
+                    ההרצאה נגעה בבנות. דרך סיפור החיים שלו והקרבות בעזה,<br>
+                    בשיחה דובר על חשיבות של לעשות שינויים בחיים ולקבל החלטות נכונות שמסייעות בעתיד לקבל החלטות חשובות.<br>
+                    תודה רבה!</p>
+                    <p style="margin-top:10px; font-weight:bold;">אילנה זמיר, רכזת חברתית, אולפנת ראשל"צ.</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -490,33 +552,11 @@
                 <div class="social-icons">
                     <a href="#" class="social-icon" aria-label="אינסטגרם"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.64.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85C3.8 3.92 5.32 2.38 8.58 2.23c1.27-.06 1.64-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07c-4.35.2-6.78 2.62-6.98 6.98C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84c-3.4 0-6.16 2.76-6.16 6.16S8.6 18.16 12 18.16 18.16 15.4 18.16 12 15.4 5.84 12 5.84zm0 10.16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm6.4-10.8c-.79 0-1.44.65-1.44 1.44s.65 1.44 1.44 1.44 1.44-.65 1.44-1.44-.65-1.44-1.44-1.44z"/></svg></a>
                     <a href="#" class="social-icon" aria-label="פייסבוק"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-                    <a href="https://wa.me/972533036662" class="social-icon" aria-label="וואטסאפ"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-                </div>
-            </div>
-            <div class="footer-column">
-                <h3>ניווט מהיר</h3>
-                <ul class="footer-links">
-                    <li><a href="#">דף הבית</a></li>
-                    <li><a href="#about">אודות אופק</a></li>
-                    <li><a href="#topics">הרצאות וסדנאות</a></li>
-                    <li><a href="#videos">מדיה וסרטונים</a></li>
-                    <li><a href="#recommendations">המלצות</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>צור קשר</h3>
-                <ul class="footer-links">
-                    <li><a href="tel:0533036662">053-3036662</a></li>
-                    <li><a href="mailto:ofekpator2890@gmail.com">ofekpator2890@gmail.com</a></li>
-                    <li><button onclick="openModal()" style="background:none; border:none; color:#d4af37; font:inherit; cursor:pointer; padding:0;">השאר פנייה באתר</button></li>
-                </ul>
-            </div>
+                    <a href="https://wa.me/972533036662" class="social-icon" aria-label="וואטסאפ"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                053-3036662
+            </a>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 אופק - הרצאות ומימוש עצמי. כל הזכויות שמורות.</p>
-            <button onclick="toggleAccessibility()" class="a11y-btn" aria-label="כפתור נגישות: החלף למצב ניגודיות גבוהה">נגישות: מצב ניגודיות</button>
-        </div>
-    </footer>
+    </header>
 
     <div id="contactModal" class="modal" aria-hidden="true">
         <div class="modal-content" role="dialog" aria-labelledby="modalTitle">
@@ -559,6 +599,17 @@
             btn.innerText = "נגישות: כבה מצב ניגודיות";
         } else {
             btn.innerText = "נגישות: מצב ניגודיות";
+        }
+    }
+    
+    // פונקציה לפתיחת/סגירת ההמלצה
+    function toggleRec(element) {
+        element.classList.toggle("active");
+        var icon = element.querySelector('.rec-icon');
+        if (element.classList.contains("active")) {
+            icon.innerText = "+"; // אפשר לשנות למינוס אם רוצים, אבל הרוטציה עושה את העבודה
+        } else {
+            icon.innerText = "+";
         }
     }
 </script>
