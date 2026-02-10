@@ -66,7 +66,8 @@
         .slide-media:nth-child(2) { animation-delay: 8s; }
 
         .overlay {
-            background-color: rgba(0, 31, 63, 0.4); 
+            /* הורדתי משמעותית ל-30% כדי שהסרטונים יהיו ברורים */
+            background-color: rgba(0, 31, 63, 0.3); 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
         }
 
@@ -89,16 +90,14 @@
         .nav-links a:hover, .nav-links button:hover { color: #d4af37; }
         .header-left { display: flex; align-items: center; }
         
-        /* כפתור וואטסאפ משודרג */
+        /* כפתור וואטסאפ */
         .phone-link {
             border: 1px solid #d4af37; background-color: rgba(212, 175, 55, 0.1); padding: 8px 12px;
             border-radius: 2px; color: #d4af37; font-weight: 700; text-decoration: none; font-size: 1rem;
             transition: all 0.3s; letter-spacing: 1px;
-            display: flex; align-items: center; gap: 8px; /* רווח בין האייקון למספר */
+            display: flex; align-items: center; gap: 8px;
         }
-        .phone-link svg {
-            width: 18px; height: 18px; fill: currentColor;
-        }
+        .phone-link svg { width: 18px; height: 18px; fill: currentColor; }
         .phone-link:hover { background-color: #d4af37; color: #001f3f; box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
 
         /* --- Hero --- */
@@ -107,9 +106,9 @@
             padding: 160px 5% 80px 5%; min-height: 80vh; position: relative; z-index: 1; text-align: center;
         }
         .hero-text { text-align: center; width: 100%; max-width: 900px; }
-        .hero-title { font-size: 2.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .hero-title { font-size: 2.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
         .hero-title span { color: #d4af37; }
-        .hero-subtitle { font-size: 1.3rem; color: #e0e0e0; margin-bottom: 35px; max-width: 800px; margin-left: auto; margin-right: auto; text-shadow: 1px 1px 5px rgba(0,0,0,0.7); }
+        .hero-subtitle { font-size: 1.3rem; color: #fff; margin-bottom: 35px; max-width: 800px; margin-left: auto; margin-right: auto; text-shadow: 1px 1px 5px rgba(0,0,0,0.9); font-weight: 500; }
         .cta-button-large {
             display: inline-block; background-color: #d4af37; color: #001f3f;
             padding: 15px 40px; border-radius: 50px; font-weight: 800; font-size: 1.2rem; text-decoration: none;
@@ -120,7 +119,7 @@
 
         /* --- אודות --- */
         .about-section {
-            padding: 100px 5%; background-color: rgba(0, 31, 63, 0.9); position: relative; z-index: 1; backdrop-filter: blur(5px);
+            padding: 100px 5%; background-color: rgba(0, 31, 63, 0.95); position: relative; z-index: 1; backdrop-filter: blur(10px);
         }
         .about-container { display: flex; flex-direction: column-reverse; align-items: center; gap: 40px; max-width: 1100px; margin: 0 auto; }
         .about-text { flex: 1; text-align: right; }
@@ -157,7 +156,7 @@
             border: 1px solid #d4af37; padding: 15px 30px; border-radius: 50px; color: #fff; font-weight: 700; font-size: 1.1rem; max-width: 800px; line-height: 1.5;
         }
 
-        /* --- גופים (מעודכן: רק לוגואים ספציפיים) --- */
+        /* --- גופים (מעודכן וגלוי) --- */
         .clients-section {
             padding: 60px 5%; background-color: #001f3f; text-align: center; position: relative; z-index: 1; border-top: 1px solid #113f6b; border-bottom: 1px solid #113f6b;
         }
@@ -165,15 +164,16 @@
         .clients-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 50px; max-width: 1200px; margin: 0 auto; align-items: center; }
         .client-item { display: flex; flex-direction: column; align-items: center; width: 160px; }
         .client-logo-img { 
-            width: auto; height: 80px; margin-bottom: 15px; 
+            width: auto; height: 90px; margin-bottom: 15px; 
             object-fit: contain; transition: transform 0.3s;
+            /* הוסר הפילטר הלבן - צבעים מקוריים */
         }
         .client-item:hover .client-logo-img { transform: scale(1.1); }
         .client-text { font-size: 1rem; color: #fff; font-weight: 700; }
 
         /* --- סרטונים --- */
         .video-section {
-            padding: 60px 0; background-color: rgba(0, 26, 53, 0.8); text-align: center; position: relative; z-index: 1; backdrop-filter: blur(5px);
+            padding: 60px 0; background-color: rgba(0, 26, 53, 0.9); text-align: center; position: relative; z-index: 1; backdrop-filter: blur(5px);
         }
         .section-title { font-size: 2.2rem; color: #d4af37; margin-bottom: 30px; font-weight: 900; }
         .video-scroller { display: flex; justify-content: center; flex-wrap: wrap; padding: 0 5%; gap: 20px; }
@@ -195,7 +195,7 @@
         .press-item:hover { transform: scale(1.02); border-color: #d4af37; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .press-item img { width: 100%; height: auto; display: block; }
 
-        /* --- המלצות --- */
+        /* --- המלצות (לבן ונקי) --- */
         .recommendations-section {
             padding: 80px 5%; background-color: #001f3f; text-align: center; position: relative; z-index: 1; border-top: 1px solid #113f6b; scroll-margin-top: 80px; 
         }
@@ -282,7 +282,6 @@
         body.accessibility-mode .rec-header { background: #000 !important; color: #ffff00 !important; }
         body.accessibility-mode .rec-body { background: #000 !important; color: #ffff00 !important; }
         body.accessibility-mode .rec-role { color: #00ff00 !important; }
-        
         body.accessibility-mode .client-logo-img { filter: none !important; } 
         body.accessibility-mode *:focus-visible { outline: 3px solid #00ff00 !important; }
 
