@@ -36,61 +36,62 @@
             background-color: #001f3f; /* כחול נייבי */
         }
 
-        /* --- נגישות --- */
+        /* --- נגישות וסגנון בחירת טקסט (פיניש פרימיום) --- */
         *:focus-visible { outline: 2px solid #d4af37; outline-offset: 2px; }
+        ::selection { background: #d4af37; color: #001f3f; } /* צבע סימון טקסט אישי */
+
+        /* --- עיצוב פס גלילה (פיניש פרימיום) --- */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #000a14; }
+        ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #fbf5b7; }
 
         /* --- רקע וידאו/גיף משולב --- */
         .background-slider {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background-color: #001f3f;
         }
-        
         .slide-media {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            animation: fadeTwoSlides 16s infinite;
+            object-fit: cover; opacity: 0; animation: fadeTwoSlides 16s infinite;
         }
-
         .stop-animations .slide-media { animation: none !important; opacity: 0 !important; display: none; }
         .stop-animations .slide-media:first-child { display: block !important; opacity: 1 !important; }
 
         @keyframes fadeTwoSlides {
-            0% { opacity: 0; }
-            10% { opacity: 1; }
-            40% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 0; }
+            0% { opacity: 0; } 10% { opacity: 1; } 40% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 0; }
         }
-
         .slide-media:nth-child(1) { animation-delay: 0s; }
         .slide-media:nth-child(2) { animation-delay: 8s; }
 
         .overlay {
-            background-color: rgba(0, 31, 63, 0.3); 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background-color: rgba(0, 31, 63, 0.3); position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
         }
 
-        /* --- אנימציות חשיפה בגלילה (Scroll Reveal) --- */
+        /* --- אנימציות חשיפה בגלילה --- */
         .reveal-section {
-            opacity: 0;
-            transform: translateY(40px);
+            opacity: 0; transform: translateY(40px);
             transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
             will-change: opacity, transform;
         }
-        .reveal-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal-section.visible { opacity: 1; transform: translateY(0); }
 
-        /* --- Header --- */
+        /* --- Header חכם (פיניש פרימיום) --- */
         header {
-            display: flex; justify-content: space-between; align-items: center; padding: 10px 5%;
-            position: fixed; width: 100%; top: 0; 
-            background-color: rgba(0, 31, 63, 0.95);
-            z-index: 1000; border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-            backdrop-filter: blur(15px);
-            transition: all 0.3s ease;
+            display: flex; justify-content: space-between; align-items: center; padding: 15px 5%;
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            /* מצב שקוף בהתחלה */
+            background-color: transparent; 
+            border-bottom: 1px solid transparent;
+            transition: all 0.4s ease;
         }
+        /* המעמד לאחר גלילה */
+        header.scrolled {
+            background-color: rgba(0, 31, 63, 0.95);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            backdrop-filter: blur(15px);
+            padding: 10px 5%; /* הופך לצר יותר */
+        }
+        
         .header-right { display: flex; align-items: center; gap: 15px; }
         .logo { font-weight: 900; font-size: 1.5rem; color: #fff; text-decoration: none; letter-spacing: 1px; }
         .hamburger-btn { display: none; font-size: 1.8rem; background: none; border: none; color: #d4af37; cursor: pointer; }
@@ -102,12 +103,10 @@
         .nav-links a:hover, .nav-links button:hover { color: #d4af37; }
         .header-left { display: flex; align-items: center; }
         
-        /* כפתור וואטסאפ */
         .phone-link {
             border: 1px solid #d4af37; background-color: rgba(212, 175, 55, 0.1); padding: 8px 12px;
             border-radius: 5px; color: #d4af37; font-weight: 700; text-decoration: none; font-size: 1rem;
-            transition: all 0.3s; letter-spacing: 1px;
-            display: flex; align-items: center; gap: 8px;
+            transition: all 0.3s; letter-spacing: 1px; display: flex; align-items: center; gap: 8px;
         }
         .phone-link svg { width: 18px; height: 18px; fill: currentColor; }
         .phone-link:hover { background-color: #d4af37; color: #001f3f; box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); transform: translateY(-2px); }
@@ -118,18 +117,30 @@
             padding: 160px 5% 80px 5%; min-height: 80vh; position: relative; z-index: 1; text-align: center;
         }
         .hero-text { text-align: center; width: 100%; max-width: 900px; animation: heroFadeIn 1.5s cubic-bezier(0.4, 0, 0.2, 1); }
-        
-        @keyframes heroFadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes heroFadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
         .hero-title { font-size: 2.8rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; text-shadow: 2px 2px 15px rgba(0,0,0,0.8); }
-        .hero-title span { color: #d4af37; }
+        
+        /* טקסט מטאלי זהוב (פיניש פרימיום) */
+        .hero-title span, .highlight-gold { 
+            background: linear-gradient(to left, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none; /* חייבים לבטל הצללה כדי שהגרדיאנט יעבוד */
+            position: relative;
+        }
+        /* מחזיר הצללה מאחורי טקסט שקוף */
+        .hero-title span::after {
+            content: 'מתחילה בהחלטה אחת.';
+            position: absolute; right: 0; top: 0; z-index: -1;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.8);
+            -webkit-text-fill-color: transparent;
+        }
+
         .hero-subtitle { font-size: 1.3rem; color: #fff; margin-bottom: 35px; max-width: 800px; margin-left: auto; margin-right: auto; text-shadow: 1px 1px 5px rgba(0,0,0,0.9); font-weight: 500; line-height: 1.5; }
         .cta-button-large {
             display: inline-block; background-color: #d4af37; color: #001f3f;
-            padding: 15px 45px; border-radius: 50px; font-weight: 800; font-size: 1.2rem; text-decoration: none;
+            padding: 15px 45px; border-radius: 50px; font-weight: 900; font-size: 1.2rem; text-decoration: none;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 2px solid #d4af37; cursor: pointer;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); position: relative; overflow: hidden;
         }
@@ -137,7 +148,7 @@
 
         /* --- אודות --- */
         .about-section {
-            padding: 100px 5%; background-color: rgba(0, 31, 63, 0.95); position: relative; z-index: 1; backdrop-filter: blur(10px);
+            padding: 100px 5%; background-color: rgba(0, 31, 63, 0.95); position: relative; z-index: 1; backdrop-filter: blur(10px); border-top: 1px solid rgba(255,255,255,0.05);
         }
         .about-container { display: flex; flex-direction: column-reverse; align-items: center; gap: 40px; max-width: 1100px; margin: 0 auto; }
         .about-text { flex: 1; text-align: right; }
@@ -171,7 +182,6 @@
         .topic-card:hover::before { transform: scaleX(1); }
         .topic-title { color: #d4af37; font-size: 1.4rem; font-weight: 700; margin-bottom: 10px; }
         .topic-desc { color: #e0e0e0; font-size: 1rem; }
-        
         .audience-badge {
             margin-top: 40px; display: inline-block; background-color: rgba(212, 175, 55, 0.1);
             border: 1px solid rgba(212, 175, 55, 0.5); padding: 15px 30px; border-radius: 50px; color: #fff; font-weight: 700; font-size: 1.1rem; max-width: 800px; line-height: 1.5;
@@ -186,69 +196,47 @@
         .clients-title { font-size: 1.5rem; color: #8faec9; margin-bottom: 40px; font-weight: 400; letter-spacing: 1px; }
         .clients-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 50px; max-width: 1200px; margin: 0 auto; align-items: center; }
         .client-item { display: flex; flex-direction: column; align-items: center; width: 160px; }
-        .client-logo-img { 
-            width: auto; height: 90px; margin-bottom: 15px; 
-            object-fit: contain; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+        .client-logo-img { width: auto; height: 90px; margin-bottom: 15px; object-fit: contain; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         .client-item:hover .client-logo-img { transform: scale(1.15) translateY(-5px); }
         .client-text { font-size: 1rem; color: #fff; font-weight: 700; opacity: 0.8; transition: opacity 0.3s; }
         .client-item:hover .client-text { opacity: 1; }
 
-        /* --- מנוע האצת חומרה לגלילה --- */
+        /* --- אנימציית גלילה ימינה מתוקנת --- */
         @keyframes scroll-rtl {
             0% { transform: translate3d(0, 0, 0); }
             100% { transform: translate3d(25%, 0, 0); } 
         }
 
-        /* --- סרטונים (אפקט קולנועי) --- */
+        /* --- סרטונים --- */
         .video-section {
             padding: 80px 0; background-color: rgba(0, 26, 53, 0.95); text-align: center; position: relative; z-index: 1; backdrop-filter: blur(10px); overflow: hidden;
         }
         .video-section .section-title { padding: 0 5%; }
-        
         .video-wrapper { 
             width: 100%; overflow: hidden; position: relative; padding: 30px 0 60px 0; 
-            /* מיסוך קצוות להופעה רכה */
             mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
             -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
         }
-        
-        .video-track { 
-            display: flex; width: max-content; align-items: center; 
-            animation: scroll-rtl 45s linear infinite; 
-            will-change: transform; /* רמז לדפדפן להאיץ את התנועה */
-        }
-        
-        /* אפקט הפוקוס מונע מ-CSS */
+        .video-track { display: flex; width: max-content; align-items: center; animation: scroll-rtl 45s linear infinite; will-change: transform; }
         .video-wrapper:hover .video-track { animation-play-state: paused; }
-        .video-wrapper:hover .video-card { 
-            opacity: 0.4; filter: blur(3px); transform: scale(0.95); /* מטשטש את כולם */
-        }
-        
+        .video-wrapper:hover .video-card { opacity: 0.4; filter: blur(3px); transform: scale(0.95); }
         .video-group { display: flex; align-items: center; gap: 25px; padding-left: 25px; }
-        
         .video-card {
             width: 300px; flex-shrink: 0; aspect-ratio: 9 / 16; background-color: #000; border-radius: 15px; overflow: hidden;
-            border: 1px solid #113f6b; box-shadow: 0 5px 15px rgba(0,0,0,0.5); 
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: transform, opacity, filter;
+            border: 1px solid #113f6b; box-shadow: 0 5px 15px rgba(0,0,0,0.5); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform, opacity, filter;
         }
-        
-        /* מחזיר לפוקוס את הסרטון שעליו מצביעים */
         .video-wrapper .video-card:hover { 
             opacity: 1; filter: blur(0); transform: scale(1.08) translateY(-10px); 
             border-color: #d4af37; box-shadow: 0 20px 40px rgba(212, 175, 55, 0.4); z-index: 10; 
         }
-        iframe { width: 100%; height: 100%; border: none; pointer-events: none; } /* מונע לחיצות בטעות בזמן גלילה */
-        .video-card:hover iframe { pointer-events: auto; } /* מאפשר לחיצה רק בהובר */
+        iframe { width: 100%; height: 100%; border: none; pointer-events: none; } 
+        .video-card:hover iframe { pointer-events: auto; } 
 
         /* --- קבלות מהשטח --- */
         .press-section {
             padding: 80px 5%; background-color: #001220; text-align: center; position: relative; z-index: 1; border-top: 1px solid #113f6b; border-bottom: 1px solid #113f6b;
         }
-        .press-container { 
-            display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; 
-        }
+        .press-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
         .press-item {
             flex: 1; min-width: 300px; max-width: 350px; border: 1px solid #333; border-radius: 12px; overflow: hidden;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); background-color: #fff;
@@ -257,54 +245,37 @@
         .press-item:hover { transform: scale(1.03) translateY(-5px); border-color: #d4af37; box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3); }
         .press-item img { width: 100%; height: auto; display: block; object-fit: contain; }
 
-        /* --- המלצות (אפקט קולנועי) --- */
+        /* --- המלצות --- */
         .recommendations-section {
             padding: 80px 0; background-color: #001f3f; text-align: center; position: relative; z-index: 1; border-top: 1px solid #113f6b; overflow: hidden;
         }
         .recommendations-section .section-title { padding: 0 5%; }
-        
         .rec-wrapper { 
             width: 100%; overflow: hidden; position: relative; padding: 20px 0 60px 0; 
-            /* מיסוך קצוות */
             mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
             -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
         }
-        
-        .rec-track { 
-            display: flex; width: max-content; align-items: flex-start; 
-            animation: scroll-rtl 40s linear infinite; 
-            will-change: transform;
-        }
-        
-        /* אפקט הפוקוס בעכבר */
+        .rec-track { display: flex; width: max-content; align-items: flex-start; animation: scroll-rtl 40s linear infinite; will-change: transform; }
         .rec-wrapper:hover .rec-track { animation-play-state: paused; }
         .rec-wrapper:hover .rec-card { opacity: 0.5; filter: blur(2px); transform: scale(0.98); }
-        
         .rec-group { display: flex; align-items: flex-start; gap: 20px; padding-left: 20px; }
-        
         .rec-card {
             width: 350px; flex-shrink: 0; background-color: #ffffff; border-radius: 12px; overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            text-align: right; border: 1px solid #d4af37; display: flex; flex-direction: column;
-            will-change: transform, opacity, filter;
+            text-align: right; border: 1px solid #d4af37; display: flex; flex-direction: column; will-change: transform, opacity, filter;
         }
-        
-        /* מחזיר לפוקוס ופותח */
         .rec-wrapper .rec-card:hover { 
             opacity: 1; filter: blur(0); transform: scale(1.02) translateY(-5px); 
             box-shadow: 0 15px 35px rgba(212, 175, 55, 0.3); z-index: 10; 
         }
-        
         .rec-header { padding: 25px; display: flex; justify-content: space-between; align-items: center; background-color: #fff; color: #001f3f; cursor: pointer; }
         .rec-title { font-weight: 900; font-size: 1.15rem; }
         .rec-role { font-weight: 400; font-size: 0.95rem; color: #666; display: block; margin-top: 4px;}
         .rec-icon { font-size: 1.8rem; color: #d4af37; font-weight: bold; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-        
         .rec-body {
             max-height: 0; opacity: 0; overflow: hidden; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             padding: 0 25px; color: #444; font-size: 1rem; line-height: 1.7; background-color: #fdfdfd;
         }
-        
         .rec-card:hover .rec-body { max-height: 600px; opacity: 1; padding: 25px; border-top: 1px solid #eee; }
         .rec-card:hover .rec-icon { transform: rotate(45deg); }
 
@@ -338,7 +309,23 @@
         }
         .a11y-btn:hover { border-color: #d4af37; color: #d4af37; }
 
-        /* --- מודל יצירת קשר --- */
+        /* --- כפתור וואטסאפ צף (פיניש פרימיום) --- */
+        .floating-wa {
+            position: fixed; bottom: 30px; left: 30px; width: 60px; height: 60px; background-color: #25D366; 
+            color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4); z-index: 1000; text-decoration: none; transition: transform 0.3s;
+            animation: pulseWA 2s infinite;
+        }
+        .floating-wa svg { width: 35px; height: 35px; fill: currentColor; }
+        .floating-wa:hover { transform: scale(1.1); animation: none; }
+        
+        @keyframes pulseWA {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* --- מודל --- */
         .modal {
             display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 10, 20, 0.9); backdrop-filter: blur(8px);
         }
@@ -368,7 +355,7 @@
         body.accessibility-mode { background-color: #000 !important; color: #ffff00 !important; }
         body.accessibility-mode .background-slider, body.accessibility-mode .overlay { display: none !important; }
         body.accessibility-mode p, body.accessibility-mode h1, body.accessibility-mode h2, body.accessibility-mode h3,
-        body.accessibility-mode span, body.accessibility-mode li, body.accessibility-mode label, body.accessibility-mode .topic-desc { color: #ffff00 !important; text-shadow: none !important; }
+        body.accessibility-mode span, body.accessibility-mode li, body.accessibility-mode label, body.accessibility-mode .topic-desc { color: #ffff00 !important; text-shadow: none !important; -webkit-text-fill-color: #ffff00 !important; background: none !important;}
         body.accessibility-mode a, body.accessibility-mode button:not(.close-btn) { color: #00ff00 !important; text-decoration: underline !important; border-color: #00ff00 !important; background: none !important; box-shadow: none !important;}
         body.accessibility-mode header, body.accessibility-mode .about-section, body.accessibility-mode .video-section,
         body.accessibility-mode .clients-section, body.accessibility-mode .recommendations-section, body.accessibility-mode .topics-section,
@@ -385,7 +372,7 @@
         body.accessibility-mode .video-card { opacity: 1 !important; filter: none !important; transform: none !important; }
         body.accessibility-mode .client-logo-img { filter: none !important; } 
         body.accessibility-mode *:focus-visible { outline: 3px solid #00ff00 !important; }
-        body.accessibility-mode .reveal-section { opacity: 1 !important; transform: none !important; } /* ביטול אנימציות גלילה בנגישות */
+        body.accessibility-mode .reveal-section { opacity: 1 !important; transform: none !important; }
 
         /* --- התאמות מדיה --- */
         @media (max-width: 900px) {
@@ -403,10 +390,10 @@
             .footer-content { flex-direction: column; text-align: center; }
             .social-icons { justify-content: center; }
             .about-text { text-align: center; } 
-            
-            /* בנייד מראים יותר ברור את הפוקוס גם בלי עכבר */
-            .video-wrapper { mask-image: none; -webkit-mask-image: none; }
-            .rec-wrapper { mask-image: none; -webkit-mask-image: none; }
+            .video-wrapper, .rec-wrapper { mask-image: none; -webkit-mask-image: none; }
+            .floating-wa { left: 20px; bottom: 20px; width: 50px; height: 50px; }
+            .floating-wa svg { width: 28px; height: 28px; }
+            header { background-color: rgba(0, 31, 63, 0.95); } /* בנייד ההדר תמיד צבוע בגלל התפריט */
         }
 
         @media (min-width: 900px) {
@@ -453,7 +440,7 @@
         <div class="hero-text">
             <h1 class="hero-title">
                 הדרך למימוש עצמי <br>
-                <span>מתחילה בהחלטה אחת.</span>
+                <span class="highlight-gold">מתחילה בהחלטה אחת.</span>
             </h1>
             <p class="hero-subtitle">
                 הרצאות בגובה העיניים על מנהיגות, חוסן מנטלי וקבלת החלטות. תובנות מהשטח שתורגמו לכלים פרקטיים, בהרצאה שתשאיר אתכם עם כוח לפעול.
@@ -541,10 +528,9 @@
     </section>
 
     <section id="videos" class="video-section reveal-section">
-        <h2 class="section-title">טעימה מהשטח</h2>
+        <h2 class="section-title highlight-gold">טעימה מהשטח</h2>
         <div class="video-wrapper">
             <div class="video-track">
-                
                 <div class="video-group">
                     <div class="video-card"><iframe src="https://www.youtube.com/embed/7t-ncKGtFes" title="הרצאה של אופק 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
                     <div class="video-card"><iframe src="https://www.youtube.com/embed/Zu6iP0Ju3lg" title="הרצאה של אופק 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
@@ -573,7 +559,6 @@
                     <div class="video-card"><iframe src="https://www.youtube.com/embed/P_4lHIHhLVc" title="הרצאה של אופק 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
                     <div class="video-card"><iframe src="https://www.youtube.com/embed/F8qNuvxovNA" title="הרצאה של אופק 5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -594,7 +579,7 @@
     </section>
 
     <section id="recommendations" class="recommendations-section reveal-section">
-        <h2 class="section-title">היו, השפיעו והמליצו</h2>
+        <h2 class="section-title highlight-gold">היו, השפיעו והמליצו</h2>
         <div class="rec-wrapper">
             <div class="rec-track">
                 
@@ -772,6 +757,10 @@
         </div>
     </footer>
 
+    <a href="https://wa.me/972533036662" class="floating-wa" target="_blank" aria-label="שלח הודעה בוואטסאפ">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
     <div id="contactModal" class="modal" aria-hidden="true">
         <div class="modal-content" role="dialog" aria-labelledby="modalTitle">
             <span class="close-btn" onclick="closeModal()" aria-label="סגור חלון">&times;</span>
@@ -788,6 +777,38 @@
     </div>
 
 <script>
+    // ניהול שקיפות ההדר בגלילה
+    window.addEventListener('scroll', function() {
+        var header = document.getElementById('mainHeader');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // מנגנון חשיפה בגלילה (Scroll Reveal)
+    document.addEventListener("DOMContentLoaded", function() {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15 
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-section').forEach((section) => {
+            observer.observe(section);
+        });
+    });
+
     // ניהול מודל צור קשר
     function openModal() { 
         var modal = document.getElementById("contactModal");
@@ -820,28 +841,6 @@
             btn.innerText = "נגישות: מצב ניגודיות";
         }
     }
-
-    // מנגנון חשיפה בגלילה (Scroll Reveal)
-    document.addEventListener("DOMContentLoaded", function() {
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.15 // החשיפה מתחילה כש-15% מהאלמנט נכנס למסך
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // מפעיל את האנימציה רק פעם אחת
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal-section').forEach((section) => {
-            observer.observe(section);
-        });
-    });
 </script>
 
 </body>
