@@ -116,7 +116,7 @@
         }
         .cta-button-large:hover { transform: scale(1.05); background-color: transparent; color: #d4af37; }
 
-        /* --- אודות (התמונה עודכנה!) --- */
+        /* --- אודות --- */
         .about-section {
             padding: 100px 5%; background-color: rgba(0, 31, 63, 0.95); position: relative; z-index: 1; backdrop-filter: blur(10px);
         }
@@ -127,7 +127,6 @@
         .about-image {
             flex: 1; width: 100%; max-width: 400px; height: 450px; border-radius: 20px; overflow: hidden;
             border: 3px solid #d4af37; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            /* כאן שמתי את הקובץ החדש מהגיטהאב */
             background-image: url('ofek-main.png');
             background-size: cover; background-position: center center; background-repeat: no-repeat;
         }
@@ -170,10 +169,11 @@
         .client-item:hover .client-logo-img { transform: scale(1.1); }
         .client-text { font-size: 1rem; color: #fff; font-weight: 700; }
 
-        /* --- אנימציית גלילה ימינה --- */
+        /* --- אנימציית גלילה ימינה מתוקנת ללולאה אינסופית מושלמת --- */
+        /* מכיוון שיש לנו 4 קבוצות זהות, אנחנו מזיזים את המסלול רק ב-25% (שזה בדיוק קבוצה אחת) ואז זה מתאפס בצורה חלקה */
         @keyframes scroll-rtl {
             0% { transform: translateX(0); }
-            100% { transform: translateX(50%); } 
+            100% { transform: translateX(25%); } 
         }
 
         /* --- סרטונים --- */
@@ -182,7 +182,13 @@
         }
         .video-section .section-title { padding: 0 5%; }
         .video-wrapper { width: 100%; overflow: hidden; position: relative; padding: 20px 0 50px 0; }
-        .video-track { display: flex; width: max-content; align-items: center; animation: scroll-rtl 40s linear infinite; }
+        
+        .video-track { 
+            display: flex; width: max-content; align-items: center; 
+            /* האטנו טיפה את האנימציה כדי שיהיה קל לתפוס עם העכבר */
+            animation: scroll-rtl 40s linear infinite; 
+        }
+        
         .video-wrapper:hover .video-track { animation-play-state: paused; }
         .video-group { display: flex; align-items: center; gap: 25px; padding-left: 25px; }
         .video-card {
@@ -192,18 +198,18 @@
         .video-card:hover { transform: scale(1.05) translateY(-5px); border-color: #d4af37; box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4); z-index: 10; }
         iframe { width: 100%; height: 100%; border: none; }
 
-        /* --- כתבה בעיתון והמלצות (השם והמבנה שונו!) --- */
+        /* --- כתבה בעיתון והמלצות רשמיות --- */
         .press-section {
             padding: 80px 5%; background-color: #001220; text-align: center; position: relative; z-index: 1; border-top: 1px solid #113f6b; border-bottom: 1px solid #113f6b;
         }
         .press-container { 
             display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; 
-            max-width: 1200px; /* הרחבתי טיפה שיהיה מקום ל-3 */
+            max-width: 1200px;
             margin: 0 auto; 
         }
         .press-item {
             flex: 1; min-width: 300px; max-width: 400px; border: 1px solid #333; border-radius: 10px; overflow: hidden;
-            transition: transform 0.3s, border-color 0.3s; background-color: #fff; /* רקע לבן לתמונות כדי שהן יבלטו */
+            transition: transform 0.3s, border-color 0.3s; background-color: #fff;
             display: flex; align-items: center; justify-content: center;
         }
         .press-item:hover { transform: scale(1.02); border-color: #d4af37; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
@@ -218,7 +224,12 @@
         }
         .recommendations-section .section-title { padding: 0 5%; }
         .rec-wrapper { width: 100%; overflow: hidden; position: relative; padding: 20px 0 50px 0; }
-        .rec-track { display: flex; width: max-content; align-items: flex-start; animation: scroll-rtl 35s linear infinite; }
+        
+        .rec-track { 
+            display: flex; width: max-content; align-items: flex-start; 
+            animation: scroll-rtl 35s linear infinite; 
+        }
+        
         .rec-wrapper:hover .rec-track { animation-play-state: paused; }
         .rec-group { display: flex; align-items: flex-start; gap: 20px; padding-left: 20px; }
         .rec-card {
@@ -455,44 +466,36 @@
 
     <section id="videos" class="video-section">
         <h2 class="section-title">טעימה מהשטח</h2>
-        
         <div class="video-wrapper">
             <div class="video-track">
                 
                 <div class="video-group">
-                    <div class="video-card">
-                        <iframe src="https://www.youtube.com/embed/7t-ncKGtFes" title="הרצאה של אופק 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-card">
-                        <iframe src="https://www.youtube.com/embed/Zu6iP0Ju3lg" title="הרצאה של אופק 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-card">
-                        <iframe src="https://www.youtube.com/embed/P6ImKWe56to" title="הרצאה של אופק 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-card">
-                        <iframe src="https://www.youtube.com/embed/P_4lHIHhLVc" title="הרצאה של אופק 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-card">
-                        <iframe src="https://www.youtube.com/embed/F8qNuvxovNA" title="הרצאה של אופק 5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-                    </div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/7t-ncKGtFes" title="הרצאה של אופק 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/Zu6iP0Ju3lg" title="הרצאה של אופק 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/P6ImKWe56to" title="הרצאה של אופק 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/P_4lHIHhLVc" title="הרצאה של אופק 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/F8qNuvxovNA" title="הרצאה של אופק 5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
                 </div>
-
                 <div class="video-group">
-                    <div class="video-card">
-                        <iframe src="https://www.youtube.com/embed/7t-ncKGtFes" title="הרצאה של אופק 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-card">
-                        <iframe src="https://www.youtube.com/embed/Zu6iP0Ju3lg" title="הרצאה של אופק 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-card">
-                        <iframe src="https://www.youtube.com/embed/P6ImKWe56to" title="הרצאה של אופק 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-card">
-                        <iframe src="https://www.youtube.com/embed/P_4lHIHhLVc" title="הרצאה של אופק 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                    <div class="video-card">
-                        <iframe src="https://www.youtube.com/embed/F8qNuvxovNA" title="הרצאה של אופק 5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-                    </div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/7t-ncKGtFes" title="הרצאה של אופק 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/Zu6iP0Ju3lg" title="הרצאה של אופק 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/P6ImKWe56to" title="הרצאה של אופק 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/P_4lHIHhLVc" title="הרצאה של אופק 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/F8qNuvxovNA" title="הרצאה של אופק 5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+                </div>
+                <div class="video-group">
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/7t-ncKGtFes" title="הרצאה של אופק 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/Zu6iP0Ju3lg" title="הרצאה של אופק 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/P6ImKWe56to" title="הרצאה של אופק 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/P_4lHIHhLVc" title="הרצאה של אופק 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/F8qNuvxovNA" title="הרצאה של אופק 5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+                </div>
+                <div class="video-group">
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/7t-ncKGtFes" title="הרצאה של אופק 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/Zu6iP0Ju3lg" title="הרצאה של אופק 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/P6ImKWe56to" title="הרצאה של אופק 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/P_4lHIHhLVc" title="הרצאה של אופק 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/F8qNuvxovNA" title="הרצאה של אופק 5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
                 </div>
 
             </div>
@@ -516,171 +519,138 @@
 
     <section id="recommendations" class="recommendations-section">
         <h2 class="section-title">היו, השפיעו והמליצו</h2>
-        
         <div class="rec-wrapper">
             <div class="rec-track">
                 
                 <div class="rec-group">
                     <div class="rec-card">
                         <div class="rec-header">
-                            <div>
-                                <span class="rec-title">ענת יוספי</span>
-                                <span class="rec-role">מנהלת חינוכית, מעגלים</span>
-                            </div>
-                            <span class="rec-icon">+</span>
+                            <div><span class="rec-title">ענת יוספי</span><span class="rec-role">מנהלת חינוכית, מעגלים</span></div><span class="rec-icon">+</span>
                         </div>
-                        <div class="rec-body">
-                            <p>אופק היקר!<br>
-                            תודה על המילים, על הכריזמה ועל הנוכחות.<br>
-                            התחלת גבוה את ימי ההערכות ומשם המשכנו לגבהים נוספים.<br>
-                            אתה ההצלחה של מעגלים!!<br>
-                            ב"ה, הייתה שיחה משמעותית ומוצלחת!!</p>
-                        </div>
+                        <div class="rec-body"><p>אופק היקר!<br>תודה על המילים, על הכריזמה ועל הנוכחות.<br>התחלת גבוה את ימי ההערכות ומשם המשכנו לגבהים נוספים.<br>אתה ההצלחה של מעגלים!!<br>ב"ה, הייתה שיחה משמעותית ומוצלחת!!</p></div>
                     </div>
-
                     <div class="rec-card">
                         <div class="rec-header">
-                            <div>
-                                <span class="rec-title">הרב יהונתן זומר</span>
-                                <span class="rec-role">מנהל ישיבת בני עקיבא, מירון</span>
-                            </div>
-                            <span class="rec-icon">+</span>
+                            <div><span class="rec-title">הרב יהונתן זומר</span><span class="rec-role">מנהל ישיבת בני עקיבא, מירון</span></div><span class="rec-icon">+</span>
                         </div>
-                        <div class="rec-body">
-                            <p>היה פשוט מצוין! התלמידים התחברו מאוד, במיוחד לשיחה בערב שהייתה משמעותית ונגעה בהם.<br>
-                            שמחנו גם על שיחות המסדרון והזמינות שלך לאורך כל השבת זה הוסיף המון ערך.<br>
-                            ראו שאתה מגיע עם לב פתוח ויכולת חיבור אמיתית. תודה על תרומה גדולה ומשמעותית!</p>
-                        </div>
+                        <div class="rec-body"><p>היה פשוט מצוין! התלמידים התחברו מאוד, במיוחד לשיחה בערב שהייתה משמעותית ונגעה בהם.<br>שמחנו גם על שיחות המסדרון והזמינות שלך לאורך כל השבת זה הוסיף המון ערך.<br>ראו שאתה מגיע עם לב פתוח ויכולת חיבור אמיתית. תודה על תרומה גדולה ומשמעותית!</p></div>
                     </div>
-
                     <div class="rec-card">
                         <div class="rec-header">
-                            <div>
-                                <span class="rec-title">יניב</span>
-                                <span class="rec-role">מחנך ורכז חברתי, אור תורה בנים, רמות</span>
-                            </div>
-                            <span class="rec-icon">+</span>
+                            <div><span class="rec-title">יניב</span><span class="rec-role">מחנך ורכז חברתי, אור תורה בנים, רמות</span></div><span class="rec-icon">+</span>
                         </div>
-                        <div class="rec-body">
-                            <p>אופק הגיע אלינו למאהל הגבורה בירושלים ודיבר עם התלמידים בגובה העיניים עם המון חום, הומור ורגש.<br>
-                            השיחה הצליחה לרגש, לגעת ולשקף לתלמידים נק' עמוקות גם ברמה האישית וגם כחברה.<br>
-                            מעבר לתוכן המצוין, הסגנון, השיח הישיר, הקשר עם התלמידים, ההתאמה בזמן אמת פשוט עשו את ההבדל.<br>
-                            והכי חשוב? אופק נשאר גם אחרי - הקשיב, חיבר, נתן מקום.<br>
-                            חוויה חינוכית אמיתית.</p>
-                        </div>
+                        <div class="rec-body"><p>אופק הגיע אלינו למאהל הגבורה בירושלים ודיבר עם התלמידים בגובה העיניים עם המון חום, הומור ורגש.<br>השיחה הצליחה לרגש, לגעת ולשקף לתלמידים נק' עמוקות גם ברמה האישית וגם כחברה.<br>מעבר לתוכן המצוין, הסגנון, השיח הישיר, הקשר עם התלמידים, ההתאמה בזמן אמת פשוט עשו את ההבדל.<br>והכי חשוב? אופק נשאר גם אחרי - הקשיב, חיבר, נתן מקום.<br>חוויה חינוכית אמיתית.</p></div>
                     </div>
-
                     <div class="rec-card">
                         <div class="rec-header">
-                            <div>
-                                <span class="rec-title">יעקב בנימיני</span>
-                                <span class="rec-role">מחנך ורכז חברתי, ישיבת בני עקיבא, מירון</span>
-                            </div>
-                            <span class="rec-icon">+</span>
+                            <div><span class="rec-title">יעקב בנימיני</span><span class="rec-role">מחנך ורכז חברתי, ישיבת בני עקיבא, מירון</span></div><span class="rec-icon">+</span>
                         </div>
-                        <div class="rec-body">
-                            <p>אופק בן לולו האלוף היה אצלנו בשבת ישיבה במירון,<br>
-                            התלמידים היו מרותקים והתחברו מאד לשיחות. הנושאים היו רלוונטיים ונוגעים לחיים שלהם והם קיבלו הרבה מוטיבציה וכלים.<br>
-                            ממליצים מאוד!</p>
-                        </div>
+                        <div class="rec-body"><p>אופק בן לולו האלוף היה אצלנו בשבת ישיבה במירון,<br>התלמידים היו מרותקים והתחברו מאד לשיחות. הנושאים היו רלוונטיים ונוגעים לחיים שלהם והם קיבלו הרבה מוטיבציה וכלים.<br>ממליצים מאוד!</p></div>
                     </div>
-
                     <div class="rec-card">
                         <div class="rec-header">
-                            <div>
-                                <span class="rec-title">אילנה זמיר</span>
-                                <span class="rec-role">רכזת חברתית, אולפנת ראשל"צ</span>
-                            </div>
-                            <span class="rec-icon">+</span>
+                            <div><span class="rec-title">אילנה זמיר</span><span class="rec-role">רכזת חברתית, אולפנת ראשל"צ</span></div><span class="rec-icon">+</span>
                         </div>
-                        <div class="rec-body">
-                            <p>רוצה להמליץ על השיחה של אופק, השיחה הייתה משמעותית. העביר לכיתות ט-יא.<br>
-                            ההרצאה נגעה בבנות. דרך סיפור החיים שלו והקרבות בעזה,<br>
-                            בשיחה דובר על חשיבות של לעשות שינויים בחיים ולקבל החלטות נכונות שמסייעות בעתיד לקבל החלטות חשובות.<br>
-                            תודה רבה!</p>
-                        </div>
+                        <div class="rec-body"><p>רוצה להמליץ על השיחה של אופק, השיחה הייתה משמעותית. העביר לכיתות ט-יא.<br>ההרצאה נגעה בבנות. דרך סיפור החיים שלו והקרבות בעזה,<br>בשיחה דובר על חשיבות של לעשות שינויים בחיים ולקבל החלטות נכונות שמסייעות בעתיד לקבל החלטות חשובות.<br>תודה רבה!</p></div>
                     </div>
                 </div>
 
                 <div class="rec-group">
                     <div class="rec-card">
                         <div class="rec-header">
-                            <div>
-                                <span class="rec-title">ענת יוספי</span>
-                                <span class="rec-role">מנהלת חינוכית, מעגלים</span>
-                            </div>
-                            <span class="rec-icon">+</span>
+                            <div><span class="rec-title">ענת יוספי</span><span class="rec-role">מנהלת חינוכית, מעגלים</span></div><span class="rec-icon">+</span>
                         </div>
-                        <div class="rec-body">
-                            <p>אופק היקר!<br>
-                            תודה על המילים, על הכריזמה ועל הנוכחות.<br>
-                            התחלת גבוה את ימי ההערכות ומשם המשכנו לגבהים נוספים.<br>
-                            אתה ההצלחה של מעגלים!!<br>
-                            ב"ה, הייתה שיחה משמעותית ומוצלחת!!</p>
-                        </div>
+                        <div class="rec-body"><p>אופק היקר!<br>תודה על המילים, על הכריזמה ועל הנוכחות.<br>התחלת גבוה את ימי ההערכות ומשם המשכנו לגבהים נוספים.<br>אתה ההצלחה של מעגלים!!<br>ב"ה, הייתה שיחה משמעותית ומוצלחת!!</p></div>
                     </div>
-
                     <div class="rec-card">
                         <div class="rec-header">
-                            <div>
-                                <span class="rec-title">הרב יהונתן זומר</span>
-                                <span class="rec-role">מנהל ישיבת בני עקיבא, מירון</span>
-                            </div>
-                            <span class="rec-icon">+</span>
+                            <div><span class="rec-title">הרב יהונתן זומר</span><span class="rec-role">מנהל ישיבת בני עקיבא, מירון</span></div><span class="rec-icon">+</span>
                         </div>
-                        <div class="rec-body">
-                            <p>היה פשוט מצוין! התלמידים התחברו מאוד, במיוחד לשיחה בערב שהייתה משמעותית ונגעה בהם.<br>
-                            שמחנו גם על שיחות המסדרון והזמינות שלך לאורך כל השבת זה הוסיף המון ערך.<br>
-                            ראו שאתה מגיע עם לב פתוח ויכולת חיבור אמיתית. תודה על תרומה גדולה ומשמעותית!</p>
-                        </div>
+                        <div class="rec-body"><p>היה פשוט מצוין! התלמידים התחברו מאוד, במיוחד לשיחה בערב שהייתה משמעותית ונגעה בהם.<br>שמחנו גם על שיחות המסדרון והזמינות שלך לאורך כל השבת זה הוסיף המון ערך.<br>ראו שאתה מגיע עם לב פתוח ויכולת חיבור אמיתית. תודה על תרומה גדולה ומשמעותית!</p></div>
                     </div>
-
                     <div class="rec-card">
                         <div class="rec-header">
-                            <div>
-                                <span class="rec-title">יניב</span>
-                                <span class="rec-role">מחנך ורכז חברתי, אור תורה בנים, רמות</span>
-                            </div>
-                            <span class="rec-icon">+</span>
+                            <div><span class="rec-title">יניב</span><span class="rec-role">מחנך ורכז חברתי, אור תורה בנים, רמות</span></div><span class="rec-icon">+</span>
                         </div>
-                        <div class="rec-body">
-                            <p>אופק הגיע אלינו למאהל הגבורה בירושלים ודיבר עם התלמידים בגובה העיניים עם המון חום, הומור ורגש.<br>
-                            השיחה הצליחה לרגש, לגעת ולשקף לתלמידים נק' עמוקות גם ברמה האישית וגם כחברה.<br>
-                            מעבר לתוכן המצוין, הסגנון, השיח הישיר, הקשר עם התלמידים, ההתאמה בזמן אמת פשוט עשו את ההבדל.<br>
-                            והכי חשוב? אופק נשאר גם אחרי - הקשיב, חיבר, נתן מקום.<br>
-                            חוויה חינוכית אמיתית.</p>
-                        </div>
+                        <div class="rec-body"><p>אופק הגיע אלינו למאהל הגבורה בירושלים ודיבר עם התלמידים בגובה העיניים עם המון חום, הומור ורגש.<br>השיחה הצליחה לרגש, לגעת ולשקף לתלמידים נק' עמוקות גם ברמה האישית וגם כחברה.<br>מעבר לתוכן המצוין, הסגנון, השיח הישיר, הקשר עם התלמידים, ההתאמה בזמן אמת פשוט עשו את ההבדל.<br>והכי חשוב? אופק נשאר גם אחרי - הקשיב, חיבר, נתן מקום.<br>חוויה חינוכית אמיתית.</p></div>
                     </div>
-
                     <div class="rec-card">
                         <div class="rec-header">
-                            <div>
-                                <span class="rec-title">יעקב בנימיני</span>
-                                <span class="rec-role">מחנך ורכז חברתי, ישיבת בני עקיבא, מירון</span>
-                            </div>
-                            <span class="rec-icon">+</span>
+                            <div><span class="rec-title">יעקב בנימיני</span><span class="rec-role">מחנך ורכז חברתי, ישיבת בני עקיבא, מירון</span></div><span class="rec-icon">+</span>
                         </div>
-                        <div class="rec-body">
-                            <p>אופק בן לולו האלוף היה אצלנו בשבת ישיבה במירון,<br>
-                            התלמידים היו מרותקים והתחברו מאד לשיחות. הנושאים היו רלוונטיים ונוגעים לחיים שלהם והם קיבלו הרבה מוטיבציה וכלים.<br>
-                            ממליצים מאוד!</p>
-                        </div>
+                        <div class="rec-body"><p>אופק בן לולו האלוף היה אצלנו בשבת ישיבה במירון,<br>התלמידים היו מרותקים והתחברו מאד לשיחות. הנושאים היו רלוונטיים ונוגעים לחיים שלהם והם קיבלו הרבה מוטיבציה וכלים.<br>ממליצים מאוד!</p></div>
                     </div>
-
                     <div class="rec-card">
                         <div class="rec-header">
-                            <div>
-                                <span class="rec-title">אילנה זמיר</span>
-                                <span class="rec-role">רכזת חברתית, אולפנת ראשל"צ</span>
-                            </div>
-                            <span class="rec-icon">+</span>
+                            <div><span class="rec-title">אילנה זמיר</span><span class="rec-role">רכזת חברתית, אולפנת ראשל"צ</span></div><span class="rec-icon">+</span>
                         </div>
-                        <div class="rec-body">
-                            <p>רוצה להמליץ על השיחה של אופק, השיחה הייתה משמעותית. העביר לכיתות ט-יא.<br>
-                            ההרצאה נגעה בבנות. דרך סיפור החיים שלו והקרבות בעזה,<br>
-                            בשיחה דובר על חשיבות של לעשות שינויים בחיים ולקבל החלטות נכונות שמסייעות בעתיד לקבל החלטות חשובות.<br>
-                            תודה רבה!</p>
+                        <div class="rec-body"><p>רוצה להמליץ על השיחה של אופק, השיחה הייתה משמעותית. העביר לכיתות ט-יא.<br>ההרצאה נגעה בבנות. דרך סיפור החיים שלו והקרבות בעזה,<br>בשיחה דובר על חשיבות של לעשות שינויים בחיים ולקבל החלטות נכונות שמסייעות בעתיד לקבל החלטות חשובות.<br>תודה רבה!</p></div>
+                    </div>
+                </div>
+                
+                <div class="rec-group">
+                    <div class="rec-card">
+                        <div class="rec-header">
+                            <div><span class="rec-title">ענת יוספי</span><span class="rec-role">מנהלת חינוכית, מעגלים</span></div><span class="rec-icon">+</span>
                         </div>
+                        <div class="rec-body"><p>אופק היקר!<br>תודה על המילים, על הכריזמה ועל הנוכחות.<br>התחלת גבוה את ימי ההערכות ומשם המשכנו לגבהים נוספים.<br>אתה ההצלחה של מעגלים!!<br>ב"ה, הייתה שיחה משמעותית ומוצלחת!!</p></div>
+                    </div>
+                    <div class="rec-card">
+                        <div class="rec-header">
+                            <div><span class="rec-title">הרב יהונתן זומר</span><span class="rec-role">מנהל ישיבת בני עקיבא, מירון</span></div><span class="rec-icon">+</span>
+                        </div>
+                        <div class="rec-body"><p>היה פשוט מצוין! התלמידים התחברו מאוד, במיוחד לשיחה בערב שהייתה משמעותית ונגעה בהם.<br>שמחנו גם על שיחות המסדרון והזמינות שלך לאורך כל השבת זה הוסיף המון ערך.<br>ראו שאתה מגיע עם לב פתוח ויכולת חיבור אמיתית. תודה על תרומה גדולה ומשמעותית!</p></div>
+                    </div>
+                    <div class="rec-card">
+                        <div class="rec-header">
+                            <div><span class="rec-title">יניב</span><span class="rec-role">מחנך ורכז חברתי, אור תורה בנים, רמות</span></div><span class="rec-icon">+</span>
+                        </div>
+                        <div class="rec-body"><p>אופק הגיע אלינו למאהל הגבורה בירושלים ודיבר עם התלמידים בגובה העיניים עם המון חום, הומור ורגש.<br>השיחה הצליחה לרגש, לגעת ולשקף לתלמידים נק' עמוקות גם ברמה האישית וגם כחברה.<br>מעבר לתוכן המצוין, הסגנון, השיח הישיר, הקשר עם התלמידים, ההתאמה בזמן אמת פשוט עשו את ההבדל.<br>והכי חשוב? אופק נשאר גם אחרי - הקשיב, חיבר, נתן מקום.<br>חוויה חינוכית אמיתית.</p></div>
+                    </div>
+                    <div class="rec-card">
+                        <div class="rec-header">
+                            <div><span class="rec-title">יעקב בנימיני</span><span class="rec-role">מחנך ורכז חברתי, ישיבת בני עקיבא, מירון</span></div><span class="rec-icon">+</span>
+                        </div>
+                        <div class="rec-body"><p>אופק בן לולו האלוף היה אצלנו בשבת ישיבה במירון,<br>התלמידים היו מרותקים והתחברו מאד לשיחות. הנושאים היו רלוונטיים ונוגעים לחיים שלהם והם קיבלו הרבה מוטיבציה וכלים.<br>ממליצים מאוד!</p></div>
+                    </div>
+                    <div class="rec-card">
+                        <div class="rec-header">
+                            <div><span class="rec-title">אילנה זמיר</span><span class="rec-role">רכזת חברתית, אולפנת ראשל"צ</span></div><span class="rec-icon">+</span>
+                        </div>
+                        <div class="rec-body"><p>רוצה להמליץ על השיחה של אופק, השיחה הייתה משמעותית. העביר לכיתות ט-יא.<br>ההרצאה נגעה בבנות. דרך סיפור החיים שלו והקרבות בעזה,<br>בשיחה דובר על חשיבות של לעשות שינויים בחיים ולקבל החלטות נכונות שמסייעות בעתיד לקבל החלטות חשובות.<br>תודה רבה!</p></div>
+                    </div>
+                </div>
+
+                <div class="rec-group">
+                    <div class="rec-card">
+                        <div class="rec-header">
+                            <div><span class="rec-title">ענת יוספי</span><span class="rec-role">מנהלת חינוכית, מעגלים</span></div><span class="rec-icon">+</span>
+                        </div>
+                        <div class="rec-body"><p>אופק היקר!<br>תודה על המילים, על הכריזמה ועל הנוכחות.<br>התחלת גבוה את ימי ההערכות ומשם המשכנו לגבהים נוספים.<br>אתה ההצלחה של מעגלים!!<br>ב"ה, הייתה שיחה משמעותית ומוצלחת!!</p></div>
+                    </div>
+                    <div class="rec-card">
+                        <div class="rec-header">
+                            <div><span class="rec-title">הרב יהונתן זומר</span><span class="rec-role">מנהל ישיבת בני עקיבא, מירון</span></div><span class="rec-icon">+</span>
+                        </div>
+                        <div class="rec-body"><p>היה פשוט מצוין! התלמידים התחברו מאוד, במיוחד לשיחה בערב שהייתה משמעותית ונגעה בהם.<br>שמחנו גם על שיחות המסדרון והזמינות שלך לאורך כל השבת זה הוסיף המון ערך.<br>ראו שאתה מגיע עם לב פתוח ויכולת חיבור אמיתית. תודה על תרומה גדולה ומשמעותית!</p></div>
+                    </div>
+                    <div class="rec-card">
+                        <div class="rec-header">
+                            <div><span class="rec-title">יניב</span><span class="rec-role">מחנך ורכז חברתי, אור תורה בנים, רמות</span></div><span class="rec-icon">+</span>
+                        </div>
+                        <div class="rec-body"><p>אופק הגיע אלינו למאהל הגבורה בירושלים ודיבר עם התלמידים בגובה העיניים עם המון חום, הומור ורגש.<br>השיחה הצליחה לרגש, לגעת ולשקף לתלמידים נק' עמוקות גם ברמה האישית וגם כחברה.<br>מעבר לתוכן המצוין, הסגנון, השיח הישיר, הקשר עם התלמידים, ההתאמה בזמן אמת פשוט עשו את ההבדל.<br>והכי חשוב? אופק נשאר גם אחרי - הקשיב, חיבר, נתן מקום.<br>חוויה חינוכית אמיתית.</p></div>
+                    </div>
+                    <div class="rec-card">
+                        <div class="rec-header">
+                            <div><span class="rec-title">יעקב בנימיני</span><span class="rec-role">מחנך ורכז חברתי, ישיבת בני עקיבא, מירון</span></div><span class="rec-icon">+</span>
+                        </div>
+                        <div class="rec-body"><p>אופק בן לולו האלוף היה אצלנו בשבת ישיבה במירון,<br>התלמידים היו מרותקים והתחברו מאד לשיחות. הנושאים היו רלוונטיים ונוגעים לחיים שלהם והם קיבלו הרבה מוטיבציה וכלים.<br>ממליצים מאוד!</p></div>
+                    </div>
+                    <div class="rec-card">
+                        <div class="rec-header">
+                            <div><span class="rec-title">אילנה זמיר</span><span class="rec-role">רכזת חברתית, אולפנת ראשל"צ</span></div><span class="rec-icon">+</span>
+                        </div>
+                        <div class="rec-body"><p>רוצה להמליץ על השיחה של אופק, השיחה הייתה משמעותית. העביר לכיתות ט-יא.<br>ההרצאה נגעה בבנות. דרך סיפור החיים שלו והקרבות בעזה,<br>בשיחה דובר על חשיבות של לעשות שינויים בחיים ולקבל החלטות נכונות שמסייעות בעתיד לקבל החלטות חשובות.<br>תודה רבה!</p></div>
                     </div>
                 </div>
 
