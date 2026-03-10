@@ -116,7 +116,7 @@
         }
         .cta-button-large:hover { transform: scale(1.05); background-color: transparent; color: #d4af37; }
 
-        /* --- אודות --- */
+        /* --- אודות (התמונה עודכנה!) --- */
         .about-section {
             padding: 100px 5%; background-color: rgba(0, 31, 63, 0.95); position: relative; z-index: 1; backdrop-filter: blur(10px);
         }
@@ -127,8 +127,9 @@
         .about-image {
             flex: 1; width: 100%; max-width: 400px; height: 450px; border-radius: 20px; overflow: hidden;
             border: 3px solid #d4af37; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            background-image: url('https://i.imgur.com/z2JBYCJ.jpeg');
-            background-size: 180%; background-position: center center; background-repeat: no-repeat;
+            /* כאן שמתי את הקובץ החדש מהגיטהאב */
+            background-image: url('ofek-main.png');
+            background-size: cover; background-position: center center; background-repeat: no-repeat;
         }
 
         /* --- במה נעסוק --- */
@@ -169,122 +170,64 @@
         .client-item:hover .client-logo-img { transform: scale(1.1); }
         .client-text { font-size: 1rem; color: #fff; font-weight: 700; }
 
-        /* --- אנימציית גלילה ימינה (משותפת לסרטונים והמלצות) --- */
+        /* --- אנימציית גלילה ימינה --- */
         @keyframes scroll-rtl {
             0% { transform: translateX(0); }
             100% { transform: translateX(50%); } 
         }
 
-        /* --- סרטונים (פס נע ופתיחה בעכבר) --- */
+        /* --- סרטונים --- */
         .video-section {
-            padding: 80px 0; 
-            background-color: rgba(0, 26, 53, 0.9); 
-            text-align: center; 
-            position: relative; 
-            z-index: 1; 
-            backdrop-filter: blur(5px);
-            overflow: hidden;
+            padding: 80px 0; background-color: rgba(0, 26, 53, 0.9); text-align: center; position: relative; z-index: 1; backdrop-filter: blur(5px); overflow: hidden;
         }
-        .video-section .section-title {
-            padding: 0 5%;
-        }
-        .video-wrapper {
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            padding: 20px 0 50px 0;
-        }
-        .video-track {
-            display: flex;
-            width: max-content;
-            align-items: center; 
-            /* הסרטונים רצים לאט יותר כדי לא לסחרר את העין */
-            animation: scroll-rtl 40s linear infinite;
-        }
-        
-        /* עצירת האנימציה במעבר עכבר */
-        .video-wrapper:hover .video-track {
-            animation-play-state: paused;
-        }
-
-        .video-group {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            padding-left: 25px; 
-        }
-
+        .video-section .section-title { padding: 0 5%; }
+        .video-wrapper { width: 100%; overflow: hidden; position: relative; padding: 20px 0 50px 0; }
+        .video-track { display: flex; width: max-content; align-items: center; animation: scroll-rtl 40s linear infinite; }
+        .video-wrapper:hover .video-track { animation-play-state: paused; }
+        .video-group { display: flex; align-items: center; gap: 25px; padding-left: 25px; }
         .video-card {
-            width: 300px; 
-            flex-shrink: 0;
-            aspect-ratio: 9 / 16; 
-            background-color: #000; 
-            border-radius: 15px; 
-            overflow: hidden;
-            border: 1px solid #113f6b; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            width: 300px; flex-shrink: 0; aspect-ratio: 9 / 16; background-color: #000; border-radius: 15px; overflow: hidden;
+            border: 1px solid #113f6b; box-shadow: 0 5px 15px rgba(0,0,0,0.5); transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
-        
-        /* הבלטה של הסרטון הספציפי שעוברים עליו */
-        .video-card:hover {
-            transform: scale(1.05) translateY(-5px);
-            border-color: #d4af37;
-            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
-            z-index: 10;
-        }
-        
+        .video-card:hover { transform: scale(1.05) translateY(-5px); border-color: #d4af37; box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4); z-index: 10; }
         iframe { width: 100%; height: 100%; border: none; }
 
-        /* --- כתבה בעיתון --- */
+        /* --- כתבה בעיתון והמלצות (השם והמבנה שונו!) --- */
         .press-section {
             padding: 80px 5%; background-color: #001220; text-align: center; position: relative; z-index: 1; border-top: 1px solid #113f6b; border-bottom: 1px solid #113f6b;
         }
-        .press-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; max-width: 900px; margin: 0 auto; }
+        .press-container { 
+            display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; 
+            max-width: 1200px; /* הרחבתי טיפה שיהיה מקום ל-3 */
+            margin: 0 auto; 
+        }
         .press-item {
             flex: 1; min-width: 300px; max-width: 400px; border: 1px solid #333; border-radius: 10px; overflow: hidden;
-            transition: transform 0.3s, border-color 0.3s; background-color: #000;
+            transition: transform 0.3s, border-color 0.3s; background-color: #fff; /* רקע לבן לתמונות כדי שהן יבלטו */
+            display: flex; align-items: center; justify-content: center;
         }
         .press-item:hover { transform: scale(1.02); border-color: #d4af37; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .press-item img { width: 100%; height: auto; display: block; }
+        
+        .press-item img { 
+            width: 100%; height: auto; display: block; object-fit: contain; 
+        }
 
-        /* --- המלצות (פס נע, נפתח בעכבר) --- */
+        /* --- המלצות אקורדיון --- */
         .recommendations-section {
-            padding: 80px 0; 
-            background-color: #001f3f; 
-            text-align: center; 
-            position: relative; 
-            z-index: 1; 
-            border-top: 1px solid #113f6b; 
-            overflow: hidden;
+            padding: 80px 0; background-color: #001f3f; text-align: center; position: relative; z-index: 1; border-top: 1px solid #113f6b; overflow: hidden;
         }
-        .recommendations-section .section-title {
-            padding: 0 5%; 
-        }
-        .rec-wrapper {
-            width: 100%; overflow: hidden; position: relative; padding: 20px 0 50px 0; 
-        }
-        .rec-track {
-            display: flex; width: max-content; align-items: flex-start; 
-            animation: scroll-rtl 35s linear infinite;
-        }
-        .rec-wrapper:hover .rec-track {
-            animation-play-state: paused;
-        }
-        .rec-group {
-            display: flex; align-items: flex-start; gap: 20px; padding-left: 20px; 
-        }
+        .recommendations-section .section-title { padding: 0 5%; }
+        .rec-wrapper { width: 100%; overflow: hidden; position: relative; padding: 20px 0 50px 0; }
+        .rec-track { display: flex; width: max-content; align-items: flex-start; animation: scroll-rtl 35s linear infinite; }
+        .rec-wrapper:hover .rec-track { animation-play-state: paused; }
+        .rec-group { display: flex; align-items: flex-start; gap: 20px; padding-left: 20px; }
         .rec-card {
             width: 320px; flex-shrink: 0; background-color: #ffffff; border-radius: 12px; overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             text-align: right; border: 1px solid #d4af37; display: flex; flex-direction: column;
         }
-        .rec-card:hover {
-            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.3); transform: translateY(-5px);
-        }
-        .rec-header {
-            padding: 20px; display: flex; justify-content: space-between; align-items: center; background-color: #fff; color: #001f3f;
-        }
+        .rec-card:hover { box-shadow: 0 12px 30px rgba(212, 175, 55, 0.3); transform: translateY(-5px); }
+        .rec-header { padding: 20px; display: flex; justify-content: space-between; align-items: center; background-color: #fff; color: #001f3f; }
         .rec-title { font-weight: 900; font-size: 1.1rem; }
         .rec-role { font-weight: 400; font-size: 0.95rem; color: #666; display: block; margin-top: 2px;}
         .rec-icon { font-size: 1.5rem; color: #d4af37; font-weight: bold; transition: transform 0.4s; }
@@ -446,7 +389,7 @@
                     כיום אני מרצה ומעביר סדנאות לבני נוער, מכינות וארגונים, במטרה לתת להם את הכלים לפרוץ את הגבולות של עצמם.
                 </p>
             </div>
-            <div class="about-image" role="img" aria-label="אופק בן לולו במדים"></div>
+            <div class="about-image" role="img" aria-label="אופק בן לולו"></div>
         </div>
     </section>
 
@@ -458,27 +401,22 @@
                 <div class="topic-title">שינוי</div>
                 <div class="topic-desc">איך לחולל שינוי אמיתי בי ובסביבה שלי? התמודדות עצמית ומה באמת נדרש ממני כדי להשתנות ולצמוח.</div>
             </div>
-
             <div class="topic-card">
                 <div class="topic-title">לקיחת אחריות</div>
                 <div class="topic-desc">החשיבות הקריטית של לקיחת אחריות על חיי. הבנה שהכוח לשינוי נמצא בידיים שלנו, ללא תירוצים.</div>
             </div>
-
             <div class="topic-card">
                 <div class="topic-title">קבלת החלטות</div>
                 <div class="topic-desc">כיצד אגיע להחלטות אמיצות בצמתים מורכבים בחיי? כלים לניתוח מצבים ובחירה בדרך הנכונה תחת לחץ.</div>
             </div>
-
             <div class="topic-card">
                 <div class="topic-title">מנהיגות אישית</div>
                 <div class="topic-desc">לקחת אחריות על החיים שלך ולהוביל את עצמך להצלחה, לפני שמובילים אחרים.</div>
             </div>
-
             <div class="topic-card">
                 <div class="topic-title">גבורה</div>
                 <div class="topic-desc">התחברות לרוח הלאומית של העם וההירתמות המופלאה לגבורה. גילוי הכוחות הפנימיים הטמונים בכל אחד מאיתנו דווקא בזמני משבר.</div>
             </div>
-
             <div class="topic-card">
                 <div class="topic-title">ערכים אוניברסליים</div>
                 <div class="topic-desc">חיבור עמוק לערכי ליבה המשותפים לכל אדם באשר הוא. יצירת שפה משותפת ומכבדת.</div>
@@ -562,13 +500,16 @@
     </section>
 
     <section id="press" class="press-section">
-        <h2 class="section-title">הסיפור האישי בעיתונות</h2>
+        <h2 class="section-title">קבלות מהשטח: בתקשורת ובהמלצות רשמיות</h2>
         <div class="press-container">
             <div class="press-item">
                 <img src="https://i.imgur.com/BEj2u9o.jpeg" alt="כתבה על אופק בן לולו - חלק 1" loading="lazy">
             </div>
             <div class="press-item">
                 <img src="https://i.imgur.com/dvarWDd.jpeg" alt="כתבה על אופק בן לולו - חלק 2" loading="lazy">
+            </div>
+            <div class="press-item">
+                <img src="magalim-rec.png" alt="המלצה מארגון מעגלים" loading="lazy">
             </div>
         </div>
     </section>
