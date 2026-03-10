@@ -169,16 +169,71 @@
         .client-item:hover .client-logo-img { transform: scale(1.1); }
         .client-text { font-size: 1rem; color: #fff; font-weight: 700; }
 
-        /* --- סרטונים --- */
+        /* --- אנימציית גלילה ימינה (משותפת לסרטונים והמלצות) --- */
+        @keyframes scroll-rtl {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); } 
+        }
+
+        /* --- סרטונים (פס נע ופתיחה בעכבר) --- */
         .video-section {
-            padding: 60px 0; background-color: rgba(0, 26, 53, 0.9); text-align: center; position: relative; z-index: 1; backdrop-filter: blur(5px);
+            padding: 80px 0; 
+            background-color: rgba(0, 26, 53, 0.9); 
+            text-align: center; 
+            position: relative; 
+            z-index: 1; 
+            backdrop-filter: blur(5px);
+            overflow: hidden;
         }
-        .section-title { font-size: 2.2rem; color: #d4af37; margin-bottom: 30px; font-weight: 900; }
-        .video-scroller { display: flex; justify-content: center; flex-wrap: wrap; padding: 0 5%; gap: 20px; }
+        .video-section .section-title {
+            padding: 0 5%;
+        }
+        .video-wrapper {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 20px 0 50px 0;
+        }
+        .video-track {
+            display: flex;
+            width: max-content;
+            align-items: center; 
+            /* הסרטונים רצים לאט יותר כדי לא לסחרר את העין */
+            animation: scroll-rtl 40s linear infinite;
+        }
+        
+        /* עצירת האנימציה במעבר עכבר */
+        .video-wrapper:hover .video-track {
+            animation-play-state: paused;
+        }
+
+        .video-group {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            padding-left: 25px; 
+        }
+
         .video-card {
-            width: 100%; max-width: 300px; aspect-ratio: 9 / 16; background-color: #000; border-radius: 15px; overflow: hidden;
-            border: 1px solid #113f6b; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            width: 300px; 
+            flex-shrink: 0;
+            aspect-ratio: 9 / 16; 
+            background-color: #000; 
+            border-radius: 15px; 
+            overflow: hidden;
+            border: 1px solid #113f6b; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
+        
+        /* הבלטה של הסרטון הספציפי שעוברים עליו */
+        .video-card:hover {
+            transform: scale(1.05) translateY(-5px);
+            border-color: #d4af37;
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+            z-index: 10;
+        }
+        
         iframe { width: 100%; height: 100%; border: none; }
 
         /* --- כתבה בעיתון --- */
@@ -193,7 +248,7 @@
         .press-item:hover { transform: scale(1.02); border-color: #d4af37; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .press-item img { width: 100%; height: auto; display: block; }
 
-        /* --- המלצות --- */
+        /* --- המלצות (פס נע, נפתח בעכבר) --- */
         .recommendations-section {
             padding: 80px 0; 
             background-color: #001f3f; 
@@ -203,72 +258,40 @@
             border-top: 1px solid #113f6b; 
             overflow: hidden;
         }
-        
         .recommendations-section .section-title {
             padding: 0 5%; 
         }
-
         .rec-wrapper {
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            padding: 20px 0 50px 0; 
+            width: 100%; overflow: hidden; position: relative; padding: 20px 0 50px 0; 
         }
-
         .rec-track {
-            display: flex;
-            width: max-content;
-            align-items: flex-start; 
+            display: flex; width: max-content; align-items: flex-start; 
             animation: scroll-rtl 35s linear infinite;
         }
-
         .rec-wrapper:hover .rec-track {
             animation-play-state: paused;
         }
-
         .rec-group {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            padding-left: 20px; 
+            display: flex; align-items: flex-start; gap: 20px; padding-left: 20px; 
         }
-
-        @keyframes scroll-rtl {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(50%); } 
-        }
-
         .rec-card {
-            width: 320px; 
-            flex-shrink: 0;
-            background-color: #ffffff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            text-align: right;
-            border: 1px solid #d4af37;
-            display: flex;
-            flex-direction: column;
+            width: 320px; flex-shrink: 0; background-color: #ffffff; border-radius: 12px; overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: right; border: 1px solid #d4af37; display: flex; flex-direction: column;
         }
-
         .rec-card:hover {
-            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.3);
-            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.3); transform: translateY(-5px);
         }
-
         .rec-header {
             padding: 20px; display: flex; justify-content: space-between; align-items: center; background-color: #fff; color: #001f3f;
         }
         .rec-title { font-weight: 900; font-size: 1.1rem; }
         .rec-role { font-weight: 400; font-size: 0.95rem; color: #666; display: block; margin-top: 2px;}
         .rec-icon { font-size: 1.5rem; color: #d4af37; font-weight: bold; transition: transform 0.4s; }
-        
         .rec-body {
             max-height: 0; opacity: 0; overflow: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             padding: 0 20px; color: #333; font-size: 1rem; line-height: 1.6; background-color: #f9f9f9;
         }
-        
         .rec-card:hover .rec-body { max-height: 500px; opacity: 1; padding: 20px; border-top: 1px solid #eee; }
         .rec-card:hover .rec-icon { transform: rotate(45deg); }
 
@@ -333,7 +356,7 @@
         body.accessibility-mode .rec-card { background: #000 !important; border-color: #ffff00 !important; }
         body.accessibility-mode .rec-header { background: #000 !important; color: #ffff00 !important; }
         body.accessibility-mode .rec-body { background: #000 !important; color: #ffff00 !important; }
-        body.accessibility-mode .rec-wrapper:hover .rec-track { animation-play-state: paused !important; }
+        body.accessibility-mode .rec-wrapper:hover .rec-track, body.accessibility-mode .video-wrapper:hover .video-track { animation-play-state: paused !important; }
         body.accessibility-mode .client-logo-img { filter: none !important; } 
         body.accessibility-mode *:focus-visible { outline: 3px solid #00ff00 !important; }
 
@@ -494,21 +517,46 @@
 
     <section id="videos" class="video-section">
         <h2 class="section-title">טעימה מהשטח</h2>
-        <div class="video-scroller">
-            <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/7t-ncKGtFes" title="הרצאה של אופק" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-            <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/Zu6iP0Ju3lg" title="הרצאה של אופק 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-            <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/P6ImKWe56to" title="הרצאה של אופק 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-            <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/P_4lHIHhLVc" title="הרצאה של אופק 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-            <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/F8qNuvxovNA" title="הרצאה של אופק 5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        
+        <div class="video-wrapper">
+            <div class="video-track">
+                
+                <div class="video-group">
+                    <div class="video-card">
+                        <iframe src="https://www.youtube.com/embed/7t-ncKGtFes" title="הרצאה של אופק 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="video-card">
+                        <iframe src="https://www.youtube.com/embed/Zu6iP0Ju3lg" title="הרצאה של אופק 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="video-card">
+                        <iframe src="https://www.youtube.com/embed/P6ImKWe56to" title="הרצאה של אופק 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="video-card">
+                        <iframe src="https://www.youtube.com/embed/P_4lHIHhLVc" title="הרצאה של אופק 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="video-card">
+                        <iframe src="https://www.youtube.com/embed/F8qNuvxovNA" title="הרצאה של אופק 5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <div class="video-group">
+                    <div class="video-card">
+                        <iframe src="https://www.youtube.com/embed/7t-ncKGtFes" title="הרצאה של אופק 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="video-card">
+                        <iframe src="https://www.youtube.com/embed/Zu6iP0Ju3lg" title="הרצאה של אופק 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="video-card">
+                        <iframe src="https://www.youtube.com/embed/P6ImKWe56to" title="הרצאה של אופק 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="video-card">
+                        <iframe src="https://www.youtube.com/embed/P_4lHIHhLVc" title="הרצאה של אופק 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="video-card">
+                        <iframe src="https://www.youtube.com/embed/F8qNuvxovNA" title="הרצאה של אופק 5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
