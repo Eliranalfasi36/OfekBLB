@@ -125,7 +125,6 @@
 
         .hero-subtitle { font-size: 1.3rem; color: #fff; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto; text-shadow: 1px 1px 5px rgba(0,0,0,0.9); font-weight: 500; line-height: 1.5; }
         
-        /* כפתור מוגדל ובולט במיוחד */
         .cta-button-large {
             display: inline-block; background-color: #d4af37; color: #001f3f;
             padding: 18px 55px; border-radius: 50px; font-weight: 900; font-size: 1.4rem; text-decoration: none;
@@ -141,10 +140,7 @@
         .about-container { display: flex; flex-direction: column-reverse; align-items: center; gap: 40px; max-width: 1100px; margin: 0 auto; }
         .about-text { flex: 1; text-align: right; }
         .about-text h2 { font-size: 2.2rem; color: #d4af37; margin-bottom: 20px; font-weight: 900; }
-        
-        /* טקסט מוגדל לפי בקשתך */
         .about-text p { font-size: 1.3rem; color: #e0e0e0; margin-bottom: 20px; line-height: 1.8; }
-        
         .about-image {
             flex: 1; width: 100%; max-width: 400px; height: 450px; border-radius: 20px; overflow: hidden;
             border: 3px solid rgba(212, 175, 55, 0.5); box-shadow: 0 15px 40px rgba(0,0,0,0.6);
@@ -219,18 +215,15 @@
         iframe { width: 100%; height: 100%; border: none; pointer-events: none; } 
         .video-card:hover iframe { pointer-events: auto; } 
 
-        /* --- קבלות מהשטח (מוכן להגדלה בלחיצה) --- */
+        /* --- קבלות מהשטח --- */
         .press-section {
             padding: 80px 5%; background-color: #001220; text-align: center; position: relative; z-index: 1; border-top: 1px solid #113f6b; border-bottom: 1px solid #113f6b;
         }
-        .press-container { 
-            display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; 
-        }
+        .press-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
         .press-item {
             flex: 1; min-width: 300px; max-width: 350px; border: 1px solid #333; border-radius: 12px; overflow: hidden;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); background-color: #fff;
-            display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-            position: relative;
+            display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(0,0,0,0.5); position: relative;
         }
         .press-item:hover { transform: scale(1.03) translateY(-5px); border-color: #d4af37; box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3); }
         .press-item img { width: 100%; height: auto; display: block; object-fit: contain; cursor: zoom-in; }
@@ -239,13 +232,11 @@
         .image-lightbox {
             display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%;
             background-color: rgba(0, 10, 20, 0.95); backdrop-filter: blur(10px);
-            align-items: center; justify-content: center; flex-direction: column;
-            animation: fadeIn 0.3s ease;
+            align-items: center; justify-content: center; flex-direction: column; animation: fadeIn 0.3s ease;
         }
         .lightbox-content {
             max-width: 90%; max-height: 85vh; border: 3px solid #d4af37; border-radius: 10px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8); object-fit: contain;
-            animation: zoomIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8); object-fit: contain; animation: zoomIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
         .lightbox-close {
@@ -317,7 +308,7 @@
         }
         .a11y-btn:hover { border-color: #d4af37; color: #d4af37; }
 
-        /* --- כפתורי וואטסאפ ומייל צפים --- */
+        /* --- כפתורים צפים (וואטסאפ, מייל, ומוזיקה) --- */
         .floating-wa {
             position: fixed; bottom: 30px; left: 30px; width: 60px; height: 60px; background-color: #25D366; 
             color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
@@ -331,10 +322,20 @@
             position: fixed; bottom: 105px; left: 30px; width: 60px; height: 60px; background-color: #d4af37; 
             color: #001f3f; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
             box-shadow: 0 5px 15px rgba(0,0,0,0.4); z-index: 1000; text-decoration: none; transition: transform 0.3s;
-            animation: pulseEmail 2s infinite; animation-delay: 1s; /* דיליי כדי שיפעמו בנפרד */
+            animation: pulseEmail 2s infinite; animation-delay: 1s; 
         }
         .floating-email svg { width: 30px; height: 30px; fill: currentColor; }
         .floating-email:hover { transform: scale(1.1); animation: none; background-color: #fff; }
+
+        .floating-music {
+            position: fixed; bottom: 30px; right: 30px; width: 55px; height: 55px; background-color: rgba(0, 31, 63, 0.8); 
+            color: #d4af37; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #d4af37;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4); z-index: 1000; cursor: pointer; transition: transform 0.3s, background-color 0.3s;
+            backdrop-filter: blur(5px);
+        }
+        .floating-music svg { width: 28px; height: 28px; fill: currentColor; }
+        .floating-music:hover { transform: scale(1.1); background-color: #d4af37; color: #001f3f; }
+        .floating-music.playing { animation: pulseMusic 2s infinite; background-color: #d4af37; color: #001f3f; }
 
         @keyframes pulseWA {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
@@ -344,6 +345,11 @@
         @keyframes pulseEmail {
             0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
             70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+        @keyframes pulseMusic {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6); }
+            70% { box-shadow: 0 0 0 12px rgba(212, 175, 55, 0); }
             100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
         }
 
@@ -411,11 +417,11 @@
             .about-text { text-align: center; } 
             .video-wrapper, .rec-wrapper { mask-image: none; -webkit-mask-image: none; }
             
-            /* התאמת הכפתורים הצפים לנייד */
             .floating-wa { left: 20px; bottom: 20px; width: 50px; height: 50px; }
             .floating-wa svg { width: 28px; height: 28px; }
             .floating-email { left: 20px; bottom: 85px; width: 50px; height: 50px; }
             .floating-email svg { width: 24px; height: 24px; }
+            .floating-music { right: 20px; bottom: 20px; width: 50px; height: 50px; }
             
             header { background-color: rgba(0, 31, 63, 0.95); }
         }
@@ -438,6 +444,10 @@
         <video src="https://i.imgur.com/kRLzFGv.mp4" class="slide-media" autoplay muted loop playsinline></video>
     </div>
     <div class="overlay"></div>
+
+    <audio id="bgAudio" loop>
+        <source src="bg-music.mp3" type="audio/mpeg">
+    </audio>
 
     <header id="mainHeader">
         <div class="header-right">
@@ -788,6 +798,10 @@
         <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
     </a>
 
+    <button id="musicToggleBtn" class="floating-music" onclick="toggleMusic()" aria-label="נגן מוזיקת רקע">
+        <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+    </button>
+
     <div id="contactModal" class="modal" aria-hidden="true">
         <div class="modal-content" role="dialog" aria-labelledby="modalTitle">
             <span class="close-btn" onclick="closeModal()" aria-label="סגור חלון">&times;</span>
@@ -854,6 +868,19 @@
         var modal = document.getElementById("contactModal");
         modal.style.display = "none"; 
         modal.setAttribute('aria-hidden', 'true');
+    }
+    
+    // ניהול מוזיקת רקע
+    function toggleMusic() {
+        var audio = document.getElementById("bgAudio");
+        var btn = document.getElementById("musicToggleBtn");
+        if (audio.paused) {
+            audio.play();
+            btn.classList.add("playing");
+        } else {
+            audio.pause();
+            btn.classList.remove("playing");
+        }
     }
     
     // סגירת מודלים בלחיצה מחוץ לתוכן
