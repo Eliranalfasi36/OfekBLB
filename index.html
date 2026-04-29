@@ -7,7 +7,7 @@
     <title>אופק בן לולו - הרצאות וסדנאות מנהיגות</title>
     <meta name="description" content="הרצאות סוחפות בגובה העיניים על מנהיגות, חוסן מנטלי וקבלת החלטות. תובנות של קצין לוחם מהשטח לחיים האמיתיים.">
     <meta name="keywords" content="הרצאות מנהיגות, חוסן מנטלי, קבלת החלטות, גבורה, ערכים, אופק בן לולו, הרצאות לתיכונים, הרצאות למכינות">
-    <meta name="theme-color" content="#001f3f">
+    <meta name="theme-color" content="#ffffff">
     <link rel="icon" type="image/png" href="https://i.imgur.com/z2JBYCJ.jpeg">
 
     <meta property="og:type" content="website">
@@ -27,34 +27,34 @@
 
         body {
             font-family: 'Heebo', sans-serif;
-            color: #ffffff;
+            color: #000000; /* טקסט שחור */
             line-height: 1.6;
             overflow-x: hidden;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            background-color: #001f3f; 
+            background-color: #ffffff; /* רקע לבן */
         }
 
         /* --- נגישות וסגנון בחירת טקסט --- */
         *:focus-visible { outline: 2px solid #d4af37; outline-offset: 2px; }
-        ::selection { background: #d4af37; color: #001f3f; } 
+        ::selection { background: #d4af37; color: #fff; } 
 
         /* --- עיצוב פס גלילה --- */
         ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: #000a14; }
-        ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 5px; }
-        ::-webkit-scrollbar-thumb:hover { background: #fbf5b7; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #999; }
 
-        /* --- רקע וידאו --- */
+        /* --- רקע וידאו מובהר --- */
         .background-slider {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background-color: #001f3f;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background-color: #ffffff;
         }
         .bg-video-element {
-            width: 100%; height: 100%; object-fit: cover; opacity: 0.5; pointer-events: none;
+            width: 100%; height: 100%; object-fit: cover; opacity: 0.15; pointer-events: none; filter: grayscale(1);
         }
         .overlay {
-            background-color: rgba(0, 31, 63, 0.3); position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background-color: rgba(255, 255, 255, 0.85); position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
         }
 
         /* --- אנימציות חשיפה בגלילה --- */
@@ -65,25 +65,34 @@
         }
         .reveal-section.visible { opacity: 1; transform: translateY(0); }
 
-        /* --- Header --- */
+        /* --- Header חכם --- */
         header {
             display: flex; justify-content: space-between; align-items: center; padding: 15px 5%;
             position: fixed; width: 100%; top: 0; z-index: 1000;
             background-color: transparent; border-bottom: 1px solid transparent; transition: all 0.4s ease;
         }
         header.scrolled {
-            background-color: rgba(0, 31, 63, 0.95); border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-            backdrop-filter: blur(15px); padding: 10px 5%;
+            background-color: rgba(255, 255, 255, 0.95); border-bottom: 1px solid #eee;
+            backdrop-filter: blur(15px); padding: 10px 5%; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
         .header-right { display: flex; align-items: center; gap: 15px; }
-        .logo { font-weight: 900; font-size: 1.5rem; color: #fff; text-decoration: none; letter-spacing: 1px; }
-        .hamburger-btn { display: none; font-size: 1.8rem; background: none; border: none; color: #d4af37; cursor: pointer; }
+        .logo { font-weight: 900; font-size: 1.5rem; color: #000; text-decoration: none; letter-spacing: 1px; }
+        .hamburger-btn { display: none; font-size: 1.8rem; background: none; border: none; color: #000; cursor: pointer; }
         .nav-links { display: flex; gap: 20px; }
         .nav-links a, .nav-links button {
-            color: #e0e0e0; text-decoration: none; font-weight: 500; font-size: 1rem;
+            color: #333; text-decoration: none; font-weight: 500; font-size: 1rem;
             transition: color 0.3s; position: relative; background: none; border: none; font-family: inherit; cursor: pointer;
         }
         .nav-links a:hover, .nav-links button:hover { color: #d4af37; }
+        .header-left { display: flex; align-items: center; }
+        
+        .phone-link {
+            border: 1px solid #000; background-color: transparent; padding: 8px 12px;
+            border-radius: 5px; color: #000; font-weight: 700; text-decoration: none; font-size: 1rem;
+            transition: all 0.3s; letter-spacing: 1px; display: flex; align-items: center; gap: 8px;
+        }
+        .phone-link svg { width: 18px; height: 18px; fill: currentColor; }
+        .phone-link:hover { background-color: #000; color: #fff; }
 
         /* --- Hero --- */
         .hero-section {
@@ -93,77 +102,77 @@
         .hero-text { text-align: center; width: 100%; max-width: 900px; animation: heroFadeIn 1.5s cubic-bezier(0.4, 0, 0.2, 1); }
         @keyframes heroFadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-        .hero-title { font-size: 2.8rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; text-shadow: 2px 2px 15px rgba(0,0,0,0.8); }
+        .hero-title { font-size: 2.8rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; color: #000; }
         .hero-title span, .highlight-gold { 
-            background: linear-gradient(to left, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: none; position: relative;
+            background: linear-gradient(to left, #bf953f, #aa771c);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; position: relative;
         }
-        .hero-title span::after {
-            content: 'מתחילה בהחלטה אחת.'; position: absolute; right: 0; top: 0; z-index: -1;
-            text-shadow: 2px 2px 15px rgba(0,0,0,0.8); -webkit-text-fill-color: transparent;
-        }
-        .hero-subtitle { font-size: 1.3rem; color: #fff; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto; text-shadow: 1px 1px 5px rgba(0,0,0,0.9); font-weight: 500; line-height: 1.5; }
+        
+        .hero-subtitle { font-size: 1.3rem; color: #333; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto; font-weight: 500; line-height: 1.5; }
         .cta-button-large {
-            display: inline-block; background-color: #d4af37; color: #001f3f;
+            display: inline-block; background-color: #000; color: #fff;
             padding: 18px 55px; border-radius: 50px; font-weight: 900; font-size: 1.4rem; text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 2px solid #d4af37; cursor: pointer;
-            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4); position: relative; overflow: hidden; letter-spacing: 1px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 2px solid #000; cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); position: relative; overflow: hidden; letter-spacing: 1px;
         }
-        .cta-button-large:hover { transform: scale(1.08) translateY(-4px); background-color: transparent; color: #d4af37; box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6); }
+        .cta-button-large:hover { transform: scale(1.05) translateY(-4px); background-color: #fff; color: #000; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
 
-        /* --- אודות (מיקוד באופק - הוגדר מחדש למובייל) --- */
+        /* --- אודות (גישה חדשה למובייל ולמחשב) --- */
         .about-section {
-            padding: 100px 5%; background-color: rgba(0, 31, 63, 0.95); position: relative; z-index: 1; backdrop-filter: blur(10px); border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 100px 5%; background-color: #ffffff; position: relative; z-index: 1; border-top: 1px solid #eee;
         }
         .about-container { display: flex; flex-direction: column-reverse; align-items: center; gap: 40px; max-width: 1100px; margin: 0 auto; }
         .about-text { flex: 1; text-align: right; }
-        .about-text h2 { font-size: 2.2rem; color: #d4af37; margin-bottom: 20px; font-weight: 900; }
-        .about-text p { font-size: 1.3rem; color: #e0e0e0; margin-bottom: 20px; line-height: 1.8; }
+        .about-text h2 { font-size: 2.2rem; color: #000; margin-bottom: 20px; font-weight: 900; }
+        .about-text p { font-size: 1.3rem; color: #333; margin-bottom: 20px; line-height: 1.8; }
         
-        .about-image {
+        /* תמונת דסקטופ (רקע) */
+        .about-image-desktop {
             flex: 1; width: 100%; max-width: 400px; height: 450px; border-radius: 20px; overflow: hidden;
-            border: 3px solid rgba(212, 175, 55, 0.5); box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-            /* ברירת המחדל למחשב - התמונה הממוקדת */
+            border: 2px solid #ccc; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             background-image: url('ofek-main.png');
-            background-size: 200%; 
-            background-position: 50% 10%; 
-            background-repeat: no-repeat;
+            background-size: 200%; background-position: 50% 10%; background-repeat: no-repeat;
             transition: transform 0.5s ease;
         }
-        .about-image:hover { transform: scale(1.02); border-color: #d4af37; }
-
-        /* --- במה נעסוק (קרוסלת שבשבת 3D - מרווחת וגדולה) --- */
-        .topics-section {
-            padding: 80px 0; background-color: #001a35; text-align: center; position: relative; z-index: 1; border-top: 1px solid #113f6b; overflow: hidden;
+        .about-image-desktop:hover { transform: scale(1.02); }
+        
+        /* תמונת מובייל רגילה (מוסתרת כברירת מחדל) */
+        .about-image-mobile {
+            display: none; width: 100%; max-width: 400px; border-radius: 20px; border: 2px solid #ccc; box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            object-fit: cover;
         }
-        .topics-section .section-title { padding: 0 5%; }
+
+        /* --- במה נעסוק (שבשבת 3D קלאסית) --- */
+        .topics-section {
+            padding: 80px 0; background-color: #f9f9f9; text-align: center; position: relative; z-index: 1; border-top: 1px solid #eee; overflow: hidden;
+        }
+        .topics-section .section-title { padding: 0 5%; color: #000; font-weight: 900; font-size: 2.5rem; margin-bottom: 10px;}
         
         .carousel-scene {
-            position: relative; perspective: 1800px; width: 100%; height: 500px; /* הוגבה מעט */
-            display: flex; align-items: center; justify-content: center; margin: 50px 0;
+            position: relative; perspective: 1800px; width: 100%; height: 480px; 
+            display: flex; align-items: center; justify-content: center; margin: 40px 0;
         }
         .carousel-scaler {
             width: 100%; display: flex; justify-content: center;
         }
         .carousel-spinner {
-            position: relative; width: 380px; height: 400px; /* הוגדל מ-320 */
+            position: relative; width: 380px; height: 400px; 
             transform-style: preserve-3d;
             animation: spin-carousel 40s infinite linear; 
         }
         .carousel-spinner:hover { animation-play-state: paused; }
         
         .topic-card-3d {
-            position: absolute; top: 0; left: 0; width: 380px; height: 400px; /* כרטיסיה גדולה יותר */
-            background: linear-gradient(145deg, #002b55, #001a35); border: 1px solid #113f6b;
+            position: absolute; top: 0; left: 0; width: 380px; height: 400px; 
+            background: #ffffff; border: 1px solid #ddd;
             padding: 50px 30px; border-radius: 15px; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.6); transition: all 0.3s ease;
+            text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.3s ease;
         }
-        .topic-card-3d:hover { border-color: #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); background: linear-gradient(145deg, #003366, #001f3f); }
+        .topic-card-3d:hover { border-color: #000; box-shadow: 0 0 25px rgba(0,0,0,0.1); transform: scale(1.02); }
         
-        .topic-card-3d .topic-title { color: #d4af37; font-size: 1.8rem; font-weight: 900; margin-bottom: 20px; text-shadow: 2px 2px 5px rgba(0,0,0,0.5); }
-        .topic-card-3d .topic-desc { color: #e0e0e0; font-size: 1.2rem; line-height: 1.6; }
+        .topic-card-3d .topic-title { color: #000; font-size: 1.8rem; font-weight: 900; margin-bottom: 20px; }
+        .topic-card-3d .topic-desc { color: #444; font-size: 1.2rem; line-height: 1.6; }
 
-        /* רדיוס הוגדל ל-480px כדי ליצור הרבה רווח בין הכרטיסיות */
         .topic-card-3d:nth-child(1) { transform: rotateY(0deg) translateZ(480px); }
         .topic-card-3d:nth-child(2) { transform: rotateY(60deg) translateZ(480px); }
         .topic-card-3d:nth-child(3) { transform: rotateY(120deg) translateZ(480px); }
@@ -171,27 +180,26 @@
         .topic-card-3d:nth-child(5) { transform: rotateY(240deg) translateZ(480px); }
         .topic-card-3d:nth-child(6) { transform: rotateY(300deg) translateZ(480px); }
 
-        @keyframes spin-carousel {
-            0% { transform: rotateY(0deg); }
-            100% { transform: rotateY(-360deg); } 
-        }
+        @keyframes spin-carousel { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(-360deg); } }
 
+        /* כפתור הרצאות נוספות - כסוף ואלגנטי */
         .extra-info-btn {
             display: inline-flex; align-items: center; justify-content: center;
-            margin-top: 20px; padding: 20px 45px; border-radius: 50px;
-            background: linear-gradient(135deg, rgba(0, 43, 85, 0.8), rgba(0, 26, 53, 0.95));
-            border: 2px solid rgba(212, 175, 55, 0.6); color: #fff; font-weight: 900; font-size: 1.4rem;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.5); transition: all 0.3s ease;
-            cursor: default; letter-spacing: 1px;
+            margin-top: 10px; padding: 18px 45px; border-radius: 50px;
+            background: linear-gradient(135deg, #fdfdfd, #e6e6e6, #fdfdfd);
+            border: 1px solid #aaa; color: #111; font-weight: 900; font-size: 1.3rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08), inset 0 1px 0 #fff; 
+            transition: all 0.3s ease; cursor: default; letter-spacing: 0.5px;
         }
         .extra-info-btn:hover {
-            border-color: #d4af37; box-shadow: 0 10px 35px rgba(212, 175, 55, 0.4); transform: translateY(-3px);
-            color: #d4af37;
+            border-color: #666; box-shadow: 0 8px 25px rgba(0,0,0,0.12); transform: translateY(-2px);
+            background: linear-gradient(135deg, #ffffff, #eeeeee, #ffffff);
         }
 
         .audience-badge {
-            margin-top: 40px; display: inline-block; background-color: rgba(212, 175, 55, 0.1);
-            border: 1px solid rgba(212, 175, 55, 0.5); padding: 15px 30px; border-radius: 50px; color: #fff; font-weight: 700; font-size: 1.1rem; max-width: 800px; line-height: 1.5;
+            margin-top: 50px; display: inline-block; background-color: #fff;
+            border: 1px solid #ddd; padding: 15px 30px; border-radius: 50px; color: #333; font-weight: 700; font-size: 1.1rem; max-width: 800px; line-height: 1.5;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
 
         /* --- מנוע אנימציה לסרט נע --- */
@@ -199,9 +207,9 @@
 
         /* --- סרט נע לוגו מוסדות --- */
         .institutions-section {
-            padding: 60px 0; background-color: #001f3f; text-align: center; position: relative; z-index: 1; border-top: 1px solid #113f6b; border-bottom: 1px solid #113f6b; overflow: hidden;
+            padding: 60px 0; background-color: #ffffff; text-align: center; position: relative; z-index: 1; border-top: 1px solid #eee; border-bottom: 1px solid #eee; overflow: hidden;
         }
-        .institutions-title { font-size: 1.5rem; color: #8faec9; margin-bottom: 40px; font-weight: 400; letter-spacing: 1px; }
+        .institutions-title { font-size: 1.5rem; color: #666; margin-bottom: 40px; font-weight: 400; letter-spacing: 1px; }
         
         .logo-marquee-wrapper {
             width: 100%; overflow: hidden; position: relative;
@@ -216,16 +224,16 @@
         
         .logo-group { display: flex; align-items: center; gap: 60px; padding-left: 60px; }
         .logo-item { display: flex; flex-direction: column; align-items: center; width: 140px; flex-shrink: 0; }
-        .logo-img { height: 70px; width: auto; max-width: 140px; object-fit: contain; margin-bottom: 10px; filter: grayscale(0.2) brightness(0.95); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .logo-item:hover .logo-img { filter: grayscale(0) brightness(1.1); transform: scale(1.15) translateY(-5px); }
-        .logo-text { font-size: 0.85rem; color: #fff; font-weight: 700; opacity: 0.7; transition: opacity 0.3s; text-align: center; line-height: 1.2; }
-        .logo-item:hover .logo-text { opacity: 1; }
+        .logo-img { height: 70px; width: auto; max-width: 140px; object-fit: contain; margin-bottom: 10px; filter: grayscale(1); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .logo-item:hover .logo-img { filter: grayscale(0); transform: scale(1.1); }
+        .logo-text { font-size: 0.85rem; color: #555; font-weight: 700; opacity: 0.8; transition: opacity 0.3s; text-align: center; line-height: 1.2; }
+        .logo-item:hover .logo-text { opacity: 1; color: #000; }
 
         /* --- סרטונים --- */
         .video-section {
-            padding: 80px 0; background-color: rgba(0, 26, 53, 0.95); text-align: center; position: relative; z-index: 1; backdrop-filter: blur(10px); overflow: hidden;
+            padding: 80px 0; background-color: #f9f9f9; text-align: center; position: relative; z-index: 1; overflow: hidden; border-bottom: 1px solid #eee;
         }
-        .video-section .section-title { padding: 0 5%; }
+        .video-section .section-title { padding: 0 5%; color: #000; font-weight: 900; font-size: 2.5rem;}
         .video-wrapper { 
             width: 100%; overflow: hidden; position: relative; padding: 30px 0 60px 0; 
             mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
@@ -233,54 +241,54 @@
         }
         .video-track { display: flex; width: max-content; align-items: center; animation: marquee-rtl 45s linear infinite; will-change: transform; }
         .video-wrapper:hover .video-track { animation-play-state: paused; }
-        .video-wrapper:hover .video-card { opacity: 0.4; filter: blur(3px); transform: scale(0.95); }
+        .video-wrapper:hover .video-card { opacity: 0.5; filter: blur(2px); transform: scale(0.98); }
         .video-group { display: flex; align-items: center; gap: 25px; padding-left: 25px; }
         .video-card {
             width: 300px; flex-shrink: 0; aspect-ratio: 9 / 16; background-color: #000; border-radius: 15px; overflow: hidden;
-            border: 1px solid #113f6b; box-shadow: 0 5px 15px rgba(0,0,0,0.5); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform, opacity, filter;
+            border: 1px solid #ccc; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform, opacity, filter;
         }
         .video-wrapper .video-card:hover { 
-            opacity: 1; filter: blur(0); transform: scale(1.08) translateY(-10px); border-color: #d4af37; box-shadow: 0 20px 40px rgba(212, 175, 55, 0.4); z-index: 10; 
+            opacity: 1; filter: blur(0); transform: scale(1.05) translateY(-10px); border-color: #000; box-shadow: 0 15px 30px rgba(0,0,0,0.15); z-index: 10; 
         }
         iframe { width: 100%; height: 100%; border: none; pointer-events: none; } 
         .video-card:hover iframe { pointer-events: auto; } 
 
         /* --- בתקשורת --- */
         .press-section {
-            padding: 80px 5%; background-color: #001220; text-align: center; position: relative; z-index: 1; border-top: 1px solid #113f6b; border-bottom: 1px solid #113f6b;
+            padding: 80px 5%; background-color: #ffffff; text-align: center; position: relative; z-index: 1; border-bottom: 1px solid #eee;
         }
-        .press-section .section-title { font-size: 3.5rem; margin-bottom: 50px; }
+        .press-section .section-title { font-size: 2.5rem; margin-bottom: 50px; color: #000; font-weight: 900;}
         .press-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
         .press-item {
-            flex: 1; min-width: 300px; max-width: 350px; border: 1px solid #333; border-radius: 12px; overflow: hidden;
+            flex: 1; min-width: 300px; max-width: 350px; border: 1px solid #ddd; border-radius: 12px; overflow: hidden;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); background-color: #fff;
-            display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(0,0,0,0.5); position: relative;
+            display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); position: relative;
         }
-        .press-item:hover { transform: scale(1.03) translateY(-5px); border-color: #d4af37; box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3); }
+        .press-item:hover { transform: scale(1.03) translateY(-5px); border-color: #000; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
         .press-item img { width: 100%; height: auto; display: block; object-fit: contain; cursor: zoom-in; }
 
         /* --- חלון הגדלת תמונה (Lightbox) --- */
         .image-lightbox {
             display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 10, 20, 0.95); backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
             align-items: center; justify-content: center; flex-direction: column; animation: fadeIn 0.3s ease;
         }
         .lightbox-content {
-            max-width: 90%; max-height: 85vh; border: 3px solid #d4af37; border-radius: 10px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8); object-fit: contain; animation: zoomIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 90%; max-height: 85vh; border: 2px solid #ccc; border-radius: 10px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2); object-fit: contain; animation: zoomIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
         .lightbox-close {
-            position: absolute; top: 20px; right: 30px; color: #d4af37; font-size: 50px; font-weight: bold; 
+            position: absolute; top: 20px; right: 30px; color: #000; font-size: 50px; font-weight: bold; 
             cursor: pointer; transition: 0.3s; z-index: 3001; line-height: 1;
         }
-        .lightbox-close:hover { color: #fff; transform: scale(1.2); }
+        .lightbox-close:hover { color: #d4af37; transform: scale(1.2); }
 
         /* --- המלצות --- */
         .recommendations-section {
-            padding: 80px 0; background-color: #001f3f; text-align: center; position: relative; z-index: 1; border-top: 1px solid #113f6b; overflow: hidden;
+            padding: 80px 0; background-color: #f9f9f9; text-align: center; position: relative; z-index: 1; overflow: hidden;
         }
-        .recommendations-section .section-title { padding: 0 5%; }
+        .recommendations-section .section-title { padding: 0 5%; color: #000; font-weight: 900; font-size: 2.5rem;}
         .rec-wrapper { 
             width: 100%; overflow: hidden; position: relative; padding: 20px 0 60px 0; 
             mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
@@ -288,62 +296,58 @@
         }
         .rec-track { display: flex; width: max-content; align-items: flex-start; animation: marquee-rtl 40s linear infinite; will-change: transform; }
         .rec-wrapper:hover .rec-track { animation-play-state: paused; }
-        .rec-wrapper:hover .rec-card { opacity: 0.5; filter: blur(2px); transform: scale(0.98); }
+        .rec-wrapper:hover .rec-card { opacity: 0.6; filter: blur(2px); transform: scale(0.98); }
         .rec-group { display: flex; align-items: flex-start; gap: 20px; padding-left: 20px; }
         .rec-card {
             width: 350px; flex-shrink: 0; background-color: #ffffff; border-radius: 12px; overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            text-align: right; border: 1px solid #d4af37; display: flex; flex-direction: column; will-change: transform, opacity, filter;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: right; border: 1px solid #ddd; display: flex; flex-direction: column; will-change: transform, opacity, filter;
         }
         .rec-wrapper .rec-card:hover { 
-            opacity: 1; filter: blur(0); transform: scale(1.02) translateY(-5px); box-shadow: 0 15px 35px rgba(212, 175, 55, 0.3); z-index: 10; 
+            opacity: 1; filter: blur(0); transform: scale(1.02) translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); z-index: 10; border-color:#000;
         }
-        .rec-header { padding: 25px; display: flex; justify-content: space-between; align-items: center; background-color: #fff; color: #001f3f; cursor: pointer; }
+        .rec-header { padding: 25px; display: flex; justify-content: space-between; align-items: center; background-color: #fff; color: #000; cursor: pointer; }
         .rec-title { font-weight: 900; font-size: 1.15rem; }
         .rec-role { font-weight: 400; font-size: 0.95rem; color: #666; display: block; margin-top: 4px;}
         .rec-icon { font-size: 1.8rem; color: #d4af37; font-weight: bold; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
         .rec-body {
             max-height: 0; opacity: 0; overflow: hidden; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            padding: 0 25px; color: #444; font-size: 1rem; line-height: 1.7; background-color: #fdfdfd;
+            padding: 0 25px; color: #444; font-size: 1rem; line-height: 1.7; background-color: #fafafa;
         }
         .rec-card:hover .rec-body { max-height: 600px; opacity: 1; padding: 25px; border-top: 1px solid #eee; }
-        .rec-card:hover .rec-icon { transform: rotate(45deg); }
+        .rec-card:hover .rec-icon { transform: rotate(45deg); color:#000;}
 
         /* --- Footer --- */
         .site-footer {
-            background-color: #000a14; padding: 60px 5% 20px 5%; border-top: 1px solid #113f6b; position: relative; z-index: 1;
+            background-color: #ffffff; padding: 60px 5% 20px 5%; border-top: 1px solid #ddd; position: relative; z-index: 1;
         }
         .footer-content {
             display: flex; justify-content: space-between; flex-wrap: wrap; max-width: 1100px; margin: 0 auto; gap: 40px; text-align: right;
         }
         .footer-column { flex: 1; min-width: 250px; }
-        .footer-column h3 { color: #d4af37; font-size: 1.2rem; margin-bottom: 20px; font-weight: 900; }
+        .footer-column h3 { color: #000; font-size: 1.2rem; margin-bottom: 20px; font-weight: 900; }
         .footer-links { list-style: none; }
         .footer-links li { margin-bottom: 10px; }
-        .footer-links a { color: #ccc; text-decoration: none; transition: 0.3s; }
-        .footer-links a:hover { color: #d4af37; padding-right: 5px; }
+        .footer-links a { color: #555; text-decoration: none; transition: 0.3s; }
+        .footer-links a:hover { color: #000; padding-right: 5px; font-weight:bold;}
         .social-icons { display: flex; gap: 15px; margin-top: 20px; }
         .social-icon { 
-            width: 40px; height: 40px; border-radius: 50%; background-color: #001f3f; border: 1px solid #113f6b;
+            width: 40px; height: 40px; border-radius: 50%; background-color: #fff; border: 1px solid #ccc;
             display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;
         }
-        .social-icon svg { width: 20px; height: 20px; fill: #d4af37; transition: fill 0.3s; }
-        .social-icon:hover { background-color: #d4af37; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3); }
-        .social-icon:hover svg { fill: #000a14; }
+        .social-icon svg { width: 20px; height: 20px; fill: #000; transition: fill 0.3s; }
+        .social-icon:hover { background-color: #000; transform: translateY(-5px); border-color:#000;}
+        .social-icon:hover svg { fill: #fff; }
         .footer-bottom {
-            text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #113f6b; color: #666; font-size: 0.9rem;
+            text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee; color: #888; font-size: 0.9rem;
             display: flex; flex-direction: column; gap: 10px; align-items: center;
         }
-        .a11y-btn {
-            background: none; border: 1px solid #444; color: #888; padding: 5px 10px; font-size: 0.8rem; cursor: pointer; border-radius: 4px; transition: 0.3s;
-        }
-        .a11y-btn:hover { border-color: #d4af37; color: #d4af37; }
 
         /* --- כפתורים צפים --- */
         .floating-wa {
             position: fixed; bottom: 30px; left: 30px; width: 60px; height: 60px; background-color: #25D366; 
             color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4); z-index: 1000; text-decoration: none; transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 1000; text-decoration: none; transition: transform 0.3s;
             animation: pulseWA 2s infinite;
         }
         .floating-wa svg { width: 35px; height: 35px; fill: currentColor; }
@@ -351,100 +355,72 @@
         
         .floating-email {
             position: fixed; bottom: 105px; left: 30px; width: 60px; height: 60px; background-color: #d4af37; 
-            color: #001f3f; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4); z-index: 1000; text-decoration: none; transition: transform 0.3s;
+            color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 1000; text-decoration: none; transition: transform 0.3s;
             animation: pulseEmail 2s infinite; animation-delay: 1s; 
         }
         .floating-email svg { width: 30px; height: 30px; fill: currentColor; }
-        .floating-email:hover { transform: scale(1.1); animation: none; background-color: #fff; }
+        .floating-email:hover { transform: scale(1.1); animation: none; background-color: #000; }
 
         .floating-music {
-            position: fixed; bottom: 30px; right: 30px; width: 55px; height: 55px; background-color: rgba(0, 31, 63, 0.8); 
-            color: #d4af37; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #d4af37;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4); z-index: 1000; cursor: pointer; transition: transform 0.3s, background-color 0.3s;
-            backdrop-filter: blur(5px);
+            position: fixed; bottom: 30px; right: 30px; width: 55px; height: 55px; background-color: #fff; 
+            color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #ccc;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); z-index: 1000; cursor: pointer; transition: all 0.3s;
         }
         .floating-music svg { width: 28px; height: 28px; fill: currentColor; }
-        .floating-music:hover { transform: scale(1.1); background-color: #d4af37; color: #001f3f; }
-        .floating-music.playing { animation: pulseMusic 2s infinite; background-color: #d4af37; color: #001f3f; }
+        .floating-music:hover { transform: scale(1.1); background-color: #000; color: #fff; border-color:#000;}
+        .floating-music.playing { animation: pulseMusic 2s infinite; background-color: #000; color: #fff; border-color:#000;}
 
-        @keyframes pulseWA { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
-        @keyframes pulseEmail { 0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); } }
-        @keyframes pulseMusic { 0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6); } 70% { box-shadow: 0 0 0 12px rgba(212, 175, 55, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); } }
+        @keyframes pulseWA { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+        @keyframes pulseEmail { 0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); } }
+        @keyframes pulseMusic { 0% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2); } 70% { box-shadow: 0 0 0 12px rgba(0, 0, 0, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); } }
 
         /* --- מודל יצירת קשר --- */
         .modal {
-            display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 10, 20, 0.9); backdrop-filter: blur(8px);
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.9); backdrop-filter: blur(8px);
         }
         .modal-content {
-            background-color: #001f3f; margin: 10% auto; padding: 30px; border: 2px solid #d4af37; width: 90%; max-width: 450px; border-radius: 15px; position: relative; text-align: right;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8); animation: modalOpen 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background-color: #fff; margin: 10% auto; padding: 40px; border: 1px solid #ddd; width: 90%; max-width: 450px; border-radius: 15px; position: relative; text-align: right;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1); animation: modalOpen 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         @keyframes modalOpen { from { opacity: 0; transform: scale(0.9) translateY(-20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
-        .close-btn { color: #aaa; float: left; font-size: 30px; cursor: pointer; transition: 0.3s; }
-        .close-btn:hover { color: #d4af37; transform: rotate(90deg); }
-        .form-title { font-size: 1.5rem; margin-bottom: 20px; color: #d4af37; font-weight: 900; text-align: center; }
+        .close-btn { color: #888; float: left; font-size: 30px; cursor: pointer; transition: 0.3s; }
+        .close-btn:hover { color: #000; transform: rotate(90deg); }
+        .form-title { font-size: 1.8rem; margin-bottom: 25px; color: #000; font-weight: 900; text-align: center; }
         .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; color: #e0e0e0; font-size: 0.9rem; }
+        .form-group label { display: block; margin-bottom: 5px; color: #333; font-size: 0.95rem; font-weight:bold;}
         .form-group input, .form-group textarea { 
-            width: 100%; padding: 12px; background-color: #001220; border: 1px solid #113f6b; color: white; border-radius: 8px; font-family: 'Heebo'; transition: 0.3s;
+            width: 100%; padding: 12px; background-color: #f9f9f9; border: 1px solid #ccc; color: #000; border-radius: 8px; font-family: 'Heebo'; transition: 0.3s;
         }
-        .form-group input:focus, .form-group textarea:focus { border-color: #d4af37; outline: none; box-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
+        .form-group input:focus, .form-group textarea:focus { border-color: #000; outline: none; background-color:#fff;}
         .submit-btn { 
-            width: 100%; background-color: #d4af37; color:#001f3f; padding: 14px; border: none; border-radius: 8px; font-weight: 900; font-size: 1.1rem; cursor: pointer; margin-top: 10px; transition: all 0.3s;
+            width: 100%; background-color: #000; color:#fff; padding: 15px; border: none; border-radius: 8px; font-weight: 900; font-size: 1.1rem; cursor: pointer; margin-top: 10px; transition: all 0.3s;
         }
-        .submit-btn:hover { background-color: #fff; color: #001f3f; box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3); }
+        .submit-btn:hover { background-color: #333; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
-        /* === מצב נגישות === */
-        body.accessibility-mode { background-color: #000 !important; color: #ffff00 !important; }
-        body.accessibility-mode .background-slider, body.accessibility-mode .overlay { display: none !important; }
-        body.accessibility-mode p, body.accessibility-mode h1, body.accessibility-mode h2, body.accessibility-mode h3,
-        body.accessibility-mode span, body.accessibility-mode li, body.accessibility-mode label, body.accessibility-mode .topic-desc { color: #ffff00 !important; text-shadow: none !important; -webkit-text-fill-color: #ffff00 !important; background: none !important;}
-        body.accessibility-mode a, body.accessibility-mode button:not(.close-btn), body.accessibility-mode .lightbox-close { color: #00ff00 !important; text-decoration: underline !important; border-color: #00ff00 !important; background: none !important; box-shadow: none !important;}
-        body.accessibility-mode header, body.accessibility-mode .about-section, body.accessibility-mode .video-section,
-        body.accessibility-mode .institutions-section, body.accessibility-mode .recommendations-section, body.accessibility-mode .topics-section,
-        body.accessibility-mode .topic-card-3d, body.accessibility-mode .modal-content, body.accessibility-mode .image-lightbox,
-        body.accessibility-mode .press-section, body.accessibility-mode .press-item,
-        body.accessibility-mode .footer-content {
-            background: #000 !important; background-image: none !important; border-color: #ffff00 !important;
-            backdrop-filter: none !important; box-shadow: none !important; mask-image: none !important; -webkit-mask-image: none !important;
-        }
-        body.accessibility-mode .rec-card { background: #000 !important; border-color: #ffff00 !important; }
-        body.accessibility-mode .rec-header { background: #000 !important; color: #ffff00 !important; }
-        body.accessibility-mode .rec-body { background: #000 !important; color: #ffff00 !important; opacity: 1 !important; max-height: unset !important; }
-        body.accessibility-mode .rec-wrapper:hover .rec-track, body.accessibility-mode .video-wrapper:hover .video-track, body.accessibility-mode .logo-marquee-wrapper:hover .logo-marquee-track, body.accessibility-mode .carousel-spinner { animation-play-state: paused !important; }
-        body.accessibility-mode .video-card { opacity: 1 !important; filter: none !important; transform: none !important; }
-        body.accessibility-mode .client-logo-img, body.accessibility-mode .lightbox-content { filter: none !important; } 
-        body.accessibility-mode *:focus-visible { outline: 3px solid #00ff00 !important; }
-        body.accessibility-mode .reveal-section { opacity: 1 !important; transform: none !important; }
-
-        /* --- התאמות מדיה --- */
+        /* --- התאמות מדיה למובייל --- */
         @media (max-width: 900px) {
-            .hamburger-btn { display: block; } 
+            .hamburger-btn { display: block; color: #000; } 
             .nav-links {
-                display: none; position: fixed; top: 70px; right: 0; background-color: rgba(0, 31, 63, 0.98); width: 250px; height: 100vh;
-                flex-direction: column; padding: 30px 20px; border-left: 1px solid #d4af37; box-shadow: -5px 5px 25px rgba(0,0,0,0.8);
+                display: none; position: fixed; top: 70px; right: 0; background-color: rgba(255, 255, 255, 0.98); width: 250px; height: 100vh;
+                flex-direction: column; padding: 30px 20px; border-left: 1px solid #eee; box-shadow: -5px 5px 25px rgba(0,0,0,0.05);
                 backdrop-filter: blur(15px); align-items: flex-start;
             }
             .nav-links.active { display: flex; animation: slideInNav 0.3s ease; }
             @keyframes slideInNav { from { transform: translateX(100%); } to { transform: translateX(0); } }
-            .nav-links a { font-size: 1.2rem; margin-bottom: 20px; width: 100%; border-bottom: 1px solid #113f6b; padding-bottom: 10px;}
+            .nav-links a { font-size: 1.2rem; margin-bottom: 20px; width: 100%; border-bottom: 1px solid #eee; padding-bottom: 10px; color:#000;}
             
             .about-container { flex-direction: column-reverse; text-align: center; }
             .about-text { text-align: center; }
             
-            /* תמונה שונה לסלולר (לפי בקשתך) בגובה קבוע כדי למנוע קריסה לפס */
-            .about-image { 
-                background-image: url('ofek-mobile.jpg'); /* הוסף את התמונה הזו לגיטהאב */
-                background-size: cover; 
-                background-position: center; 
-                height: 350px; 
-                width: 100%;
-            }
+            /* החלפת תמונות במובייל למניעת עיוות */
+            .about-image-desktop { display: none; }
+            .about-image-mobile { display: block; margin: 0 auto 20px auto; }
             
-            /* התאמת קרוסלת ה-3D למסך קטן */
-            .carousel-scene { height: 350px; margin-bottom: 20px; }
-            .carousel-scaler { transform: scale(0.45); } /* הקטנה כדי שייכנס למסך */
+            /* הידוק רווחים בשבשבת בנייד */
+            .carousel-scene { height: 220px; margin: 10px 0 30px 0; }
+            .carousel-scaler { transform: scale(0.48); } 
+            .extra-info-btn { margin-top: 0px; font-size: 1.1rem; padding: 15px 25px; text-align:center;}
 
             .video-wrapper, .rec-wrapper, .logo-marquee-wrapper { mask-image: none; -webkit-mask-image: none; }
             .logo-marquee-track { gap: 30px; }
@@ -455,7 +431,7 @@
             .floating-email svg { width: 24px; height: 24px; }
             .floating-music { right: 20px; bottom: 20px; width: 50px; height: 50px; }
             
-            header { background-color: rgba(0, 31, 63, 0.95); }
+            header { background-color: rgba(255, 255, 255, 0.98) !important; border-bottom:1px solid #eee; }
         }
 
         @media (min-width: 900px) {
@@ -516,12 +492,13 @@
                 <p>כאשר שינוי, לקיחת אחריות וקבלת החלטות אלו אבני הדרך.</p>
                 <p>כיום אני מרצה ומעביר סדנאות לבני נוער, מכינות וארגונים, במטרה לתת להם את הכלים לפרוץ את הגבולות של עצמם.</p>
             </div>
-            <div class="about-image" role="img" aria-label="אופק בן לולו"></div>
+            <div class="about-image-desktop" role="img" aria-label="אופק בן לולו"></div>
+            <img src="ofek-mobile.jpg" class="about-image-mobile" alt="אופק בן לולו בהרצאה">
         </div>
     </section>
 
     <section id="topics" class="topics-section reveal-section">
-        <h2 class="section-title highlight-gold">על מה נדבר בהרצאה?</h2>
+        <h2 class="section-title">על מה נדבר בהרצאה?</h2>
         
         <div class="carousel-scene">
             <div class="carousel-scaler">
@@ -536,7 +513,7 @@
             </div>
         </div>
         
-        <div style="text-align: center; margin-top: 10px;">
+        <div style="text-align: center;">
             <div class="extra-info-btn">קיימות הרצאות נוספות המותאמות לתאריכי השנה וברוח התקופה</div>
         </div>
 
@@ -563,8 +540,6 @@
                     <div class="logo-item"><img src="https://midrashiatnoam.co.il/wp-content/uploads/2022/08/%D7%9C%D7%95%D7%92%D7%95-%D7%9E%D7%93%D7%A8%D7%A9%D7%99%D7%94-%D7%9C%D7%9C%D7%90-%D7%A8%D7%A7%D7%A2.png" class="logo-img" loading="lazy" alt="מדרשיית נעם"><span class="logo-text">מדרשיית נעם</span></div>
                     <div class="logo-item"><img src="https://assets.rishum.app/hotlink-ok/v_school_logos/nl65b76dbadccb9.png" class="logo-img" loading="lazy" alt="אולפנת עלמא"><span class="logo-text">אולפנת עלמא</span></div>
                     <div class="logo-item"><img src="https://yatka.org.il/wp-content/uploads/2023/05/-scaled-e1683108728269.gif" class="logo-img" loading="lazy" alt="ישיבת קרית ארבע"><span class="logo-text">ישיבת קרית ארבע</span></div>
-                    <div class="logo-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNGRiNUUh-fC4XhOUlNVtHdpmR09TVPJQPtA&s" class="logo-img" loading="lazy" alt="גרעין שקמים"><span class="logo-text">גרעין שקמים</span></div>
-                    <div class="logo-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtq2jUi2-GEozafIxfUwM422bwiWOEzgeFXw&s" class="logo-img" loading="lazy" alt="ישיבת צביה קטיף"><span class="logo-text">ישיבת צביה קטיף</span></div>
                 </div>
 
                 <div class="logo-group">
@@ -579,8 +554,6 @@
                     <div class="logo-item"><img src="https://midrashiatnoam.co.il/wp-content/uploads/2022/08/%D7%9C%D7%95%D7%92%D7%95-%D7%9E%D7%93%D7%A8%D7%A9%D7%99%D7%94-%D7%9C%D7%9C%D7%90-%D7%A8%D7%A7%D7%A2.png" class="logo-img" loading="lazy" alt="מדרשיית נעם"><span class="logo-text">מדרשיית נעם</span></div>
                     <div class="logo-item"><img src="https://assets.rishum.app/hotlink-ok/v_school_logos/nl65b76dbadccb9.png" class="logo-img" loading="lazy" alt="אולפנת עלמא"><span class="logo-text">אולפנת עלמא</span></div>
                     <div class="logo-item"><img src="https://yatka.org.il/wp-content/uploads/2023/05/-scaled-e1683108728269.gif" class="logo-img" loading="lazy" alt="ישיבת קרית ארבע"><span class="logo-text">ישיבת קרית ארבע</span></div>
-                    <div class="logo-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNGRiNUUh-fC4XhOUlNVtHdpmR09TVPJQPtA&s" class="logo-img" loading="lazy" alt="גרעין שקמים"><span class="logo-text">גרעין שקמים</span></div>
-                    <div class="logo-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtq2jUi2-GEozafIxfUwM422bwiWOEzgeFXw&s" class="logo-img" loading="lazy" alt="ישיבת צביה קטיף"><span class="logo-text">ישיבת צביה קטיף</span></div>
                 </div>
 
             </div>
@@ -591,7 +564,7 @@
     </section>
 
     <section id="videos" class="video-section reveal-section">
-        <h2 class="section-title highlight-gold">טעימה מהשטח</h2>
+        <h2 class="section-title">טעימה מהשטח</h2>
         <div class="video-wrapper">
             <div class="video-track">
                 <div class="video-group">
@@ -613,7 +586,7 @@
     </section>
 
     <section id="press" class="press-section reveal-section">
-        <h2 class="section-title highlight-gold">בתקשורת</h2>
+        <h2 class="section-title">בתקשורת</h2>
         <div class="press-container">
             <div class="press-item"><img src="https://i.imgur.com/BEj2u9o.jpeg" loading="lazy" onclick="openLightbox(this.src)"></div>
             <div class="press-item"><img src="https://i.imgur.com/dvarWDd.jpeg" loading="lazy" onclick="openLightbox(this.src)"></div>
@@ -622,7 +595,7 @@
     </section>
 
     <section id="recommendations" class="recommendations-section reveal-section">
-        <h2 class="section-title highlight-gold">היו, השפיעו והמליצו</h2>
+        <h2 class="section-title">היו, השפיעו והמליצו</h2>
         <div class="rec-wrapper">
             <div class="rec-track">
                 <div class="rec-group">
