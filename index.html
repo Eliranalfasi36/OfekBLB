@@ -46,14 +46,13 @@
         ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 5px; }
         ::-webkit-scrollbar-thumb:hover { background: #fbf5b7; }
 
-        /* --- רקע וידאו (מקומי ומהיר) --- */
+        /* --- רקע וידאו --- */
         .background-slider {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background-color: #001f3f;
         }
         .bg-video-element {
             width: 100%; height: 100%; object-fit: cover; opacity: 0.5; pointer-events: none;
         }
-
         .overlay {
             background-color: rgba(0, 31, 63, 0.3); position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
         }
@@ -66,7 +65,7 @@
         }
         .reveal-section.visible { opacity: 1; transform: translateY(0); }
 
-        /* --- Header חכם --- */
+        /* --- Header --- */
         header {
             display: flex; justify-content: space-between; align-items: center; padding: 15px 5%;
             position: fixed; width: 100%; top: 0; z-index: 1000;
@@ -76,7 +75,6 @@
             background-color: rgba(0, 31, 63, 0.95); border-bottom: 1px solid rgba(212, 175, 55, 0.3);
             backdrop-filter: blur(15px); padding: 10px 5%;
         }
-        
         .header-right { display: flex; align-items: center; gap: 15px; }
         .logo { font-weight: 900; font-size: 1.5rem; color: #fff; text-decoration: none; letter-spacing: 1px; }
         .hamburger-btn { display: none; font-size: 1.8rem; background: none; border: none; color: #d4af37; cursor: pointer; }
@@ -86,15 +84,6 @@
             transition: color 0.3s; position: relative; background: none; border: none; font-family: inherit; cursor: pointer;
         }
         .nav-links a:hover, .nav-links button:hover { color: #d4af37; }
-        .header-left { display: flex; align-items: center; }
-        
-        .phone-link {
-            border: 1px solid #d4af37; background-color: rgba(212, 175, 55, 0.1); padding: 8px 12px;
-            border-radius: 5px; color: #d4af37; font-weight: 700; text-decoration: none; font-size: 1rem;
-            transition: all 0.3s; letter-spacing: 1px; display: flex; align-items: center; gap: 8px;
-        }
-        .phone-link svg { width: 18px; height: 18px; fill: currentColor; }
-        .phone-link:hover { background-color: #d4af37; color: #001f3f; box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); transform: translateY(-2px); }
 
         /* --- Hero --- */
         .hero-section {
@@ -113,9 +102,7 @@
             content: 'מתחילה בהחלטה אחת.'; position: absolute; right: 0; top: 0; z-index: -1;
             text-shadow: 2px 2px 15px rgba(0,0,0,0.8); -webkit-text-fill-color: transparent;
         }
-
         .hero-subtitle { font-size: 1.3rem; color: #fff; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto; text-shadow: 1px 1px 5px rgba(0,0,0,0.9); font-weight: 500; line-height: 1.5; }
-        
         .cta-button-large {
             display: inline-block; background-color: #d4af37; color: #001f3f;
             padding: 18px 55px; border-radius: 50px; font-weight: 900; font-size: 1.4rem; text-decoration: none;
@@ -124,7 +111,7 @@
         }
         .cta-button-large:hover { transform: scale(1.08) translateY(-4px); background-color: transparent; color: #d4af37; box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6); }
 
-        /* --- אודות --- */
+        /* --- אודות (מיקוד באופק) --- */
         .about-section {
             padding: 100px 5%; background-color: rgba(0, 31, 63, 0.95); position: relative; z-index: 1; backdrop-filter: blur(10px); border-top: 1px solid rgba(255,255,255,0.05);
         }
@@ -132,10 +119,15 @@
         .about-text { flex: 1; text-align: right; }
         .about-text h2 { font-size: 2.2rem; color: #d4af37; margin-bottom: 20px; font-weight: 900; }
         .about-text p { font-size: 1.3rem; color: #e0e0e0; margin-bottom: 20px; line-height: 1.8; }
+        
         .about-image {
             flex: 1; width: 100%; max-width: 400px; height: 450px; border-radius: 20px; overflow: hidden;
             border: 3px solid rgba(212, 175, 55, 0.5); box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-            background-image: url('ofek-main.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;
+            background-image: url('ofek-main.png');
+            /* מיקוד באופק וחיתוך הסמל על הכתף */
+            background-size: 180%; 
+            background-position: 30% 20%; 
+            background-repeat: no-repeat;
             transition: transform 0.5s ease;
         }
         .about-image:hover { transform: scale(1.02); border-color: #d4af37; }
@@ -145,7 +137,7 @@
             padding: 80px 5%; background-color: #001a35; text-align: center; position: relative; z-index: 1; border-top: 1px solid #113f6b;
         }
         .topics-grid {
-            display: flex; justify-content: center; flex-wrap: wrap; gap: 25px; max-width: 1200px; margin: 40px auto 40px auto;
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 25px; max-width: 1200px; margin: 40px auto 20px auto;
         }
         .topic-card {
             background-color: #002b55; border: 1px solid #113f6b; padding: 30px 20px; border-radius: 12px; width: 100%; max-width: 350px; 
@@ -160,33 +152,43 @@
         .topic-title { color: #d4af37; font-size: 1.4rem; font-weight: 700; margin-bottom: 10px; }
         .topic-desc { color: #e0e0e0; font-size: 1rem; }
         
-        .audience-badge {
-            margin-top: 40px; display: inline-block; background-color: rgba(212, 175, 55, 0.1);
-            border: 1px solid rgba(212, 175, 55, 0.5); padding: 15px 30px; border-radius: 50px; color: #fff; font-weight: 700; font-size: 1.1rem; max-width: 800px; line-height: 1.5;
-            transition: all 0.3s ease;
+        /* כפתור הרצאות נוספות */
+        .extra-info-btn {
+            display: inline-block; margin-top: 30px; background-color: rgba(255,255,255,0.05);
+            border: 1px solid rgba(212, 175, 55, 0.4); color: #d4af37; padding: 12px 30px; border-radius: 50px;
+            font-weight: 700; font-size: 1rem; transition: all 0.3s;
         }
-        .audience-badge:hover { background-color: rgba(212, 175, 55, 0.2); border-color: #d4af37; }
+        .extra-info-btn span { color: #fff; }
+        .extra-info-btn:hover { background-color: rgba(212, 175, 55, 0.1); border-color: #d4af37; transform: translateY(-2px); }
 
-        /* --- גופים --- */
-        .clients-section {
-            padding: 60px 5%; background-color: #001f3f; text-align: center; position: relative; z-index: 1; border-top: 1px solid #113f6b; border-bottom: 1px solid #113f6b;
+        /* --- סרט נע לוגומוסדות (Marquee) --- */
+        .institutions-section {
+            padding: 60px 0; background-color: #001f3f; text-align: center; position: relative; z-index: 1; border-top: 1px solid #113f6b; border-bottom: 1px solid #113f6b; overflow: hidden;
         }
-        .clients-title { font-size: 1.5rem; color: #8faec9; margin-bottom: 40px; font-weight: 400; letter-spacing: 1px; }
-        .clients-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 50px; max-width: 1200px; margin: 0 auto; align-items: center; }
-        .client-item { display: flex; flex-direction: column; align-items: center; width: 160px; }
-        .client-logo-img { width: auto; height: 90px; margin-bottom: 15px; object-fit: contain; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .client-item:hover .client-logo-img { transform: scale(1.15) translateY(-5px); }
-        .client-text { font-size: 1rem; color: #fff; font-weight: 700; opacity: 0.8; transition: opacity 0.3s; text-align: center; }
-        .client-item:hover .client-text { opacity: 1; }
-
-        /* --- מנוע האצת חומרה לגלילה --- */
-        @keyframes scroll-rtl { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(25%, 0, 0); } }
+        .institutions-title { font-size: 1.5rem; color: #8faec9; margin-bottom: 40px; font-weight: 400; letter-spacing: 1px; }
+        
+        .logo-marquee-wrapper {
+            width: 100%; overflow: hidden; position: relative;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+        .logo-marquee-track {
+            display: flex; width: max-content; align-items: center; gap: 60px;
+            animation: logo-scroll 40s linear infinite;
+        }
+        .logo-marquee-wrapper:hover .logo-marquee-track { animation-play-state: paused; }
+        
+        @keyframes logo-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(50%); } }
+        
+        .logo-item { display: flex; flex-direction: column; align-items: center; width: 140px; flex-shrink: 0; }
+        .logo-img { height: 80px; width: auto; object-fit: contain; margin-bottom: 10px; filter: grayscale(0.3) brightness(0.9); transition: 0.3s; }
+        .logo-item:hover .logo-img { filter: grayscale(0) brightness(1.1); transform: scale(1.1); }
+        .logo-text { font-size: 0.85rem; color: #ccc; font-weight: 500; opacity: 0.7; }
 
         /* --- סרטונים --- */
         .video-section {
             padding: 80px 0; background-color: rgba(0, 26, 53, 0.95); text-align: center; position: relative; z-index: 1; backdrop-filter: blur(10px); overflow: hidden;
         }
-        .video-section .section-title { padding: 0 5%; }
         .video-wrapper { 
             width: 100%; overflow: hidden; position: relative; padding: 30px 0 60px 0; 
             mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
@@ -206,14 +208,11 @@
         iframe { width: 100%; height: 100%; border: none; pointer-events: none; } 
         .video-card:hover iframe { pointer-events: auto; } 
 
-        /* --- סקשן בתקשורת (כותרת מוגדלת ומעוצבת) --- */
+        /* --- בתקשורת --- */
         .press-section {
             padding: 80px 5%; background-color: #001220; text-align: center; position: relative; z-index: 1; border-top: 1px solid #113f6b; border-bottom: 1px solid #113f6b;
         }
-        .press-section .section-title { 
-            font-size: 3.5rem; /* כותרת גדולה יותר */
-            margin-bottom: 50px;
-        }
+        .press-section .section-title { font-size: 3.5rem; margin-bottom: 50px; }
         .press-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
         .press-item {
             flex: 1; min-width: 300px; max-width: 350px; border: 1px solid #333; border-radius: 12px; overflow: hidden;
@@ -233,7 +232,6 @@
             max-width: 90%; max-height: 85vh; border: 3px solid #d4af37; border-radius: 10px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.8); object-fit: contain; animation: zoomIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
         .lightbox-close {
             position: absolute; top: 20px; right: 30px; color: #d4af37; font-size: 50px; font-weight: bold; 
             cursor: pointer; transition: 0.3s; z-index: 3001; line-height: 1;
@@ -244,7 +242,6 @@
         .recommendations-section {
             padding: 80px 0; background-color: #001f3f; text-align: center; position: relative; z-index: 1; border-top: 1px solid #113f6b; overflow: hidden;
         }
-        .recommendations-section .section-title { padding: 0 5%; }
         .rec-wrapper { 
             width: 100%; overflow: hidden; position: relative; padding: 20px 0 60px 0; 
             mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
@@ -303,7 +300,7 @@
         }
         .a11y-btn:hover { border-color: #d4af37; color: #d4af37; }
 
-        /* --- כפתורים צפים (וואטסאפ, מייל, ומוזיקה) --- */
+        /* --- כפתורים צפים --- */
         .floating-wa {
             position: fixed; bottom: 30px; left: 30px; width: 60px; height: 60px; background-color: #25D366; 
             color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
@@ -336,7 +333,7 @@
         @keyframes pulseEmail { 0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); } }
         @keyframes pulseMusic { 0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6); } 70% { box-shadow: 0 0 0 12px rgba(212, 175, 55, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); } }
 
-        /* --- מודל יצירת קשר --- */
+        /* --- מודל --- */
         .modal {
             display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 10, 20, 0.9); backdrop-filter: blur(8px);
         }
@@ -359,29 +356,6 @@
         }
         .submit-btn:hover { background-color: #fff; color: #001f3f; box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3); }
 
-        /* === מצב נגישות מוגבר === */
-        body.accessibility-mode { background-color: #000 !important; color: #ffff00 !important; }
-        body.accessibility-mode .background-slider, body.accessibility-mode .overlay { display: none !important; }
-        body.accessibility-mode p, body.accessibility-mode h1, body.accessibility-mode h2, body.accessibility-mode h3,
-        body.accessibility-mode span, body.accessibility-mode li, body.accessibility-mode label, body.accessibility-mode .topic-desc { color: #ffff00 !important; text-shadow: none !important; -webkit-text-fill-color: #ffff00 !important; background: none !important;}
-        body.accessibility-mode a, body.accessibility-mode button:not(.close-btn), body.accessibility-mode .lightbox-close { color: #00ff00 !important; text-decoration: underline !important; border-color: #00ff00 !important; background: none !important; box-shadow: none !important;}
-        body.accessibility-mode header, body.accessibility-mode .about-section, body.accessibility-mode .video-section,
-        body.accessibility-mode .clients-section, body.accessibility-mode .recommendations-section, body.accessibility-mode .topics-section,
-        body.accessibility-mode .topic-card, body.accessibility-mode .modal-content, body.accessibility-mode .image-lightbox,
-        body.accessibility-mode .press-section, body.accessibility-mode .press-item,
-        body.accessibility-mode .footer-content {
-            background: #000 !important; background-image: none !important; border-color: #ffff00 !important;
-            backdrop-filter: none !important; box-shadow: none !important; mask-image: none !important; -webkit-mask-image: none !important;
-        }
-        body.accessibility-mode .rec-card { background: #000 !important; border-color: #ffff00 !important; }
-        body.accessibility-mode .rec-header { background: #000 !important; color: #ffff00 !important; }
-        body.accessibility-mode .rec-body { background: #000 !important; color: #ffff00 !important; opacity: 1 !important; max-height: unset !important; }
-        body.accessibility-mode .rec-wrapper:hover .rec-track, body.accessibility-mode .video-wrapper:hover .video-track { animation-play-state: paused !important; }
-        body.accessibility-mode .video-card { opacity: 1 !important; filter: none !important; transform: none !important; }
-        body.accessibility-mode .client-logo-img, body.accessibility-mode .lightbox-content { filter: none !important; } 
-        body.accessibility-mode *:focus-visible { outline: 3px solid #00ff00 !important; }
-        body.accessibility-mode .reveal-section { opacity: 1 !important; transform: none !important; }
-
         /* --- התאמות מדיה --- */
         @media (max-width: 900px) {
             .hamburger-btn { display: block; } 
@@ -393,19 +367,9 @@
             .nav-links.active { display: flex; animation: slideInNav 0.3s ease; }
             @keyframes slideInNav { from { transform: translateX(100%); } to { transform: translateX(0); } }
             .nav-links a { font-size: 1.2rem; margin-bottom: 20px; width: 100%; border-bottom: 1px solid #113f6b; padding-bottom: 10px;}
-            .clients-grid { gap: 30px; }
-            .client-item { width: 40%; }
-            .footer-content { flex-direction: column; text-align: center; }
-            .social-icons { justify-content: center; }
-            .about-text { text-align: center; } 
-            .video-wrapper, .rec-wrapper { mask-image: none; -webkit-mask-image: none; }
-            
-            .floating-wa { left: 20px; bottom: 20px; width: 50px; height: 50px; }
-            .floating-wa svg { width: 28px; height: 28px; }
-            .floating-email { left: 20px; bottom: 85px; width: 50px; height: 50px; }
-            .floating-email svg { width: 24px; height: 24px; }
-            .floating-music { right: 20px; bottom: 20px; width: 50px; height: 50px; }
-            
+            .about-container { flex-direction: column-reverse; text-align: center; }
+            .about-text { text-align: center; }
+            .logo-marquee-track { gap: 30px; }
             header { background-color: rgba(0, 31, 63, 0.95); }
         }
 
@@ -413,7 +377,6 @@
             .hero-section { padding-top: 200px; }
             .hero-title { font-size: 5.5rem; }
             .hero-subtitle { font-size: 1.5rem; }
-            .hero-section { justify-content: center; text-align: center; }
             .hero-text { width: 100%; max-width: 1000px; text-align: center; margin: 0 auto; }
             .about-container { flex-direction: row; text-align: right; }
             .about-text { text-align: right; }
@@ -441,10 +404,9 @@
                 <a href="#videos" onclick="toggleMenu()">מדיה</a>
                 <a href="#press" onclick="toggleMenu()">בתקשורת</a>
                 <a href="#recommendations" onclick="toggleMenu()">המלצות</a>
-                <button onclick="openModal(); toggleMenu();" style="text-align:right;">יצירת קשר</button>
+                <button onclick="openModal()" style="text-align:right;">יצירת קשר</button>
             </nav>
         </div>
- 
     </header>
 
     <section class="hero-section">
@@ -464,18 +426,10 @@
         <div class="about-container">
             <div class="about-text">
                 <h2>נעים להכיר, אופק</h2>
-                <p>
-                    לאחר שירות משמעותי כקצין לוחם בצה"ל, שבו הובלתי חיילים במצבי קיצון, הבנתי שהקרב האמיתי הוא לא תמיד בשטח – אלא בראש שלנו.
-                </p>
-                <p>
-                    את התובנות שרכשתי תחת אלונקה ובתוך הבוץ, תרגמתי לכלים פרקטיים למנהיגות אישית, פיתוח חוסן מנטלי ויכולת לקבל החלטות תחת לחץ.
-                </p>
-                <p>
-                    כאשר שינוי, לקיחת אחריות וקבלת החלטות אלו אבני הדרך.
-                </p>
-                <p>
-                    כיום אני מרצה ומעביר סדנאות לבני נוער, מכינות וארגונים, במטרה לתת להם את הכלים לפרוץ את הגבולות של עצמם.
-                </p>
+                <p>לאחר שירות משמעותי כקצין לוחם בצה"ל, שבו הובלתי חיילים במצבי קיצון, הבנתי שהקרב האמיתי הוא לא תמיד בשטח – אלא בראש שלנו.</p>
+                <p>את התובנות שרכשתי תחת אלונקה ובתוך הבוץ, תרגמתי לכלים פרקטיים למנהיגות אישית, פיתוח חוסן מנטלי ויכולת לקבל החלטות תחת לחץ.</p>
+                <p>כאשר שינוי, לקיחת אחריות וקבלת החלטות אלו אבני הדרך.</p>
+                <p>כיום אני מרצה ומעביר סדנאות לבני נוער, מכינות וארגונים, במטרה לתת להם את הכלים לפרוץ את הגבולות של עצמם.</p>
             </div>
             <div class="about-image" role="img" aria-label="אופק בן לולו"></div>
         </div>
@@ -483,79 +437,53 @@
 
     <section id="topics" class="topics-section reveal-section">
         <h2 class="section-title">על מה נדבר בהרצאה?</h2>
-        
         <div class="topics-grid">
-            <div class="topic-card">
-                <div class="topic-title">שינוי</div>
-                <div class="topic-desc">איך לחולל שינוי אמיתי בי ובסביבה שלי? התמודדות עצמית ומה באמת נדרש ממני כדי להשתנות ולצמוח.</div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-title">לקיחת אחריות</div>
-                <div class="topic-desc">החשיבות הקריטית של לקיחת אחריות על חיי. הבנה שהכוח לשינוי נמצא בידיים שלנו, ללא תירוצים.</div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-title">קבלת החלטות</div>
-                <div class="topic-desc">כיצד אגיע להחלטות אמיצות בצמתים מורכבים בחיי? כלים לניתוח מצבים ובחירה בדרך הנכונה תחת לחץ.</div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-title">מנהיגות אישית</div>
-                <div class="topic-desc">לקחת אחריות על החיים שלך ולהוביל את עצמך להצלחה, לפני שמובילים אחרים.</div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-title">גבורה</div>
-                <div class="topic-desc">התחברות לרוח הלאומית של העם וההירתמות המופלאה לגבורה. גילוי הכוחות הפנימיים הטמונים בכל אחד מאיתנו דווקא בזמני משבר.</div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-title">ערכים אוניברסליים</div>
-                <div class="topic-desc">חיבור עמוק לערכי ליבה המשותפים לכל אדם באשר הוא. יצירת שפה משותפת ומכבדת.</div>
-            </div>
+            <div class="topic-card"><div class="topic-title">שינוי</div><div class="topic-desc">איך לחולל שינוי אמיתי בי ובסביבה שלי? התמודדות עצמית ומה באמת נדרש ממני כדי להשתנות ולצמוח.</div></div>
+            <div class="topic-card"><div class="topic-title">לקיחת אחריות</div><div class="topic-desc">החשיבות הקריטית של לקיחת אחריות על חיי. הבנה שהכוח לשינוי נמצא בידיים שלנו, ללא תירוצים.</div></div>
+            <div class="topic-card"><div class="topic-title">קבלת החלטות</div><div class="topic-desc">כיצד אגיע להחלטות אמיצות בצמתים מורכבים בחיי? כלים לניתוח מצבים ובחירה בדרך הנכונה תחת לחץ.</div></div>
+            <div class="topic-card"><div class="topic-title">מנהיגות אישית</div><div class="topic-desc">לקחת אחריות על החיים שלך ולהוביל את עצמך להצלחה, לפני שמובילים אחרים.</div></div>
+            <div class="topic-card"><div class="topic-title">גבורה</div><div class="topic-desc">התחברות לרוח הלאומית של העם וההירתמות המופלאה לגבורה. גילוי הכוחות הפנימיים הטמונים בכל אחד מאיתנו דווקא בזמני משבר.</div></div>
+            <div class="topic-card"><div class="topic-title">ערכים אוניברסליים</div><div class="topic-desc">חיבור עמוק לערכי ליבה המשותפים לכל אדם באשר הוא. יצירת שפה משותפת ומכבדת.</div></div>
+        </div>
+        
+        <div class="extra-info-btn">
+            <span>חשוב לדעת:</span> קיימות הרצאות נוספות המותאמות לתאריכי השנה וברוח התקופה.
         </div>
 
-        <div class="audience-badge">
+        <div class="audience-badge" style="display:block; margin: 40px auto 0;">
             <strong>למי זה מתאים?</strong> תיכונים, מכינות קדם-צבאיות, אולפנות, ישיבות, מתנ"סים וארגונים.<br>
             השיח הוא בגובה העיניים, ערכי ומחבר, ומותאם לכלל המגזרים.
         </div>
     </section>
 
-    <section class="clients-section reveal-section">
-        <h3 class="clients-title">גופים ומוסדות שבחרו באופק</h3>
-        <div class="clients-grid">
-            <div class="client-item">
-                <img src="https://logos-world.net/wp-content/uploads/2023/10/Israel-Defense-Forces-IDF-Logo.png" alt="לוגו צה''ל" class="client-logo-img">
-                <span class="client-text">צה"ל וכוחות הביטחון</span>
-            </div>
-            <div class="client-item">
-                <img src="https://tse4.mm.bing.net/th/id/OIP.QRDBXISu_aj5dU4tVxLhhAHaHY?rs=1&pid=ImgDetMain&o=7&rm=3" alt="ארגון מעגלים" class="client-logo-img">
-                <span class="client-text">ארגון מעגלים</span>
-            </div>
-            <div class="client-item">
-                <img src="https://th.bing.com/th/id/R.c53113fa2c40ceafb3978c4e36162c2a?rik=zA5GZLA%2fYhK9LA&pid=ImgRaw&r=0" alt="ישיבת אור עקיבא" class="client-logo-img">
-                <span class="client-text">ישיבת אור עקיבא</span>
-            </div>
-            
-            <div class="client-item">
-                <img src="https://upload.wikimedia.org/wikipedia/he/d/d9/%D7%9C%D7%95%D7%92%D7%95_%D7%A8%D7%A9%D7%AA_%D7%90%D7%9E%D7%99%D7%AA_%D7%97%D7%93%D7%A9.png" alt="רשת אמי''ת" class="client-logo-img">
-                <span class="client-text">רשת אמי"ת</span>
-            </div>
-            <div class="client-item">
-                <img src="https://upload.wikimedia.org/wikipedia/he/c/c1/Sdot_Negev_Regional_Council_COA.png" alt="מועצה אזורית שדות נגב" class="client-logo-img">
-                <span class="client-text">מועצה אזורית שדות נגב</span>
-            </div>
-            <div class="client-item">
-                <img src="https://landing.yba.org.il/wp-content/uploads/2020/12/%D7%91%D7%99%D7%A6%D7%99%D7%9D-%D7%95%D7%9C%D7%95%D7%92%D7%95-%D7%A6%D7%91%D7%A2%D7%95%D7%A0%D7%99.png" alt="מרכז ישיבות בני עקיבא" class="client-logo-img">
-                <span class="client-text">מרכז ישיבות בני עקיבא</span>
-            </div>
-            <div class="client-item">
-                <img src="https://play-lh.googleusercontent.com/NN0bXgF25ZcrTI6E5EwHBLd1ySEa-pt4TLKG7dpEHMSt7efbc5ZYeKZseqJdpYoqJ2dW=w600-h300-pc0xffffff-pd" alt="עיריית חדרה" class="client-logo-img">
-                <span class="client-text">עיריית אור עקיבא</span>
-            </div>
-            <div class="client-item">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlKeacM-W8JiGV9QU6cL-FCWyKwpE6aZjoNQ&s" alt="עיריית אור עקיבא" class="client-logo-img">
-                <span class="client-text">עיריית חדרה</span>
-            </div>
-
-            <div class="client-item" style="width: 100%; margin-top:20px;">
-                <span class="client-text" style="color:#d4af37; opacity:1;"> מוסדות  מכל הזרמים</span>
+    <section class="institutions-section reveal-section">
+        <h3 class="institutions-title">גופים ומוסדות שבחרו באופק</h3>
+        <div class="logo-marquee-wrapper">
+            <div class="logo-marquee-track">
+                <div class="logo-item"><img src="https://midrashiatnoam.co.il/wp-content/uploads/2024/02/logo_new_noam.png" class="logo-img"><span class="logo-text">מדרשית נעם</span></div>
+                <div class="logo-item"><img src="https://otramot.org.il/wp-content/uploads/2021/08/logo-ot-stone.png" class="logo-img"><span class="logo-text">אור תורה רמות</span></div>
+                <div class="logo-item"><img src="https://beitshulamit.org.il/wp-content/uploads/2021/07/logo.png" class="logo-img"><span class="logo-text">בית שולמית</span></div>
+                <div class="logo-item"><img src="https://alma.tik-tak.school/images/site/logo.png" class="logo-img"><span class="logo-text">אולפנת עלמא</span></div>
+                <div class="logo-item"><img src="https://ytka.co.il/wp-content/uploads/2021/05/logo-new.png" class="logo-img"><span class="logo-text">ישיבת קרית ארבע</span></div>
+                <div class="logo-item"><img src="http://www.moreno-lod.co.il/wp-content/uploads/2020/06/logo.png" class="logo-img"><span class="logo-text">ישיבת עמנואל מורנו</span></div>
+                <div class="logo-item"><img src="https://www.art-yeshiva.org.il/static/media/logo_bar_ilan.png" class="logo-img"><span class="logo-text">ישיבת בר אילן</span></div>
+                <div class="logo-item"><img src="http://www.shikmim.org.il/wp-content/uploads/2016/04/logo-shikmim.png" class="logo-img"><span class="logo-text">גרעין שקמים</span></div>
+                <div class="logo-item"><img src="https://zviakatif.org.il/wp-content/uploads/2018/11/logo.png" class="logo-img"><span class="logo-text">ישיבת צביה קטיף</span></div>
+                <div class="logo-item"><img src="https://noamzvia.co.il/wp-content/uploads/2018/12/logo-noam-zvia.png" class="logo-img"><span class="logo-text">רשת נעם צביה</span></div>
+                <div class="logo-item"><img src="https://erech.org.il/wp-content/uploads/2021/09/logo-erech-haderech.png" class="logo-img"><span class="logo-text">ערך הדרך</span></div>
+                <div class="logo-item"><img src="https://mhever.org.il/wp-content/uploads/2022/02/logo.png" class="logo-img"><span class="logo-text">מדרשת מעלה חבר</span></div>
+                <div class="logo-item"><img src="https://midrashiatnoam.co.il/wp-content/uploads/2024/02/logo_new_noam.png" class="logo-img"><span class="logo-text">מדרשית נעם</span></div>
+                <div class="logo-item"><img src="https://otramot.org.il/wp-content/uploads/2021/08/logo-ot-stone.png" class="logo-img"><span class="logo-text">אור תורה רמות</span></div>
+                <div class="logo-item"><img src="https://beitshulamit.org.il/wp-content/uploads/2021/07/logo.png" class="logo-img"><span class="logo-text">בית שולמית</span></div>
+                <div class="logo-item"><img src="https://alma.tik-tak.school/images/site/logo.png" class="logo-img"><span class="logo-text">אולפנת עלמא</span></div>
+                <div class="logo-item"><img src="https://ytka.co.il/wp-content/uploads/2021/05/logo-new.png" class="logo-img"><span class="logo-text">ישיבת קרית ארבע</span></div>
+                <div class="logo-item"><img src="http://www.moreno-lod.co.il/wp-content/uploads/2020/06/logo.png" class="logo-img"><span class="logo-text">ישיבת עמנואל מורנו</span></div>
+                <div class="logo-item"><img src="https://www.art-yeshiva.org.il/static/media/logo_bar_ilan.png" class="logo-img"><span class="logo-text">ישיבת בר אילן</span></div>
+                <div class="logo-item"><img src="http://www.shikmim.org.il/wp-content/uploads/2016/04/logo-shikmim.png" class="logo-img"><span class="logo-text">גרעין שקמים</span></div>
+                <div class="logo-item"><img src="https://zviakatif.org.il/wp-content/uploads/2018/11/logo.png" class="logo-img"><span class="logo-text">ישיבת צביה קטיף</span></div>
+                <div class="logo-item"><img src="https://noamzvia.co.il/wp-content/uploads/2018/12/logo-noam-zvia.png" class="logo-img"><span class="logo-text">רשת נעם צביה</span></div>
+                <div class="logo-item"><img src="https://erech.org.il/wp-content/uploads/2021/09/logo-erech-haderech.png" class="logo-img"><span class="logo-text">ערך הדרך</span></div>
+                <div class="logo-item"><img src="https://mhever.org.il/wp-content/uploads/2022/02/logo.png" class="logo-img"><span class="logo-text">מדרשת מעלה חבר</span></div>
             </div>
         </div>
     </section>
@@ -565,32 +493,18 @@
         <div class="video-wrapper">
             <div class="video-track">
                 <div class="video-group">
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/7t-ncKGtFes" title="הרצאה של אופק 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/Zu6iP0Ju3lg" title="הרצאה של אופק 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/P6ImKWe56to" title="הרצאה של אופק 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/P_4lHIHhLVc" title="הרצאה של אופק 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/F8qNuvxovNA" title="הרצאה של אופק 5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/7t-ncKGtFes" title="הרצאה של אופק 1" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/Zu6iP0Ju3lg" title="הרצאה של אופק 2" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/P6ImKWe56to" title="הרצאה של אופק 3" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/P_4lHIHhLVc" title="הרצאה של אופק 4" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/F8qNuvxovNA" title="הרצאה של אופק 5" allowfullscreen loading="lazy"></iframe></div>
                 </div>
                 <div class="video-group">
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/7t-ncKGtFes" title="הרצאה של אופק 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/Zu6iP0Ju3lg" title="הרצאה של אופק 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/P6ImKWe56to" title="הרצאה של אופק 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/P_4lHIHhLVc" title="הרצאה של אופק 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/F8qNuvxovNA" title="הרצאה של אופק 5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
-                </div>
-                <div class="video-group">
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/7t-ncKGtFes" title="הרצאה של אופק 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/Zu6iP0Ju3lg" title="הרצאה של אופק 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/P6ImKWe56to" title="הרצאה של אופק 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/P_4lHIHhLVc" title="הרצאה של אופק 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/F8qNuvxovNA" title="הרצאה של אופק 5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
-                </div>
-                <div class="video-group">
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/7t-ncKGtFes" title="הרצאה של אופק 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/Zu6iP0Ju3lg" title="הרצאה של אופק 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/P6ImKWe56to" title="הרצאה של אופק 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/P_4lHIHhLVc" title="הרצאה של אופק 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
-                    <div class="video-card"><iframe src="https://www.youtube.com/embed/F8qNuvxovNA" title="הרצאה של אופק 5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/7t-ncKGtFes" title="הרצאה של אופק 1" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/Zu6iP0Ju3lg" title="הרצאה של אופק 2" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/P6ImKWe56to" title="הרצאה של אופק 3" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/P_4lHIHhLVc" title="הרצאה של אופק 4" allowfullscreen loading="lazy"></iframe></div>
+                    <div class="video-card"><iframe src="https://www.youtube.com/embed/F8qNuvxovNA" title="הרצאה של אופק 5" allowfullscreen loading="lazy"></iframe></div>
                 </div>
             </div>
         </div>
@@ -599,15 +513,9 @@
     <section id="press" class="press-section reveal-section">
         <h2 class="section-title highlight-gold">בתקשורת</h2>
         <div class="press-container">
-            <div class="press-item">
-                <img src="https://i.imgur.com/BEj2u9o.jpeg" alt="כתבה על אופק בן לולו - חלק 1" loading="lazy" onclick="openLightbox(this.src)">
-            </div>
-            <div class="press-item">
-                <img src="https://i.imgur.com/dvarWDd.jpeg" alt="כתבה על אופק בן לולו - חלק 2" loading="lazy" onclick="openLightbox(this.src)">
-            </div>
-            <div class="press-item">
-                <img src="magalim-rec.png" alt="המלצה מארגון מעגלים" loading="lazy" onclick="openLightbox(this.src)">
-            </div>
+            <div class="press-item"><img src="https://i.imgur.com/BEj2u9o.jpeg" loading="lazy" onclick="openLightbox(this.src)"></div>
+            <div class="press-item"><img src="https://i.imgur.com/dvarWDd.jpeg" loading="lazy" onclick="openLightbox(this.src)"></div>
+            <div class="press-item"><img src="magalim-rec.png" loading="lazy" onclick="openLightbox(this.src)"></div>
         </div>
     </section>
 
@@ -615,139 +523,16 @@
         <h2 class="section-title highlight-gold">היו, השפיעו והמליצו</h2>
         <div class="rec-wrapper">
             <div class="rec-track">
-                
                 <div class="rec-group">
-                    <div class="rec-card">
-                        <div class="rec-header">
-                            <div><span class="rec-title">ענת יוספי</span><span class="rec-role">מנהלת חינוכית, מעגלים</span></div><span class="rec-icon">+</span>
-                        </div>
-                        <div class="rec-body"><p>אופק היקר!<br>תודה על המילים, על הכריזמה ועל הנוכחות.<br>התחלת גבוה את ימי ההערכות ומשם המשכנו לגבהים נוספים.<br>אתה ההצלחה של מעגלים!!<br>ב"ה, הייתה שיחה משמעותית ומוצלחת!!</p></div>
-                    </div>
-                    <div class="rec-card">
-                        <div class="rec-header">
-                            <div><span class="rec-title">הרב יהונתן זומר</span><span class="rec-role">מנהל ישיבת בני עקיבא, מירון</span></div><span class="rec-icon">+</span>
-                        </div>
-                        <div class="rec-body"><p>היה פשוט מצוין! התלמידים התחברו מאוד, במיוחד לשיחה בערב שהייתה משמעותית ונגעה בהם.<br>שמחנו גם על שיחות המסדרון והזמינות שלך לאורך כל השבת זה הוסיף המון ערך.<br>ראו שאתה מגיע עם לב פתוח ויכולת חיבור אמיתית. תודה על תרומה גדולה ומשמעותית!</p></div>
-                    </div>
-                    <div class="rec-card">
-                        <div class="rec-header">
-                            <div><span class="rec-title">יניב</span><span class="rec-role">מחנך ורכז חברתי, אור תורה בנים, רמות</span></div><span class="rec-icon">+</span>
-                        </div>
-                        <div class="rec-body"><p>אופק הגיע אלינו למאהל הגבורה בירושלים ודיבר עם התלמידים בגובה העיניים עם המון חום, הומור ורגש.<br>השיחה הצליחה לרגש, לגעת ולשקף לתלמידים נק' עמוקות גם ברמה האישית וגם כחברה.<br>מעבר לתוכן המצוין, הסגנון, השיח הישיר, הקשר עם התלמידים, ההתאמה בזמן אמת פשוט עשו את ההבדל.<br>והכי חשוב? אופק נשאר גם אחרי - הקשיב, חיבר, נתן מקום.<br>חוויה חינוכית אמיתית.</p></div>
-                    </div>
-                    <div class="rec-card">
-                        <div class="rec-header">
-                            <div><span class="rec-title">יעקב בנימיני</span><span class="rec-role">מחנך ורכז חברתי, ישיבת בני עקיבא, מירון</span></div><span class="rec-icon">+</span>
-                        </div>
-                        <div class="rec-body"><p>אופק בן לולו האלוף היה אצלנו בשבת ישיבה במירון,<br>התלמידים היו מרותקים והתחברו מאד לשיחות. הנושאים היו רלוונטיים ונוגעים לחיים שלהם והם קיבלו הרבה מוטיבציה וכלים.<br>ממליצים מאוד!</p></div>
-                    </div>
-                    <div class="rec-card">
-                        <div class="rec-header">
-                            <div><span class="rec-title">אילנה זמיר</span><span class="rec-role">רכזת חברתית, אולפנת ראשל"צ</span></div><span class="rec-icon">+</span>
-                        </div>
-                        <div class="rec-body"><p>רוצה להמליץ על השיחה של אופק, השיחה הייתה משמעותית. העביר לכיתות ט-יא.<br>ההרצאה נגעה בבנות. דרך סיפור החיים שלו והקרבות בעזה,<br>בשיחה דובר על חשיבות של לעשות שינויים בחיים ולקבל החלטות נכונות שמסייעות בעתיד לקבל החלטות חשובות.<br>תודה רבה!</p></div>
-                    </div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">ענת יוספי</span><span class="rec-role">מעגלים</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>תודה על המילים, על הכריזמה ועל הנוכחות. הייתה שיחה משמעותית ומוצלחת!!</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">הרב יהונתן זומר</span><span class="rec-role">ישיבת בני עקיבא מירון</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>התלמידים התחברו מאוד, ראו שאתה מגיע עם לב פתוח ויכולת חיבור אמיתית. תודה!</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">יניב</span><span class="rec-role">אור תורה רמות</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>השיחה הצליחה לרגש ולגעת בנקודות עמוקות. חוויה חינוכית אמיתית.</p></div></div>
                 </div>
-
                 <div class="rec-group">
-                    <div class="rec-card">
-                        <div class="rec-header">
-                            <div><span class="rec-title">ענת יוספי</span><span class="rec-role">מנהלת חינוכית, מעגלים</span></div><span class="rec-icon">+</span>
-                        </div>
-                        <div class="rec-body"><p>אופק היקר!<br>תודה על המילים, על הכריזמה ועל הנוכחות.<br>התחלת גבוה את ימי ההערכות ומשם המשכנו לגבהים נוספים.<br>אתה ההצלחה של מעגלים!!<br>ב"ה, הייתה שיחה משמעותית ומוצלחת!!</p></div>
-                    </div>
-                    <div class="rec-card">
-                        <div class="rec-header">
-                            <div><span class="rec-title">הרב יהונתן זומר</span><span class="rec-role">מנהל ישיבת בני עקיבא, מירון</span></div><span class="rec-icon">+</span>
-                        </div>
-                        <div class="rec-body"><p>היה פשוט מצוין! התלמידים התחברו מאוד, במיוחד לשיחה בערב שהייתה משמעותית ונגעה בהם.<br>שמחנו גם על שיחות המסדרון והזמינות שלך לאורך כל השבת זה הוסיף המון ערך.<br>ראו שאתה מגיע עם לב פתוח ויכולת חיבור אמיתית. תודה על תרומה גדולה ומשמעותית!</p></div>
-                    </div>
-                    <div class="rec-card">
-                        <div class="rec-header">
-                            <div><span class="rec-title">יניב</span><span class="rec-role">מחנך ורכז חברתי, אור תורה בנים, רמות</span></div><span class="rec-icon">+</span>
-                        </div>
-                        <div class="rec-body"><p>אופק הגיע אלינו למאהל הגבורה בירושלים ודיבר עם התלמידים בגובה העיניים עם המון חום, הומור ורגש.<br>השיחה הצליחה לרגש, לגעת ולשקף לתלמידים נק' עמוקות גם ברמה האישית וגם כחברה.<br>מעבר לתוכן המצוין, הסגנון, השיח הישיר, הקשר עם התלמידים, ההתאמה בזמן אמת פשוט עשו את ההבדל.<br>והכי חשוב? אופק נשאר גם אחרי - הקשיב, חיבר, נתן מקום.<br>חוויה חינוכית אמיתית.</p></div>
-                    </div>
-                    <div class="rec-card">
-                        <div class="rec-header">
-                            <div><span class="rec-title">יעקב בנימיני</span><span class="rec-role">מחנך ורכז חברתי, ישיבת בני עקיבא, מירון</span></div><span class="rec-icon">+</span>
-                        </div>
-                        <div class="rec-body"><p>אופק בן לולו האלוף היה אצלנו בשבת ישיבה במירון,<br>התלמידים היו מרותקים והתחברו מאד לשיחות. הנושאים היו רלוונטיים ונוגעים לחיים שלהם והם קיבלו הרבה מוטיבציה וכלים.<br>ממליצים מאוד!</p></div>
-                    </div>
-                    <div class="rec-card">
-                        <div class="rec-header">
-                            <div><span class="rec-title">אילנה זמיר</span><span class="rec-role">רכזת חברתית, אולפנת ראשל"צ</span></div><span class="rec-icon">+</span>
-                        </div>
-                        <div class="rec-body"><p>רוצה להמליץ על השיחה של אופק, השיחה הייתה משמעותית. העביר לכיתות ט-יא.<br>ההרצאה נגעה בבנות. דרך סיפור החיים שלו והקרבות בעזה,<br>בשיחה דובר על חשיבות של לעשות שינויים בחיים ולקבל החלטות נכונות שמסייעות בעתיד לקבל החלטות חשובות.<br>תודה רבה!</p></div>
-                    </div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">ענת יוספי</span><span class="rec-role">מעגלים</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>תודה על המילים, על הכריזמה ועל הנוכחות. הייתה שיחה משמעותית ומוצלחת!!</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">הרב יהונתן זומר</span><span class="rec-role">ישיבת בני עקיבא מירון</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>התלמידים התחברו מאוד, ראו שאתה מגיע עם לב פתוח ויכולת חיבור אמיתית. תודה!</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">יניב</span><span class="rec-role">אור תורה רמות</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>השיחה הצליחה לרגש ולגעת בנקודות עמוקות. חוויה חינוכית אמיתית.</p></div></div>
                 </div>
-                
-                <div class="rec-group">
-                    <div class="rec-card">
-                        <div class="rec-header">
-                            <div><span class="rec-title">ענת יוספי</span><span class="rec-role">מנהלת חינוכית, מעגלים</span></div><span class="rec-icon">+</span>
-                        </div>
-                        <div class="rec-body"><p>אופק היקר!<br>תודה על המילים, על הכריזמה ועל הנוכחות.<br>התחלת גבוה את ימי ההערכות ומשם המשכנו לגבהים נוספים.<br>אתה ההצלחה של מעגלים!!<br>ב"ה, הייתה שיחה משמעותית ומוצלחת!!</p></div>
-                    </div>
-                    <div class="rec-card">
-                        <div class="rec-header">
-                            <div><span class="rec-title">הרב יהונתן זומר</span><span class="rec-role">מנהל ישיבת בני עקיבא, מירון</span></div><span class="rec-icon">+</span>
-                        </div>
-                        <div class="rec-body"><p>היה פשוט מצוין! התלמידים התחברו מאוד, במיוחד לשיחה בערב שהייתה משמעותית ונגעה בהם.<br>שמחנו גם על שיחות המסדרון והזמינות שלך לאורך כל השבת זה הוסיף המון ערך.<br>ראו שאתה מגיע עם לב פתוח ויכולת חיבור אמיתית. תודה על תרומה גדולה ומשמעותית!</p></div>
-                    </div>
-                    <div class="rec-card">
-                        <div class="rec-header">
-                            <div><span class="rec-title">יניב</span><span class="rec-role">מחנך ורכז חברתי, אור תורה בנים, רמות</span></div><span class="rec-icon">+</span>
-                        </div>
-                        <div class="rec-body"><p>אופק הגיע אלינו למאהל הגבורה בירושלים ודיבר עם התלמידים בגובה העיניים עם המון חום, הומור ורגש.<br>השיחה הצליחה לרגש, לגעת ולשקף לתלמידים נק' עמוקות גם ברמה האישית וגם כחברה.<br>מעבר לתוכן המצוין, הסגנון, השיח הישיר, הקשר עם התלמידים, ההתאמה בזמן אמת פשוט עשו את ההבדל.<br>והכי חשוב? אופק נשאר גם אחרי - הקשיב, חיבר, נתן מקום.<br>חוויה חינוכית אמיתית.</p></div>
-                    </div>
-                    <div class="rec-card">
-                        <div class="rec-header">
-                            <div><span class="rec-title">יעקב בנימיני</span><span class="rec-role">מחנך ורכז חברתי, ישיבת בני עקיבא, מירון</span></div><span class="rec-icon">+</span>
-                        </div>
-                        <div class="rec-body"><p>אופק בן לולו האלוף היה אצלנו בשבת ישיבה במירון,<br>התלמידים היו מרותקים והתחברו מאד לשיחות. הנושאים היו רלוונטיים ונוגעים לחיים שלהם והם קיבלו הרבה מוטיבציה וכלים.<br>ממליצים מאוד!</p></div>
-                    </div>
-                    <div class="rec-card">
-                        <div class="rec-header">
-                            <div><span class="rec-title">אילנה זמיר</span><span class="rec-role">רכזת חברתית, אולפנת ראשל"צ</span></div><span class="rec-icon">+</span>
-                        </div>
-                        <div class="rec-body"><p>רוצה להמליץ על השיחה של אופק, השיחה הייתה משמעותית. העביר לכיתות ט-יא.<br>ההרצאה נגעה בבנות. דרך סיפור החיים שלו והקרבות בעזה,<br>בשיחה דובר על חשיבות של לעשות שינויים בחיים ולקבל החלטות נכונות שמסייעות בעתיד לקבל החלטות חשובות.<br>תודה רבה!</p></div>
-                    </div>
-                </div>
-
-                <div class="rec-group">
-                    <div class="rec-card">
-                        <div class="rec-header">
-                            <div><span class="rec-title">ענת יוספי</span><span class="rec-role">מנהלת חינוכית, מעגלים</span></div><span class="rec-icon">+</span>
-                        </div>
-                        <div class="rec-body"><p>אופק היקר!<br>תודה על המילים, על הכריזמה ועל הנוכחות.<br>התחלת גבוה את ימי ההערכות ומשם המשכנו לגבהים נוספים.<br>אתה ההצלחה של מעגלים!!<br>ב"ה, הייתה שיחה משמעותית ומוצלחת!!</p></div>
-                    </div>
-                    <div class="rec-card">
-                        <div class="rec-header">
-                            <div><span class="rec-title">הרב יהונתן זומר</span><span class="rec-role">מנהל ישיבת בני עקיבא, מירון</span></div><span class="rec-icon">+</span>
-                        </div>
-                        <div class="rec-body"><p>היה פשוט מצוין! התלמידים התחברו מאוד, במיוחד לשיחה בערב שהייתה משמעותית ונגעה בהם.<br>שמחנו גם על שיחות המסדרון והזמינות שלך לאורך כל השבת זה הוסיף המון ערך.<br>ראו שאתה מגיע עם לב פתוח ויכולת חיבור אמיתית. תודה על תרומה גדולה ומשמעותית!</p></div>
-                    </div>
-                    <div class="rec-card">
-                        <div class="rec-header">
-                            <div><span class="rec-title">יניב</span><span class="rec-role">מחנך ורכז חברתי, אור תורה בנים, רמות</span></div><span class="rec-icon">+</span>
-                        </div>
-                        <div class="rec-body"><p>אופק הגיע אלינו למאהל הגבורה בירושלים ודיבר עם התלמידים בגובה העיניים עם המון חום, הומור ורגש.<br>השיחה הצליחה לרגש, לגעת ולשקף לתלמידים נק' עמוקות גם ברמה האישית וגם כחברה.<br>מעבר לתוכן המצוין, הסגנון, השיח הישיר, הקשר עם התלמידים, ההתאמה בזמן אמת פשוט עשו את ההבדל.<br>והכי חשוב? אופק נשאר גם אחרי - הקשיב, חיבר, נתן מקום.<br>חוויה חינוכית אמיתית.</p></div>
-                    </div>
-                    <div class="rec-card">
-                        <div class="rec-header">
-                            <div><span class="rec-title">יעקב בנימיני</span><span class="rec-role">מחנך ורכז חברתי, ישיבת בני עקיבא, מירון</span></div><span class="rec-icon">+</span>
-                        </div>
-                        <div class="rec-body"><p>אופק בן לולו האלוף היה אצלנו בשבת ישיבה במירון,<br>התלמידים היו מרותקים והתחברו מאד לשיחות. הנושאים היו רלוונטיים ונוגעים לחיים שלהם והם קיבלו הרבה מוטיבציה וכלים.<br>ממליצים מאוד!</p></div>
-                    </div>
-                    <div class="rec-card">
-                        <div class="rec-header">
-                            <div><span class="rec-title">אילנה זמיר</span><span class="rec-role">רכזת חברתית, אולפנת ראשל"צ</span></div><span class="rec-icon">+</span>
-                        </div>
-                        <div class="rec-body"><p>רוצה להמליץ על השיחה של אופק, השיחה הייתה משמעותית. העביר לכיתות ט-יא.<br>ההרצאה נגעה בבנות. דרך סיפור החיים שלו והקרבות בעזה,<br>בשיחה דובר על חשיבות של לעשות שינויים בחיים ולקבל החלטות נכונות שמסייעות בעתיד לקבל החלטות חשובות.<br>תודה רבה!</p></div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
@@ -756,9 +541,7 @@
         <div class="footer-content">
             <div class="footer-column">
                 <h3>OFEK.</h3>
-                <p style="color: #666; font-size: 0.9rem;">
-                    הרצאות השראה, מנהיגות ופיתוח חוסן מנטלי לנוער וארגונים.
-                </p>
+                <p>© 2026 אופק - הרצאות ומימוש עצמי. כל הזכויות שמורות.</p>
                 <div class="social-icons">
                     <a href="#" class="social-icon" aria-label="אינסטגרם"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.64.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85C3.8 3.92 5.32 2.38 8.58 2.23c1.27-.06 1.64-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07c-4.35.2-6.78 2.62-6.98 6.98C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84c-3.4 0-6.16 2.76-6.16 6.16S8.6 18.16 12 18.16 18.16 15.4 18.16 12 15.4 5.84 12 5.84zm0 10.16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm6.4-10.8c-.79 0-1.44.65-1.44 1.44s.65 1.44 1.44 1.44 1.44-.65 1.44-1.44-.65-1.44-1.44-1.44z"/></svg></a>
                     <a href="#" class="social-icon" aria-label="פייסבוק"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
@@ -771,22 +554,9 @@
                     <li><a href="#">דף הבית</a></li>
                     <li><a href="#about">אודות אופק</a></li>
                     <li><a href="#topics">הרצאות וסדנאות</a></li>
-                    <li><a href="#videos">מדיה וסרטונים</a></li>
-                    <li><a href="#recommendations">המלצות</a></li>
+                    <li><button onclick="openModal()" style="background:none; border:none; color:#d4af37; font:inherit; cursor:pointer; padding:0;">יצירת קשר</button></li>
                 </ul>
             </div>
-            <div class="footer-column">
-                <h3>צור קשר</h3>
-                <ul class="footer-links">
-                    <li><a href="tel:0533036662">053-3036662</a></li>
-                    <li><a href="mailto:ofekpator2890@gmail.com">ofekpator2890@gmail.com</a></li>
-                    <li><button onclick="openModal()" style="background:none; border:none; color:#d4af37; font:inherit; cursor:pointer; padding:0;">השאר פנייה באתר</button></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2026 אופק - הרצאות ומימוש עצמי. כל הזכויות שמורות.</p>
-            <button onclick="toggleAccessibility()" class="a11y-btn" aria-label="כפתור נגישות: החלף למצב ניגודיות גבוהה">נגישות: מצב ניגודיות</button>
         </div>
     </footer>
 
@@ -802,108 +572,65 @@
     </button>
 
     <div id="contactModal" class="modal" aria-hidden="true">
-        <div class="modal-content" role="dialog" aria-labelledby="modalTitle">
-            <span class="close-btn" onclick="closeModal()" aria-label="סגור חלון">×</span>
-            <h2 id="modalTitle" class="form-title">שריינו תאריך להרצאה</h2>
+        <div class="modal-content" role="dialog">
+            <span class="close-btn" onclick="closeModal()">×</span>
+            <h2 class="form-title">שריינו תאריך להרצאה</h2>
             <form action="https://formsubmit.co/ofekpator2890@gmail.com" method="POST">
                 <input type="hidden" name="_next" value="https://eliranalfasi36.github.io/OfekBLB/thankyou.html">
                 <input type="hidden" name="_captcha" value="false">
-                <div class="form-group"><label>שם מלא</label><input type="text" name="name" required placeholder="השם שלך..." aria-label="שם מלא"></div>
-                <div class="form-group"><label>מספר טלפון</label><input type="tel" name="phone" required placeholder="050-0000000" aria-label="מספר טלפון"></div>
-                <div class="form-group"><label>פנייה / הודעה</label><textarea name="message" rows="4" placeholder="אשמח לשמוע פרטים על..." aria-label="תוכן הפנייה"></textarea></div>
+                <div class="form-group"><label>שם מלא</label><input type="text" name="name" required placeholder="השם שלך..."></div>
+                <div class="form-group"><label>מספר טלפון</label><input type="tel" name="phone" required placeholder="050-0000000"></div>
+                <div class="form-group"><label>פנייה / הודעה</label><textarea name="message" rows="4" placeholder="אשמח לשמוע פרטים על..."></textarea></div>
                 <button type="submit" class="submit-btn">שלח פנייה</button>
             </form>
         </div>
     </div>
 
     <div id="imageLightbox" class="image-lightbox" onclick="closeLightbox()">
-        <span class="lightbox-close" onclick="closeLightbox()">×</span>
+        <span class="lightbox-close">×</span>
         <img id="lightboxImg" class="lightbox-content" src="">
     </div>
 
 <script>
-    // ניהול שקיפות ההדר בגלילה
+    // הדר חכם
     window.addEventListener('scroll', function() {
         var header = document.getElementById('mainHeader');
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
+        if (window.scrollY > 50) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
     });
 
-    // מנגנון חשיפה בגלילה (Scroll Reveal)
+    // חשיפה בגלילה
     document.addEventListener("DOMContentLoaded", function() {
-        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
-        const observer = new IntersectionObserver((entries, observer) => {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); 
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
-        }, observerOptions);
+        }, { threshold: 0.15 });
         document.querySelectorAll('.reveal-section').forEach((section) => { observer.observe(section); });
     });
 
-    // פתיחה וסגירה של ה-Lightbox (הגדלת תמונה)
+    // Lightbox
     function openLightbox(imgSrc) {
         var modal = document.getElementById("imageLightbox");
-        var modalImg = document.getElementById("lightboxImg");
+        document.getElementById("lightboxImg").src = imgSrc;
         modal.style.display = "flex";
-        modalImg.src = imgSrc;
     }
-    function closeLightbox() {
-        document.getElementById("imageLightbox").style.display = "none";
-    }
+    function closeLightbox() { document.getElementById("imageLightbox").style.display = "none"; }
 
-    // ניהול מודל צור קשר
-    function openModal() { 
-        var modal = document.getElementById("contactModal");
-        modal.style.display = "block"; 
-        modal.setAttribute('aria-hidden', 'false');
-    }
-    function closeModal() { 
-        var modal = document.getElementById("contactModal");
-        modal.style.display = "none"; 
-        modal.setAttribute('aria-hidden', 'true');
-    }
+    // מודלים
+    function openModal() { document.getElementById("contactModal").style.display = "block"; }
+    function closeModal() { document.getElementById("contactModal").style.display = "none"; }
+    window.onclick = function(event) { if (event.target == document.getElementById("contactModal")) closeModal(); }
     
-    // ניהול מוזיקת רקע
+    // מוזיקה
     function toggleMusic() {
         var audio = document.getElementById("bgAudio");
         var btn = document.getElementById("musicToggleBtn");
-        if (audio.paused) {
-            audio.play();
-            btn.classList.add("playing");
-        } else {
-            audio.pause();
-            btn.classList.remove("playing");
-        }
+        if (audio.paused) { audio.play(); btn.classList.add("playing"); }
+        else { audio.pause(); btn.classList.remove("playing"); }
     }
-    
-    // סגירת מודלים בלחיצה מחוץ לתוכן
-    window.onclick = function(event) {
-        var contactModal = document.getElementById("contactModal");
-        if (event.target == contactModal) { closeModal(); }
-    }
-    
-    // ניהול תפריט נייד
-    function toggleMenu() {
-        var menu = document.getElementById("navMenu");
-        menu.classList.toggle("active");
-    }
-    
-    // ניהול נגישות
-    function toggleAccessibility() {
-        document.body.classList.toggle("accessibility-mode");
-        var btn = document.querySelector('.a11y-btn');
-        if (document.body.classList.contains("accessibility-mode")) {
-            btn.innerText = "נגישות: כבה מצב ניגודיות";
-        } else {
-            btn.innerText = "נגישות: מצב ניגודיות";
-        }
-    }
+
+    function toggleMenu() { document.getElementById("navMenu").classList.toggle("active"); }
 </script>
 
 </body>
