@@ -36,6 +36,23 @@
             background-color: #ffffff; 
         }
 
+        /* --- מסך טעינה (Preloader) --- */
+        #preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: #ffffff; z-index: 9999;
+            display: flex; align-items: center; justify-content: center;
+            transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+        }
+        #preloader.hide { opacity: 0; visibility: hidden; }
+        .loader-content { text-align: center; }
+        .loader-logo { font-size: 2.5rem; font-weight: 900; color: #000; letter-spacing: 2px; display: block; margin-bottom: 20px; }
+        .spinner {
+            width: 50px; height: 50px; border: 4px solid #f3f3f3;
+            border-top: 4px solid #d4af37; border-radius: 50%;
+            animation: spin 1s linear infinite; margin: 0 auto;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
         /* --- נגישות וסגנון בחירת טקסט --- */
         *:focus-visible { outline: 2px solid #d4af37; outline-offset: 2px; }
         ::selection { background: #d4af37; color: #fff; } 
@@ -88,15 +105,6 @@
             transition: color 0.3s; position: relative; background: none; border: none; font-family: inherit; cursor: pointer;
         }
         .nav-links a:hover, .nav-links button:hover { color: #d4af37; }
-        .header-left { display: flex; align-items: center; }
-        
-        .phone-link {
-            border: 1px solid #000; background-color: transparent; padding: 8px 12px;
-            border-radius: 5px; color: #000; font-weight: 700; text-decoration: none; font-size: 1rem;
-            transition: all 0.3s; letter-spacing: 1px; display: flex; align-items: center; gap: 8px;
-        }
-        .phone-link svg { width: 18px; height: 18px; fill: currentColor; }
-        .phone-link:hover { background-color: #000; color: #fff; }
 
         /* --- Hero --- */
         .hero-section {
@@ -106,32 +114,33 @@
         .hero-text { text-align: center; width: 100%; max-width: 900px; animation: heroFadeIn 1.5s cubic-bezier(0.4, 0, 0.2, 1); }
         @keyframes heroFadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* --- כותרות כמקור אור --- */
+        /* --- כותרות (מופחתות בהירות וזוהר) --- */
         .hero-title { 
             font-size: 3rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; 
             color: #ffffff; 
-            text-shadow: 0 0 25px rgba(255, 255, 255, 0.8), 0 0 50px rgba(212, 175, 55, 0.3); 
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8); /* צל שחור עדין לקריאות, ללא הילה מסנוורת */
         }
         .hero-title span, .highlight-gold { 
-            background: linear-gradient(to left, #fcf6ba, #d4af37, #aa771c);
+            /* גווני זהב עמוקים יותר, פחות לבן בוהק */
+            background: linear-gradient(to left, #e3cd8b, #d4af37, #b8860b);
             -webkit-background-clip: text; 
             -webkit-text-fill-color: transparent; 
             position: relative;
             text-shadow: none; 
             display: inline-block;
-            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.7)); 
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6)); /* הצללה מינימלית מאחורי הזהב */
         }
         .hero-title span::after {
             content: 'מתחילה בהחלטה אחת.'; 
             position: absolute; right: 0; top: 0; z-index: -1;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.8), 1px 1px 3px rgba(0,0,0,0.4); 
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); /* צל כהה בלבד במקום הילה צהובה/לבנה */
             -webkit-text-fill-color: transparent;
         }
         
         .hero-subtitle { 
             font-size: 1.4rem; color: #ffffff; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto; 
             font-weight: 700; line-height: 1.5; 
-            text-shadow: 0 2px 5px rgba(0,0,0,0.9), 0 0 15px rgba(0,0,0,0.7); 
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9); /* צל שחור לקריאות מעל הוידאו */
         }
         
         .cta-wrapper { display: flex; flex-direction: column; align-items: center; }
@@ -176,7 +185,7 @@
         }
         .about-image-desktop:hover { transform: scale(1.02); }
 
-        /* --- במה נעסוק (גריד במקום שבשבת) --- */
+        /* --- במה נעסוק --- */
         .topics-section {
             padding: 80px 0; background-color: #fcfcfc; text-align: center; position: relative; z-index: 1; border-top: 2px solid #000;
         }
@@ -200,9 +209,9 @@
         .topic-title { color: #d4af37; font-size: 1.6rem; font-weight: 900; margin-bottom: 15px; }
         .topic-desc { color: #111; font-size: 1.15rem; line-height: 1.6; font-weight: 500;}
 
-        /* כרטיסיית נושאי השנה (מחליף את הכפתור הישן) */
+        /* כרטיסיית נושאי השנה */
         .topic-card-special {
-            grid-column: 1 / -1; /* פורס את הכרטיסייה על פני כל הרוחב */
+            grid-column: 1 / -1; 
             background: #000; border: 3px solid #d4af37;
             color: #fff; padding: 40px 30px; border-radius: 12px;
             text-align: center; box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); transition: all 0.3s ease;
@@ -219,10 +228,9 @@
             box-shadow: 5px 5px 0px #eee;
         }
 
-        /* --- מנוע אנימציה לסרט נע --- */
+        /* --- סרט נע לוגו מוסדות --- */
         @keyframes marquee-rtl { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(50%, 0, 0); } }
 
-        /* --- סרט נע לוגו מוסדות --- */
         .institutions-section {
             padding: 60px 0; background-color: #ffffff; text-align: center; position: relative; z-index: 1; border-top: 2px solid #000; overflow: hidden;
         }
@@ -361,7 +369,7 @@
             display: flex; flex-direction: column; gap: 10px; align-items: center;
         }
 
-        /* --- כפתורים צפים --- */
+        /* --- כפתורים צפים (ללא סאונד) --- */
         .floating-wa {
             position: fixed; bottom: 30px; left: 30px; width: 60px; height: 60px; background-color: #25D366; 
             color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
@@ -380,18 +388,8 @@
         .floating-email svg { width: 30px; height: 30px; fill: currentColor; }
         .floating-email:hover { transform: scale(1.1); animation: none; background-color: #000; border-color:#000;}
 
-        .floating-music {
-            position: fixed; bottom: 30px; right: 30px; width: 55px; height: 55px; background-color: #fff; 
-            color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #000;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1); z-index: 1000; cursor: pointer; transition: all 0.3s;
-        }
-        .floating-music svg { width: 28px; height: 28px; fill: currentColor; }
-        .floating-music:hover { transform: scale(1.1); background-color: #000; color: #fff; border-color:#000;}
-        .floating-music.playing { animation: pulseMusic 2s infinite; background-color: #000; color: #fff; border-color:#000;}
-
         @keyframes pulseWA { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
         @keyframes pulseEmail { 0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); } }
-        @keyframes pulseMusic { 0% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2); } 70% { box-shadow: 0 0 0 12px rgba(0, 0, 0, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); } }
 
         /* --- מודל יצירת קשר --- */
         .modal {
@@ -442,7 +440,6 @@
             .floating-wa svg { width: 28px; height: 28px; }
             .floating-email { left: 20px; bottom: 85px; width: 50px; height: 50px; }
             .floating-email svg { width: 24px; height: 24px; }
-            .floating-music { right: 20px; bottom: 20px; width: 50px; height: 50px; }
             
             header { background-color: rgba(255, 255, 255, 0.98) !important; border-bottom: 4px solid #000; }
             .scroll-indicator { display: none; }
@@ -460,14 +457,18 @@
 </head>
 <body>
 
+    <!-- מסך טעינה -->
+    <div id="preloader">
+        <div class="loader-content">
+            <span class="loader-logo">OFEK.</span>
+            <div class="spinner"></div>
+        </div>
+    </div>
+
     <div class="background-slider" id="bgSlider">
         <video src="bg-video.mp4" class="bg-video-element" autoplay muted loop playsinline></video>
     </div>
     <div class="overlay"></div>
-
-    <audio id="bgAudio" loop>
-        <source src="bg-music.mp3" type="audio/mpeg">
-    </audio>
 
     <header id="mainHeader">
         <div class="header-right">
@@ -518,7 +519,6 @@
         </div>
     </section>
 
-    <!-- אזור נושאי ההרצאה (גריד סטטי במקום השבשבת) -->
     <section id="topics" class="topics-section reveal-section">
         <h2 class="section-title">על מה נדבר בהרצאה?</h2>
         
@@ -548,7 +548,6 @@
                 <div class="topic-desc">חיבור עמוק לערכי ליבה המשותפים לכל אדם באשר הוא. יצירת שפה משותפת ומכבדת.</div>
             </div>
             
-            <!-- כרטיסייה רוחבית מיוחדת לנושאי השנה -->
             <div class="topic-card-special">
                 <div class="topic-title">מגוון הרצאות בנושאי השנה</div>
                 <div class="topic-desc">קיימות הרצאות נוספות המותאמות לתאריכי השנה, ימי זיכרון, חגים וברוח התקופה.</div>
@@ -691,9 +690,6 @@
     <a href="mailto:ofekpator2890@gmail.com" class="floating-email" aria-label="שלח אימייל">
         <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
     </a>
-    <button id="musicToggleBtn" class="floating-music" onclick="toggleMusic()" aria-label="נגן מוזיקת רקע">
-        <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-    </button>
 
     <div id="contactModal" class="modal" aria-hidden="true">
         <div class="modal-content" role="dialog">
@@ -716,6 +712,14 @@
     </div>
 
 <script>
+    // --- מסך טעינה (Preloader) ---
+    // מבטיח שהמסך יורד רק אחרי שכל נכסי האתר (כולל הוידאו והתמונות) סיימו להיטען.
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            document.getElementById('preloader').classList.add('hide');
+        }, 600); // השהייה קלה של 0.6 שניות כדי להבטיח מעבר חלק
+    });
+
     window.addEventListener('scroll', function() {
         var header = document.getElementById('mainHeader');
         if (window.scrollY > 50) header.classList.add('scrolled');
@@ -730,7 +734,6 @@
         }, { threshold: 0.15 });
         document.querySelectorAll('.reveal-section').forEach((section) => { observer.observe(section); });
         
-        // Lazy loading ליוטיוב
         const iframeObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -768,13 +771,6 @@
             openModal();
         }
     }, 30000);
-    
-    function toggleMusic() {
-        var audio = document.getElementById("bgAudio");
-        var btn = document.getElementById("musicToggleBtn");
-        if (audio.paused) { audio.play(); btn.classList.add("playing"); }
-        else { audio.pause(); btn.classList.remove("playing"); }
-    }
 
     function toggleMenu() { document.getElementById("navMenu").classList.toggle("active"); }
 </script>
