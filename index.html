@@ -71,8 +71,8 @@
             width: 100%; height: 100%; object-fit: cover; opacity: 1; pointer-events: none;
         }
         .overlay {
-            /* אטימות של 0.4 לוידאו ואפקט וינייטה עדין */
-            background: radial-gradient(circle, rgba(255,255,255,0.4) 15%, rgba(0,0,0,0.85) 100%); 
+            /* ביטול ההלבנה. שקוף במרכז, ורק הצללה שחורה וקלה מהצדדים */
+            background: radial-gradient(circle, rgba(0,0,0,0) 40%, rgba(0,0,0,0.5) 100%); 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
         }
 
@@ -114,33 +114,25 @@
         .hero-text { text-align: center; width: 100%; max-width: 900px; animation: heroFadeIn 1.5s cubic-bezier(0.4, 0, 0.2, 1); }
         @keyframes heroFadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* --- כותרות (מופחתות בהירות וזוהר) --- */
+        /* --- כותרות --- */
         .hero-title { 
             font-size: 3rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; 
             color: #ffffff; 
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8); /* צל שחור עדין לקריאות, ללא הילה מסנוורת */
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* צל קל לטקסט הלבן */
         }
         .hero-title span, .highlight-gold { 
-            /* גווני זהב עמוקים יותר, פחות לבן בוהק */
             background: linear-gradient(to left, #e3cd8b, #d4af37, #b8860b);
             -webkit-background-clip: text; 
             -webkit-text-fill-color: transparent; 
             position: relative;
             text-shadow: none; 
             display: inline-block;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6)); /* הצללה מינימלית מאחורי הזהב */
-        }
-        .hero-title span::after {
-            content: 'מתחילה בהחלטה אחת.'; 
-            position: absolute; right: 0; top: 0; z-index: -1;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); /* צל כהה בלבד במקום הילה צהובה/לבנה */
-            -webkit-text-fill-color: transparent;
         }
         
         .hero-subtitle { 
             font-size: 1.4rem; color: #ffffff; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto; 
             font-weight: 700; line-height: 1.5; 
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9); /* צל שחור לקריאות מעל הוידאו */
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
         }
         
         .cta-wrapper { display: flex; flex-direction: column; align-items: center; }
@@ -369,7 +361,7 @@
             display: flex; flex-direction: column; gap: 10px; align-items: center;
         }
 
-        /* --- כפתורים צפים (ללא סאונד) --- */
+        /* --- כפתורים צפים --- */
         .floating-wa {
             position: fixed; bottom: 30px; left: 30px; width: 60px; height: 60px; background-color: #25D366; 
             color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
@@ -457,7 +449,6 @@
 </head>
 <body>
 
-    <!-- מסך טעינה -->
     <div id="preloader">
         <div class="loader-content">
             <span class="loader-logo">OFEK.</span>
@@ -639,20 +630,29 @@
         <h2 class="section-title">היו, השפיעו והמליצו</h2>
         <div class="rec-wrapper">
             <div class="rec-track">
+                
                 <div class="rec-group">
                     <div class="rec-card"><div class="rec-header"><div><span class="rec-title">ענת יוספי</span><span class="rec-role">מעגלים</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>תודה על המילים, על הכריזמה ועל הנוכחות. הייתה שיחה משמעותית ומוצלחת!!</p></div></div>
                     <div class="rec-card"><div class="rec-header"><div><span class="rec-title">הרב יהונתן זומר</span><span class="rec-role">ישיבת בני עקיבא מירון</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>התלמידים התחברו מאוד, ראו שאתה מגיע עם לב פתוח ויכולת חיבור אמיתית. תודה!</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">אילנה זמיר</span><span class="rec-role">רכזת חברתית, אולפנת ראשל"צ</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>רוצה להמליץ על השיחה של אופק, השיחה הייתה משמעותית. העביר לכיתות ט-יא. ההרצאה נגעה בבנות. דרך סיפור החיים שלו והקרבות בעזה, בשיחה דובר על חשיבות של לעשות שינויים בחיים ולקבל החלטות נכונות שמסייעות בעתיד לקבל החלטות חשובות. תודה רבה!</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">בת-שבע</span><span class="rec-role">רכזת חברתית, אולפנת בית שולמית, ירושלים</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>תודה אופק!! היה מעולה היום והבנות מאוד נתרמו!! בהצלחה בכל פועלך הטוב! שוב תודה על השיחה החשובה לבנותנו!! תרמת לנו המון! יישר כח גדול!</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">רייני לוי</span><span class="rec-role">מחנכת ורכזת חברתית, אולפנית אור עקיבא</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>אופק היה אצלנו בשיחה משמעותית לתלמידות ב7/10 כחלק מעשרת ימי תשובה. שיחה שנותנת גודל ונותנת הסתכלות מבט אמונית. מומלץ כשיחת חזרה בתשובה, בירור עצמי, גילוי הכוחות שבי וכו׳.</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">ליאור</span><span class="rec-role">מנהל חט"ב, רעננה</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>אופק היקר, תודה רבה על שבת משמעותית! ההשקעה שלך בתלמידים הייתה מורגשת בשבת. הרצאות משמעותיות, ההקשבה והיחס האישי שלך כלפי התלמידים ראויים להערכה. שמחתי באופן אישי שהבאנו אותך. בטוח שניפגש בהמשך :)</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">ישראל אוחיון</span><span class="rec-role">רכז חינוכי, אמית שדרות</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>אופק בן לולו. מומלץ בחום!! הבאנו אותו פעמיים לשבת ישיבה, התלמידים יצאו עם כוחות. מרתק ובעיקר יוצר קשר מדהים עם החברה!</p></div></div>
                     <div class="rec-card"><div class="rec-header"><div><span class="rec-title">יניב</span><span class="rec-role">אור תורה רמות</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>השיחה הצליחה לרגש ולגעת בנקודות עמוקות. חוויה חינוכית אמיתית.</p></div></div>
-                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">יעקב בנימיני</span><span class="rec-role">ישיבת בני עקיבא, מירון</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>התלמידים היו מרותקים והתחברו מאד לשיחות. הנושאים היו רלוונטיים. ממליצים מאוד!</p></div></div>
-                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">אילנה זמיר</span><span class="rec-role">אולפנת ראשל"צ</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>בשיחה דובר על חשיבות של לעשות שינויים בחיים ולקבל החלטות נכונות. תודה רבה!</p></div></div>
                 </div>
+                
                 <div class="rec-group">
                     <div class="rec-card"><div class="rec-header"><div><span class="rec-title">ענת יוספי</span><span class="rec-role">מעגלים</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>תודה על המילים, על הכריזמה ועל הנוכחות. הייתה שיחה משמעותית ומוצלחת!!</p></div></div>
                     <div class="rec-card"><div class="rec-header"><div><span class="rec-title">הרב יהונתן זומר</span><span class="rec-role">ישיבת בני עקיבא מירון</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>התלמידים התחברו מאוד, ראו שאתה מגיע עם לב פתוח ויכולת חיבור אמיתית. תודה!</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">אילנה זמיר</span><span class="rec-role">רכזת חברתית, אולפנת ראשל"צ</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>רוצה להמליץ על השיחה של אופק, השיחה הייתה משמעותית. העביר לכיתות ט-יא. ההרצאה נגעה בבנות. דרך סיפור החיים שלו והקרבות בעזה, בשיחה דובר על חשיבות של לעשות שינויים בחיים ולקבל החלטות נכונות שמסייעות בעתיד לקבל החלטות חשובות. תודה רבה!</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">בת-שבע</span><span class="rec-role">רכזת חברתית, אולפנת בית שולמית, ירושלים</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>תודה אופק!! היה מעולה היום והבנות מאוד נתרמו!! בהצלחה בכל פועלך הטוב! שוב תודה על השיחה החשובה לבנותנו!! תרמת לנו המון! יישר כח גדול!</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">רייני לוי</span><span class="rec-role">מחנכת ורכזת חברתית, אולפנית אור עקיבא</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>אופק היה אצלנו בשיחה משמעותית לתלמידות ב7/10 כחלק מעשרת ימי תשובה. שיחה שנותנת גודל ונותנת הסתכלות מבט אמונית. מומלץ כשיחת חזרה בתשובה, בירור עצמי, גילוי הכוחות שבי וכו׳.</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">ליאור</span><span class="rec-role">מנהל חט"ב, רעננה</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>אופק היקר, תודה רבה על שבת משמעותית! ההשקעה שלך בתלמידים הייתה מורגשת בשבת. הרצאות משמעותיות, ההקשבה והיחס האישי שלך כלפי התלמידים ראויים להערכה. שמחתי באופן אישי שהבאנו אותך. בטוח שניפגש בהמשך :)</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">ישראל אוחיון</span><span class="rec-role">רכז חינוכי, אמית שדרות</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>אופק בן לולו. מומלץ בחום!! הבאנו אותו פעמיים לשבת ישיבה, התלמידים יצאו עם כוחות. מרתק ובעיקר יוצר קשר מדהים עם החברה!</p></div></div>
                     <div class="rec-card"><div class="rec-header"><div><span class="rec-title">יניב</span><span class="rec-role">אור תורה רמות</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>השיחה הצליחה לרגש ולגעת בנקודות עמוקות. חוויה חינוכית אמיתית.</p></div></div>
-                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">יעקב בנימיני</span><span class="rec-role">ישיבת בני עקיבא, מירון</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>התלמידים היו מרותקים והתחברו מאד לשיחות. הנושאים היו רלוונטיים. ממליצים מאוד!</p></div></div>
-                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">אילנה זמיר</span><span class="rec-role">אולפנת ראשל"צ</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>בשיחה דובר על חשיבות של לעשות שינויים בחיים ולקבל החלטות נכונות. תודה רבה!</p></div></div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -680,7 +680,6 @@
         </div>
         <div class="footer-bottom">
             <p>© 2026 אופק - הרצאות ומימוש עצמי. כל הזכויות שמורות.</p>
-            <button onclick="toggleAccessibility()" class="a11y-btn" aria-label="כפתור נגישות: החלף למצב ניגודיות גבוהה">נגישות: מצב ניגודיות</button>
         </div>
     </footer>
 
@@ -712,12 +711,10 @@
     </div>
 
 <script>
-    // --- מסך טעינה (Preloader) ---
-    // מבטיח שהמסך יורד רק אחרי שכל נכסי האתר (כולל הוידאו והתמונות) סיימו להיטען.
     window.addEventListener('load', function() {
         setTimeout(function() {
             document.getElementById('preloader').classList.add('hide');
-        }, 600); // השהייה קלה של 0.6 שניות כדי להבטיח מעבר חלק
+        }, 600); 
     });
 
     window.addEventListener('scroll', function() {
