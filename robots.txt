@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://eliranalfasi36.github.io/OfekBLB/sitemap.xml
