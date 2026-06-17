@@ -69,6 +69,8 @@
         }
         .bg-video-element {
             width: 100%; height: 100%; object-fit: cover; opacity: 1; pointer-events: none;
+            transform: translateZ(0); /* האצת חומרה */
+            will-change: transform;
         }
         .overlay {
             /* השחרה מינימלית בקצוות ללא לובן במרכז */
@@ -231,9 +233,14 @@
         
         .logo-marquee-wrapper {
             width: 100%; overflow: hidden; position: relative;
-            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
         }
+        /* פתרון הגרדיאנט במקום Mask-Image */
+        .logo-marquee-wrapper::before, .logo-marquee-wrapper::after {
+            content: ""; position: absolute; top: 0; width: 15%; height: 100%; z-index: 2; pointer-events: none;
+        }
+        .logo-marquee-wrapper::before { left: 0; background: linear-gradient(to right, #ffffff, transparent); }
+        .logo-marquee-wrapper::after { right: 0; background: linear-gradient(to left, #ffffff, transparent); }
+
         .logo-marquee-track {
             display: flex; width: max-content; align-items: center; 
             animation: marquee-rtl 80s linear infinite; will-change: transform;
@@ -248,23 +255,29 @@
         .logo-text { font-size: 0.95rem; color: #000; font-weight: 900; opacity: 0.9; transition: opacity 0.3s; text-align: center; line-height: 1.2; }
         .logo-item:hover .logo-text { opacity: 1; }
 
-        /* --- סרטונים (עם Lazy Load) --- */
+        /* --- סרטונים --- */
         .video-section {
             padding: 80px 0; background-color: #fcfcfc; text-align: center; position: relative; z-index: 1; overflow: hidden; border-top: 2px solid #000;
         }
         .video-section .section-title { padding: 0 5%; color: #000; font-weight: 900; font-size: 2.5rem;}
         .video-wrapper { 
             width: 100%; overflow: hidden; position: relative; padding: 30px 0 60px 0; 
-            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
         }
+        /* פתרון הגרדיאנט לסרטונים */
+        .video-wrapper::before, .video-wrapper::after {
+            content: ""; position: absolute; top: 0; width: 15%; height: 100%; z-index: 2; pointer-events: none;
+        }
+        .video-wrapper::before { left: 0; background: linear-gradient(to right, #fcfcfc, transparent); }
+        .video-wrapper::after { right: 0; background: linear-gradient(to left, #fcfcfc, transparent); }
+
         .video-track { display: flex; width: max-content; align-items: center; animation: marquee-rtl 45s linear infinite; will-change: transform; }
         .video-wrapper:hover .video-track { animation-play-state: paused; }
         .video-wrapper:hover .video-card { opacity: 0.5; filter: blur(2px); transform: scale(0.98); }
         .video-group { display: flex; align-items: center; gap: 25px; padding-left: 25px; }
         .video-card {
             width: 300px; flex-shrink: 0; aspect-ratio: 9 / 16; background-color: #000; border-radius: 15px; overflow: hidden;
-            border: 2px solid #000; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform, opacity, filter;
+            border: 2px solid #000; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
+            will-change: transform, opacity; /* הסרת פילטר כאן מצילה זיכרון */
         }
         .video-wrapper .video-card:hover { 
             opacity: 1; filter: blur(0); transform: scale(1.05) translateY(-10px); border-color: #d4af37; box-shadow: 0 15px 30px rgba(0,0,0,0.15); z-index: 10; 
@@ -286,7 +299,7 @@
         .press-item:hover { transform: scale(1.03) translateY(-5px); border-color: #d4af37; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
         .press-item img { width: 100%; height: auto; display: block; object-fit: contain; cursor: zoom-in; }
 
-        /* --- חלון הגדלת תמונה (Lightbox) --- */
+        /* --- חלון הגדלת תמונה --- */
         .image-lightbox {
             display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%;
             background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
@@ -309,7 +322,6 @@
         }
         .recommendations-section .section-title { padding: 0 5%; color: #000; font-weight: 900; font-size: 2.5rem; margin-bottom: 10px;}
         
-        /* אינדיקטור גלילה למובייל בלבד */
         .scroll-hint-text {
             display: none; color: #d4af37; font-weight: 700; font-size: 1.05rem; margin-bottom: 25px; animation: pulseHint 2s infinite;
         }
@@ -317,9 +329,14 @@
 
         .rec-wrapper { 
             width: 100%; overflow: hidden; position: relative; padding: 20px 0 60px 0; 
-            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
         }
+        /* פתרון הגרדיאנט להמלצות */
+        .rec-wrapper::before, .rec-wrapper::after {
+            content: ""; position: absolute; top: 0; width: 15%; height: 100%; z-index: 2; pointer-events: none;
+        }
+        .rec-wrapper::before { left: 0; background: linear-gradient(to right, #f9f9f9, transparent); }
+        .rec-wrapper::after { right: 0; background: linear-gradient(to left, #f9f9f9, transparent); }
+
         .rec-track { display: flex; width: max-content; align-items: flex-start; animation: marquee-rtl 60s linear infinite; will-change: transform; }
         .rec-wrapper:hover .rec-track { animation-play-state: paused; }
         .rec-wrapper:hover .rec-card { opacity: 0.6; filter: blur(2px); transform: scale(0.98); }
@@ -328,7 +345,7 @@
         .rec-card {
             width: 350px; flex-shrink: 0; background-color: #ffffff; border-radius: 12px; overflow: hidden;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            text-align: right; border: 2px solid #000; display: flex; flex-direction: column; will-change: transform, opacity, filter;
+            text-align: right; border: 2px solid #000; display: flex; flex-direction: column; will-change: transform, opacity;
             cursor: pointer;
         }
         .rec-wrapper .rec-card:hover { 
@@ -345,7 +362,6 @@
         .rec-card:hover .rec-body { max-height: 600px; opacity: 1; padding: 25px; border-top: 2px solid #eee; }
         .rec-card:hover .rec-icon { transform: rotate(45deg); color:#000;}
         
-        /* תמיכה במובייל בלחיצה (ללא הובר) */
         .rec-card.expanded-card { opacity: 1 !important; filter: blur(0) !important; border-color: #d4af37 !important; }
         .rec-card.expanded-card .rec-body { max-height: 800px; opacity: 1; padding: 25px; border-top: 2px solid #eee; }
         .rec-card.expanded-card .rec-icon { transform: rotate(45deg); color:#000;}
@@ -439,12 +455,15 @@
             
             .topics-grid { gap: 20px; }
 
-            .video-wrapper, .logo-marquee-wrapper { mask-image: none; -webkit-mask-image: none; }
+            /* הסתרת הגרדיאנטים המדומים במובייל (כי אין פה mask-image במקור) */
+            .video-wrapper::before, .video-wrapper::after,
+            .logo-marquee-wrapper::before, .logo-marquee-wrapper::after,
+            .rec-wrapper::before, .rec-wrapper::after { display: none; }
+
             .logo-marquee-track { gap: 30px; }
             
-            /* הגדרת סווייפ גלילה חופשי להמלצות במובייל בלבד */
             .scroll-hint-text { display: block; }
-            .rec-wrapper { overflow-x: auto !important; display: flex !important; padding: 10px 0 30px 0 !important; mask-image: none !important; -webkit-mask-image: none !important; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+            .rec-wrapper { overflow-x: auto !important; display: flex !important; padding: 10px 0 30px 0 !important; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
             .rec-track { animation: none !important; display: flex !important; width: max-content !important; }
             .rec-group { display: flex !important; gap: 15px !important; padding: 0 15px !important; }
             .rec-card { width: 85vw !important; max-width: 320px !important; flex-shrink: 0 !important; box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important; scroll-snap-align: center; margin: 0 !important; }
