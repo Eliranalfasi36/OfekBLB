@@ -24,6 +24,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
 
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "אופק בן לולו",
+        "url": "https://ofekbenlulu.com/",
+        "jobTitle": "מרצה בנושאי מנהיגות, חוסן מנטלי וקבלת החלטות",
+        "description": "הרצאות וסדנאות מנהיגות, חוסן מנטלי וקבלת החלטות לבני נוער, מכינות קדם-צבאיות וארגונים.",
+        "image": "https://i.imgur.com/z2JBYCJ.jpeg",
+        "email": "mailto:ofekpator2890@gmail.com",
+        "sameAs": []
+    }
+    </script>
+
     <style>
         /* איפוס הגדרות בסיסי */
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -111,7 +125,7 @@
             color: #111; text-decoration: none; font-weight: 700; font-size: 1.05rem;
             transition: color 0.3s; position: relative; background: none; border: none; font-family: inherit; cursor: pointer;
         }
-        .nav-links a:hover, .nav-links button:hover { color: #d4af37; }
+        .nav-links a:hover, .nav-links button:hover { color: #8a6d23; }
 
         /* --- Hero --- */
         .hero-section {
@@ -172,7 +186,7 @@
         }
         .about-container { display: flex; flex-direction: column-reverse; align-items: center; gap: 40px; max-width: 1100px; margin: 0 auto; }
         .about-text { flex: 1; text-align: right; }
-        .about-text h2 { font-size: 2.2rem; color: #d4af37; margin-bottom: 20px; font-weight: 900; }
+        .about-text h2 { font-size: 2.2rem; color: #8a6d23; margin-bottom: 20px; font-weight: 900; }
         .about-text p { font-size: 1.3rem; color: #222; margin-bottom: 20px; line-height: 1.8; font-weight: 500;}
         
         .about-image-desktop {
@@ -206,7 +220,7 @@
             text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease;
         }
         .topic-card:hover { border-color: #d4af37; box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2); transform: translateY(-5px); }
-        .topic-title { color: #d4af37; font-size: 1.6rem; font-weight: 900; margin-bottom: 15px; }
+        .topic-title { color: #8a6d23; font-size: 1.6rem; font-weight: 900; margin-bottom: 15px; }
         .topic-desc { color: #111; font-size: 1.15rem; line-height: 1.6; font-weight: 500;}
 
         /* כרטיסיית נושאי השנה */
@@ -328,7 +342,7 @@
         .recommendations-section .section-title { padding: 0 5%; color: #000; font-weight: 900; font-size: 2.5rem; margin-bottom: 10px;}
         
         .scroll-hint-text {
-            display: none; color: #d4af37; font-weight: 700; font-size: 1.05rem; margin-bottom: 25px; animation: pulseHint 2s infinite;
+            display: none; color: #8a6d23; font-weight: 700; font-size: 1.05rem; margin-bottom: 25px; animation: pulseHint 2s infinite;
         }
         @keyframes pulseHint { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
 
@@ -359,7 +373,7 @@
         .rec-header { padding: 25px; display: flex; justify-content: space-between; align-items: center; background-color: #fff; color: #000; }
         .rec-title { font-weight: 900; font-size: 1.15rem; }
         .rec-role { font-weight: 700; font-size: 0.95rem; color: #444; display: block; margin-top: 4px;}
-        .rec-icon { font-size: 1.8rem; color: #d4af37; font-weight: bold; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        .rec-icon { font-size: 1.8rem; color: #8a6d23; font-weight: bold; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
         .rec-body {
             max-height: 0; opacity: 0; overflow: hidden; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             padding: 0 25px; color: #111; font-size: 1.1rem; line-height: 1.7; background-color: #fafafa; font-weight:500;
@@ -383,7 +397,7 @@
         .footer-links { list-style: none; }
         .footer-links li { margin-bottom: 10px; }
         .footer-links a, .footer-links button { color: #333; text-decoration: none; transition: 0.3s; font-weight: 500;}
-        .footer-links a:hover, .footer-links button:hover { color: #d4af37; padding-right: 5px; font-weight:bold;}
+        .footer-links a:hover, .footer-links button:hover { color: #8a6d23; padding-right: 5px; font-weight:bold;}
         .social-icons { display: flex; gap: 15px; margin-top: 20px; }
         .social-icon { 
             width: 40px; height: 40px; border-radius: 50%; background-color: #fff; border: 2px solid #000;
@@ -438,6 +452,23 @@
         body.a11y-high-contrast img, body.a11y-high-contrast video, body.a11y-high-contrast .bg-video-element { filter: invert(1); }
         
         body.a11y-readable-font, body.a11y-readable-font * { font-family: Arial, Helvetica, sans-serif !important; letter-spacing: 0.5px; }
+
+        /* --- עצירת אנימציות (ידני + לפי הגדרת מערכת ההפעלה) --- */
+        body.a11y-reduced-motion .logo-marquee-track,
+        body.a11y-reduced-motion .video-track,
+        body.a11y-reduced-motion .rec-track,
+        body.a11y-reduced-motion .cta-button-large,
+        body.a11y-reduced-motion .floating-wa,
+        body.a11y-reduced-motion .floating-email,
+        body.a11y-reduced-motion .scroll-indicator,
+        body.a11y-reduced-motion .scroll-hint-text {
+            animation: none !important;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .logo-marquee-track, .video-track, .rec-track, .cta-button-large,
+            .floating-wa, .floating-email, .scroll-indicator, .scroll-hint-text,
+            .reveal-section, .hero-text { animation: none !important; transition: none !important; }
+        }
 
 
         /* --- מודל יצירת קשר / נגישות --- */
@@ -527,13 +558,13 @@
     </div>
 
     <div class="background-slider" id="bgSlider">
-        <video src="bg-video.mp4" class="bg-video-element" autoplay muted loop playsinline></video>
+        <video src="bg-video.mp4" class="bg-video-element" autoplay muted loop playsinline aria-hidden="true" tabindex="-1"></video>
     </div>
     <div class="overlay"></div>
 
     <header id="mainHeader">
         <div class="header-right">
-            <button class="hamburger-btn" onclick="toggleMenu()" aria-label="פתח תפריט">☰</button>
+            <button class="hamburger-btn" onclick="toggleMenu()" aria-label="פתח תפריט" aria-expanded="false" aria-controls="navMenu">☰</button>
             <a href="#" class="logo" aria-label="לוגו אופק - חזרה לדף הבית">OFEK.</a>
             <nav id="navMenu" class="nav-links">
                 <a href="#about" onclick="toggleMenu()">אודות</a>
@@ -622,7 +653,7 @@
     </section>
 
     <section class="institutions-section reveal-section">
-        <h3 class="institutions-title" style="color:#000; font-weight:900;">גופים ומוסדות שבחרו באופק</h3>
+        <h2 class="institutions-title" style="color:#000; font-weight:900;">גופים ומוסדות שבחרו באופק</h2>
         <div class="logo-marquee-wrapper">
             <div class="logo-marquee-track">
                 
@@ -690,9 +721,11 @@
     <section id="press" class="press-section reveal-section">
         <h2 class="section-title">בתקשורת</h2>
         <div class="press-container">
-            <div class="press-item"><img src="https://i.imgur.com/BEj2u9o.jpeg" loading="lazy" onclick="openLightbox(this.src)"></div>
-            <div class="press-item"><img src="https://i.imgur.com/dvarWDd.jpeg" loading="lazy" onclick="openLightbox(this.src)"></div>
-            <div class="press-item"><img src="magalim-rec.png" loading="lazy" onclick="openLightbox(this.src)"></div>
+            <div class="press-item"><img src="https://i.imgur.com/BEj2u9o.jpeg" loading="lazy" alt="כתבה בתקשורת על אופק בן לולו" onclick="openLightbox(this.src, this.alt)"></div>
+            <div class="press-item"><img src="https://i.imgur.com/dvarWDd.jpeg" loading="lazy" alt="כתבה נוספת בתקשורת על אופק בן לולו" onclick="openLightbox(this.src, this.alt)"></div>
+            <div class="press-item"><img src="magalim-rec.png" loading="lazy" alt="תעודת הוקרה והמלצה מארגון מעגלים" onclick="openLightbox(this.src, this.alt)"></div>
+            <div class="press-item"><img src="press-c14.png" loading="lazy" alt="כתבה באתר C14 על תקיעת שופר וארוע אחדות לקראת ראש השנה" onclick="openLightbox(this.src, this.alt)"></div>
+            <div class="press-item"><img src="press-emanuel-moreno.jpg" loading="lazy" alt="תעודת הוקרה מתיכון עמנואל מורנו" onclick="openLightbox(this.src, this.alt)"></div>
         </div>
     </section>
 
@@ -713,6 +746,12 @@
                     <div class="rec-card"><div class="rec-header"><div><span class="rec-title">ליאור</span><span class="rec-role">מנהל חט"ב, רעננה</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>אופק היקר, תודה רבה על שבת משמעותית! ההשקעה שלך בתלמידים הייתה מורגשת בשבת. הרצאות משמעותיות, ההקשבה והיחס האישי שלך כלפי התלמידים ראויים להערכה. שמחתי באופן אישי שהבאנו אותך. בטוח שניפגש בהמשך :)</p></div></div>
                     <div class="rec-card"><div class="rec-header"><div><span class="rec-title">ישראל אוחיון</span><span class="rec-role">רכז חינוכי, אמית שדרות</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>אופק בן לולו. מומלץ בחום!! הבאנו אותו פעמיים לשבת ישיבה, התלמידים יצאו עם כוחות. מרתק ובעיקר יוצר קשר מדהים עם החברה!</p></div></div>
                     <div class="rec-card"><div class="rec-header"><div><span class="rec-title">יניב</span><span class="rec-role">אור תורה רמות</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>השיחה הצליחה לרגש ולגעת בנקודות עמוקות. חוויה חינוכית אמיתית.</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">אליה אהרון</span><span class="rec-role">תלמיד כיתה ט'</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>תקשיב, אני רוצה להגיד לך איך שדיברת, אני אומר לך את האמת - זה באמת נגע לי ללב! כל מה שאמרת זה נכון ואני מקווה שאני בע"ה אצליח לעמוד בכל הניסיונות והקשיים שלי. ואני מאחל לך אח שלי שיהיה לך אושר ושמחה בחיים ועוד... בע"ה. אני מעריך אותך, אוהב אותך אח 🫡</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">ישראל אוחיון</span><span class="rec-role">רכז חברתי, אמית שדרות</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>הבנתי שהשבת הייתה יותר טובה מהקודמת ושאתה היית מעולה! התלמידים הקשיבו והתחברו ממש. יישר כח.</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">הרב אביאור</span><span class="rec-role">מנהל ישיבת אמית</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>הוא מבסוט מאיתנו ממש.. התחברנו מאוד, אני כבר שבת שנייה איתו.. הכי חשוב - הוא מתערבב איתנו כל השבת, לא בורח לפינה שלו. לפני השיחות הוא כבר יושב עם החבר'ה, מתערבב, מכיר... באמת מדהים. זה מוביל לכך שבשיחה החבר'ה סקרנים יותר לשמוע ממנו.</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">דנה</span><span class="rec-role">רכזת חברתית, תיכון לוד</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>ממליצה בחום רב על אופק בן לולו. הוא הגיע אלינו לתיכון, ריתק את התלמידים ויצר איתם חיבור אמיתי בדרך האישית והייחודית שלו וקלע בול לערכים אליהם כיוונו. אופק מסור לתהליך והיה קשוב לצרכים שלנו, דייק את התוכן למטרות שהצבנו והעביר מפגש משמעותי ומעורר השראה. אני בטוחה שנזמין אותו שוב.</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">בועז גבריאלי</span><span class="rec-role">רכז חברתי, תיכון נריה שדות נגב</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>אופק בן לולו הוביל את שבת הסמינריון שלנו בצורה עוצמתית! אופק התחבר בדרכו המיוחדת לתלמידים ונגע בהם, הן בשיחות והן בבין לבין, היה קשוב מאוד וגמיש לצרכים שלנו ונתן מעצמו גם מעבר לשעות המוסכמות. מומלץ בחום!</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">יעקב בנימיני</span><span class="rec-role">רכז חברתי, ישיבת בני עקיבא מירון</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>אופק בן לולו האלוף היה אצלנו בשבת ישיבה במירון. התלמידים היו מרותקים והתחברו מאד לשיחות. הנושאים היו רלוונטיים ונוגעים לחיים שלהם והם קיבלו הרבה מוטיבציה וכלים. ממליצים מאד!</p></div></div>
                 </div>
                 
                 <div class="rec-group">
@@ -724,6 +763,12 @@
                     <div class="rec-card"><div class="rec-header"><div><span class="rec-title">ליאור</span><span class="rec-role">מנהל חט"ב, רעננה</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>אופק היקר, תודה רבה על שבת משמעותית! ההשקעה שלך בתלמידים הייתה מורגשת בשבת. הרצאות משמעותיות, ההקשבה והיחס האישי שלך כלפי התלמידים ראויים להערכה. שמחתי באופן אישי שהבאנו אותך. בטוח שניפגש בהמשך :)</p></div></div>
                     <div class="rec-card"><div class="rec-header"><div><span class="rec-title">ישראל אוחיון</span><span class="rec-role">רכז חינוכי, אמית שדרות</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>אופק בן לולו. מומלץ בחום!! הבאנו אותו פעמיים לשבת ישיבה, התלמידים יצאו עם כוחות. מרתק ובעיקר יוצר קשר מדהים עם החברה!</p></div></div>
                     <div class="rec-card"><div class="rec-header"><div><span class="rec-title">יניב</span><span class="rec-role">אור תורה רמות</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>השיחה הצליחה לרגש ולגעת בנקודות עמוקות. חוויה חינוכית אמיתית.</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">אליה אהרון</span><span class="rec-role">תלמיד כיתה ט'</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>תקשיב, אני רוצה להגיד לך איך שדיברת, אני אומר לך את האמת - זה באמת נגע לי ללב! כל מה שאמרת זה נכון ואני מקווה שאני בע"ה אצליח לעמוד בכל הניסיונות והקשיים שלי. ואני מאחל לך אח שלי שיהיה לך אושר ושמחה בחיים ועוד... בע"ה. אני מעריך אותך, אוהב אותך אח 🫡</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">ישראל אוחיון</span><span class="rec-role">רכז חברתי, אמית שדרות</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>הבנתי שהשבת הייתה יותר טובה מהקודמת ושאתה היית מעולה! התלמידים הקשיבו והתחברו ממש. יישר כח.</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">הרב אביאור</span><span class="rec-role">מנהל ישיבת אמית</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>הוא מבסוט מאיתנו ממש.. התחברנו מאוד, אני כבר שבת שנייה איתו.. הכי חשוב - הוא מתערבב איתנו כל השבת, לא בורח לפינה שלו. לפני השיחות הוא כבר יושב עם החבר'ה, מתערבב, מכיר... באמת מדהים. זה מוביל לכך שבשיחה החבר'ה סקרנים יותר לשמוע ממנו.</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">דנה</span><span class="rec-role">רכזת חברתית, תיכון לוד</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>ממליצה בחום רב על אופק בן לולו. הוא הגיע אלינו לתיכון, ריתק את התלמידים ויצר איתם חיבור אמיתי בדרך האישית והייחודית שלו וקלע בול לערכים אליהם כיוונו. אופק מסור לתהליך והיה קשוב לצרכים שלנו, דייק את התוכן למטרות שהצבנו והעביר מפגש משמעותי ומעורר השראה. אני בטוחה שנזמין אותו שוב.</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">בועז גבריאלי</span><span class="rec-role">רכז חברתי, תיכון נריה שדות נגב</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>אופק בן לולו הוביל את שבת הסמינריון שלנו בצורה עוצמתית! אופק התחבר בדרכו המיוחדת לתלמידים ונגע בהם, הן בשיחות והן בבין לבין, היה קשוב מאוד וגמיש לצרכים שלנו ונתן מעצמו גם מעבר לשעות המוסכמות. מומלץ בחום!</p></div></div>
+                    <div class="rec-card"><div class="rec-header"><div><span class="rec-title">יעקב בנימיני</span><span class="rec-role">רכז חברתי, ישיבת בני עקיבא מירון</span></div><span class="rec-icon">+</span></div><div class="rec-body"><p>אופק בן לולו האלוף היה אצלנו בשבת ישיבה במירון. התלמידים היו מרותקים והתחברו מאד לשיחות. הנושאים היו רלוונטיים ונוגעים לחיים שלהם והם קיבלו הרבה מוטיבציה וכלים. ממליצים מאד!</p></div></div>
                 </div>
 
             </div>
@@ -748,6 +793,7 @@
                     <li><a href="#about">אודות אופק</a></li>
                     <li><a href="#topics">הרצאות וסדנאות</a></li>
                     <li><button onclick="openModal()" style="background:none; border:none; color:#d4af37; font:inherit; cursor:pointer; padding:0;">יצירת קשר</button></li>
+                    <li><a href="accessibility.html">הצהרת נגישות</a></li>
                 </ul>
             </div>
         </div>
@@ -764,46 +810,53 @@
     </a>
 
     <div id="contactModal" class="modal" aria-hidden="true">
-        <div class="modal-content" role="dialog">
-            <span class="close-btn" onclick="closeModal()">×</span>
-            <h2 class="form-title">בדיקת זמינות ותיאום תאריך</h2>
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="contactFormTitle">
+            <span class="close-btn" onclick="closeModal()" role="button" tabindex="0" aria-label="סגור טופס יצירת קשר">×</span>
+            <h2 class="form-title" id="contactFormTitle">בדיקת זמינות ותיאום תאריך</h2>
             <form action="https://formsubmit.co/ofekpator2890@gmail.com" method="POST">
                 <input type="hidden" name="_next" value="https://ofekbenlulu.com/thankyou.html">
                 <input type="hidden" name="_captcha" value="false">
-                <div class="form-group"><label>שם מלא</label><input type="text" name="name" required placeholder="השם שלך..."></div>
-                <div class="form-group"><label>מספר טלפון</label><input type="tel" name="phone" required placeholder="050-0000000"></div>
-                <div class="form-group"><label>פנייה / הודעה</label><textarea name="message" rows="4" placeholder="אשמח לשמוע פרטים על..."></textarea></div>
+                <div class="form-group"><label for="contact-name">שם מלא</label><input id="contact-name" type="text" name="name" required placeholder="השם שלך..."></div>
+                <div class="form-group"><label for="contact-phone">מספר טלפון</label><input id="contact-phone" type="tel" name="phone" required placeholder="050-0000000"></div>
+                <div class="form-group"><label for="contact-message">פנייה / הודעה</label><textarea id="contact-message" name="message" rows="4" placeholder="אשמח לשמוע פרטים על..."></textarea></div>
                 <button type="submit" class="submit-btn">שלח פנייה</button>
             </form>
         </div>
     </div>
 
     <div id="a11yModal" class="modal" aria-hidden="true">
-        <div class="modal-content" role="dialog">
-            <span class="close-btn" onclick="closeA11yModal()">×</span>
-            <h2 class="form-title">הצהרת נגישות</h2>
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="a11yModalTitle">
+            <span class="close-btn" onclick="closeA11yModal()" role="button" tabindex="0" aria-label="סגור הצהרת נגישות">×</span>
+            <h2 class="form-title" id="a11yModalTitle">הצהרת נגישות</h2>
             <div style="max-height: 400px; overflow-y: auto; padding-left: 15px; text-align: right; line-height: 1.6;">
-                <p>אנו רואים חשיבות עליונה בהנגשת האתר לאנשים עם מוגבלויות, בהתאם לחוק שוויון זכויות לאנשים עם מוגבלויות ותקנות הנגישות בישראל.</p>
-                <p><strong>מה הנגשנו באתר?</strong></p>
+                <p>אתר זה שואף לעמוד בהוראות תקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע"ג-2013, ובתקן הישראלי ת"י 5568 (המבוסס על WCAG 2.0 ברמה AA).</p>
+                <p><strong>מה הונגש באתר?</strong></p>
                 <ul style="margin-right: 20px;">
-                    <li>הוספת תפריט נגישות המאפשר שליטה בגודל הטקסט, ניגודיות ופונט קריא.</li>
-                    <li>התאמה לתצוגה וניווט ברורים.</li>
+                    <li>ניווט מלא באמצעות מקלדת ותמיכה בקוראי מסך.</li>
+                    <li>טקסט חלופי לתמונות, כותרות מסודרות וניגודיות צבעים תקינה.</li>
+                    <li>תפריט נגישות: הגדלת טקסט, ניגודיות גבוהה, גופן קריא ועצירת אנימציות.</li>
+                    <li>טפסים עם תוויות ברורות המקושרות לשדות הקלט.</li>
                 </ul>
+                <p>ההנגשה בוצעה בהתבסס על בדיקה עצמית, ואינה מבוססת על אישור נגישות ממורשה חיצוני.</p>
+                <p>תאריך עדכון ההצהרה: 12.08.2026</p>
                 <br>
-                <p>אם נתקלתם בבעיית נגישות באתר, נשמח לשמוע מכם כדי לתקן ולשפר.</p>
+                <p>נתקלתם בבעיית נגישות? נשמח לשמוע ולתקן בהקדם.</p>
                 <p><strong>פרטי רכז הנגישות:</strong><br>
                 שם: אופק בן לולו<br>
                 טלפון: 053-3036662<br>
                 דוא"ל: ofekpator2890@gmail.com</p>
+                <p style="margin-top:10px;">ניתן לפנות גם לנציבות שוויון זכויות לאנשים עם מוגבלות במשרד המשפטים בכל עניין הנוגע לנגישות.</p>
+                <p><a href="accessibility.html" target="_blank" style="color:#0056b3; font-weight:bold;">לצפייה בהצהרת הנגישות המלאה בעמוד נפרד ←</a></p>
             </div>
         </div>
     </div>
 
-    <div id="a11y-panel" class="a11y-panel">
+    <div id="a11y-panel" class="a11y-panel" role="menu" aria-label="תפריט נגישות">
         <div style="font-weight: bold; margin-bottom: 10px; border-bottom: 1px solid #ccc; padding-bottom: 5px; color:#000;">כלי נגישות</div>
         <button onclick="toggleLargeText()">הגדלת טקסט</button>
         <button onclick="toggleHighContrast()">ניגודיות גבוהה</button>
         <button onclick="toggleReadableFont()">גופן קריא</button>
+        <button onclick="toggleReducedMotion()">עצירת אנימציות</button>
         <button onclick="openA11yModal()">הצהרת נגישות מלאה</button>
     </div>
 
@@ -812,8 +865,8 @@
     </button>
 
     <div id="imageLightbox" class="image-lightbox" onclick="closeLightbox()">
-        <span class="lightbox-close" onclick="closeLightbox()">×</span>
-        <img id="lightboxImg" class="lightbox-content" src="">
+        <span class="lightbox-close" id="lightboxCloseBtn" onclick="closeLightbox()" role="button" tabindex="0" aria-label="סגור תצוגת תמונה">×</span>
+        <img id="lightboxImg" class="lightbox-content" src="" alt="">
     </div>
 
 <script>
@@ -828,6 +881,15 @@
         if (window.scrollY > 50) header.classList.add('scrolled');
         else header.classList.remove('scrolled');
     });
+
+    // כיבוד הגדרת "הפחתת תנועה" של מערכת ההפעלה
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('a11y-reduced-motion');
+            var v = document.querySelector('.bg-video-element');
+            if (v) v.pause();
+        });
+    }
 
     document.addEventListener("DOMContentLoaded", function() {
         const observer = new IntersectionObserver((entries) => {
@@ -867,21 +929,40 @@
         });
     });
 
-    function openLightbox(imgSrc) {
+    let lastFocusedElement = null;
+
+    function openLightbox(imgSrc, imgAlt) {
+        lastFocusedElement = document.activeElement;
         var modal = document.getElementById("imageLightbox");
-        document.getElementById("lightboxImg").src = imgSrc;
+        var img = document.getElementById("lightboxImg");
+        img.src = imgSrc;
+        img.alt = imgAlt || "תמונה מוגדלת";
         modal.style.display = "flex";
+        document.getElementById('lightboxCloseBtn').focus();
     }
-    function closeLightbox() { document.getElementById("imageLightbox").style.display = "none"; }
+    function closeLightbox() {
+        document.getElementById("imageLightbox").style.display = "none";
+        if (lastFocusedElement) lastFocusedElement.focus();
+    }
 
     let hasModalOpened = false;
     
     function openModal() { 
-        document.getElementById("contactModal").style.display = "block"; 
+        lastFocusedElement = document.activeElement;
+        var m = document.getElementById("contactModal");
+        m.style.display = "block";
+        m.setAttribute('aria-hidden', 'false');
         hasModalOpened = true;
+        var firstField = document.getElementById('contact-name');
+        if (firstField) firstField.focus();
     }
     
-    function closeModal() { document.getElementById("contactModal").style.display = "none"; }
+    function closeModal() {
+        var m = document.getElementById("contactModal");
+        m.style.display = "none";
+        m.setAttribute('aria-hidden', 'true');
+        if (lastFocusedElement) lastFocusedElement.focus();
+    }
     
     // סגירת מודלים בלחיצה בחוץ (שילוב מודל קשר ומודל נגישות)
     window.onclick = function(event) { 
@@ -889,13 +970,28 @@
         if (event.target == document.getElementById("a11yModal")) closeA11yModal(); 
     }
 
+    // סגירת חלונות קופצים במקש Escape (חשוב למשתמשי מקלדת וקוראי מסך)
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' || e.key === 'Esc') {
+            if (document.getElementById('contactModal').style.display === 'block') closeModal();
+            if (document.getElementById('a11yModal').style.display === 'block') closeA11yModal();
+            if (document.getElementById('imageLightbox').style.display === 'flex') closeLightbox();
+            if (document.getElementById('a11y-panel').classList.contains('active')) toggleA11yMenu();
+        }
+    });
+
     setTimeout(function() {
         if (!hasModalOpened) {
             openModal();
         }
     }, 30000);
 
-    function toggleMenu() { document.getElementById("navMenu").classList.toggle("active"); }
+    function toggleMenu() {
+        var nav = document.getElementById("navMenu");
+        var btn = document.querySelector('.hamburger-btn');
+        nav.classList.toggle("active");
+        if (btn) btn.setAttribute('aria-expanded', nav.classList.contains('active') ? 'true' : 'false');
+    }
 
     // פונקציות נגישות
     function toggleA11yMenu() { 
@@ -913,14 +1009,28 @@
     function toggleReadableFont() { 
         document.body.classList.toggle('a11y-readable-font'); 
     }
-    
-    function openA11yModal() { 
-        document.getElementById('a11yModal').style.display = 'block'; 
-        document.getElementById('a11y-panel').classList.remove('active'); 
+
+    function toggleReducedMotion() {
+        document.body.classList.toggle('a11y-reduced-motion');
+        var v = document.querySelector('.bg-video-element');
+        if (!v) return;
+        if (document.body.classList.contains('a11y-reduced-motion')) v.pause();
+        else v.play();
     }
     
-    function closeA11yModal() { 
-        document.getElementById('a11yModal').style.display = 'none'; 
+    function openA11yModal() {
+        lastFocusedElement = document.activeElement;
+        var m = document.getElementById('a11yModal');
+        m.style.display = 'block';
+        m.setAttribute('aria-hidden', 'false');
+        document.getElementById('a11y-panel').classList.remove('active');
+    }
+    
+    function closeA11yModal() {
+        var m = document.getElementById('a11yModal');
+        m.style.display = 'none';
+        m.setAttribute('aria-hidden', 'true');
+        if (lastFocusedElement) lastFocusedElement.focus();
     }
 
 </script>
